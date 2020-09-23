@@ -1,0 +1,695 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/bdi.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>INVENTÁRIO DE DEPRESSÃO DE BECK - BDI</h2>
+
+      <%- include('parts/testehead') %>
+
+      <form class="BDI" action="/GravarNovoBDI?id=<%= Paciente.id %>" method="POST">
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+          <div>
+            <p>Este questionário consiste em 21 grupos de afirmações. Depois de ler cuidadosamente cada grupo, selecione o número (0, 1, 2 ou 3) em cada grupo, que descreve melhor a maneira que você tem se sentido na última semana, incluindo hoje.
+              <br><b>Se várias afirmações num grupo parecerem se aplicar igualmente bem, selecione todas.</b>
+              <br>Tome cuidado de ler todas as afirmações, em cada grupo, antes de fazer sua escolha.</p>
+            </div>
+  
+          <div class="avgrid">
+  
+            <div class="questao">
+              1.
+            </div>
+  
+            <div class="resposta">
+              <label>
+                <input type="checkbox" value="S" name="Q1a">
+                  0. Não me sinto triste
+                </label>
+              <br>
+  
+              <label>
+                <input type="checkbox" value="S" name="Q1b">
+                  1. Eu me sinto triste
+                </label>
+              <br>
+  
+              <label>
+                <input type="checkbox" value="S" name="Q1c">
+                  2. Estou sempre triste e não consigo sair disto
+                </label>
+              <br>
+  
+              <label>
+                <input type="checkbox" value="S" name="Q1d">
+                  3. Estou tão triste ou infeliz que não consigo suportar
+                </label>
+            </div>
+  
+            <div class="questao">
+              2.
+            </div>
+  
+            <div class="resposta">
+  
+              <label>
+                <input type="checkbox" value="S" name="Q2a">
+                  0. Não estou especialmente desanimado quanto ao futuro
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q2b">
+                  1. Eu me sinto desanimado quanto ao futuro
+                </label>
+              <br>
+  
+              <label>
+                <input type="checkbox" value="S" name="Q2c">
+                  2. Acho que nada tenho a esperar
+                </label>
+              <br>
+  
+              <label>
+                <input type="checkbox" value="S" name="Q2d">
+                  3. Acho o futuro sem esperanças e tenho a impressão de que as coisas não podem melhorar
+                </label>
+            </div>
+  
+            <div class="questao">
+              3.
+            </div>
+  
+            <div class="resposta">
+  
+              <label>
+                <input type="checkbox" value="S" name="Q3a">
+                  0. Não me sinto um fracasso
+                </label>
+              <br>
+
+              <label>  
+                <input type="checkbox" value="S" name="Q3b">
+                  1. Acho que fracassei mais do que uma pessoa comum
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q3c">
+                  2. Quando olho para trás,na minha vida, tudo o que posso ver é um monte de fracassos
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q3d">
+                  3. Acho que, como pessoa, sou um completo fracasso
+                </label>
+            </div>
+  
+            <div class="questao">
+              4.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q4a">
+                  0. Tenho tanto prazer em tudo como antes
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q4b">
+                  1. Não sinto mais prazer nas coisas como antes
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q4c">
+                  2. Não encontro um prazer real em mais nada
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q4d">
+                  3. Estou insatisfeito ou aborrecido com tudo
+                </label>
+            </div>
+  
+            <div class="questao">
+              5.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q5a">
+                  0. Não me sinto especialmente culpado
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q5b">
+                  1. Eu me sinto culpado grande parte do tempo
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q5c">
+                  2. Eu me sinto culpadona maior parte do tempo
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q5d">
+                  3. Eu me sinto sempre culpado
+                </label>
+            </div>
+  
+            <div class="questao">
+              6.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q6a">
+                  0. Não acho que esteja sendo punido
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q6b">
+                  1. Acho que posso ser punido
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q6c">
+                  2. Creio que vou ser punido
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q6d">
+                  3. Acho que estou sendo punido
+                </label>
+            </div>
+  
+            <div class="questao">
+              7.
+            </div>
+  
+            <div class="resposta">
+              <label>
+                <input type="checkbox" value="S" name="Q7a">
+                  0. Não me sinto decepcionado comigo mesmo
+                </label>
+              <br>
+  
+              <label>
+                <input type="checkbox" value="S" name="Q7b">
+                  1. Estou decepcionado comigo mesmo
+                </label>
+              <br>
+  
+              <label>
+                <input type="checkbox" value="S" name="Q7c">
+                  2. Estou enojado de mim
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q7d">
+                  3. Eu me odeio
+                </label>
+            </div>
+  
+            <div class="questao">
+              8.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q8a">
+                  0. Não me sinto de qualquer modo pior que os outros
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q8b">
+                  1. Sou crítico em relação a mim por minhas fraquezas ou erros
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q8c">
+                  2. Eu me culpo sempre por minhas falhas
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q8d">
+                  3. Eu me culpo por tudo de mal que acontece
+                </label>
+            </div>
+  
+            <div class="questao">
+              9.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q9a">
+                  0. Não tenho quaisquer idéias de me matar
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q9b">
+                  1. Tenho idéias de me matar, mas não as executaria
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q9c">
+                  2. Gostaria de me matar
+                </label>
+              <br>
+
+              <label>  
+                <input type="checkbox" value="S" name="Q9d">
+                  3. Eu me mataria se tivesse oportunidade
+                </label>
+            </div>
+  
+            <div class="questao">
+              10.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q10a">
+                  0. Não choro mais que o habitual
+                </label>
+              <br>
+
+              <label>  
+                <input type="checkbox" value="S" name="Q10b">
+                  1. Choro mais agora do que costumava
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q10c">
+                  2. Agora, choro o tempo todo
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q10d">
+                  3. Costumava ser capaz de chorar, mas agora não consigo, mesmo que o queira
+                </label>
+            </div>
+  
+            <div class="questao">
+              11.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q11a">
+                  0. Não sou mais irritado agora do que já fui
+                </label>
+              <br>
+
+              <label>  
+                <input type="checkbox" value="S" name="Q11b">
+                  1. Fico aborrecido ou irritado mais facilmente do que costumava
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q11c">
+                  2. Agora, eu me sinto irritado o tempo todo
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q11d">
+                  3. Não me irrito mais com coisas que costumavam me irritar
+                </label>
+            </div>
+  
+            <div class="questao">
+              12.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q12a">
+                  0. Não perdi o interesse pelas outras pessoas
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q12b">
+                  1. Estou menos interessado pelas outras pessoas do que costumava estar
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q12c">
+                  2. Perdi a maior parte do meu interesse pelas outras pessoas
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q12d">
+                  3. Perdi todo o interesse pelas outras pessoas
+                </label>
+            </div>
+  
+            <div class="questao">
+              13.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="13a">
+                  0. Tomo decisões tão bem quanto antes
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q13b">
+                  1. Adio as tomadas de deciões mais do que costumava
+                </label>
+              <br>
+
+              <label>  
+                <input type="checkbox" value="S" name="Q13c">
+                  2. Tenho mais dificuldades de tomar decisões do que antes
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q13d">
+                  3. Absolutamente não consigo mais tomar decisões
+                </label>
+            </div>
+  
+            <div class="questao">
+              14.
+            </div>
+  
+            <div class="resposta">
+
+              <label>  
+                <input type="checkbox" value="S" name="Q14a">
+                  0. Não acho que de qualquer modo pareço pior do que antes
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q14b">
+                  1. Estou preocupado em estar parecendo velho ou sem qualquer atrativo
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q14c">
+                  2. Acho que há mudanças permanentes na minha aparência, que me fazem parecer sem atrativo
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q14d">
+                  3. Acredito que pareço feio
+                </label>
+            </div>
+  
+            <div class="questao">
+              15.
+            </div>
+  
+            <div class="resposta">
+
+              <label>  
+                <input type="checkbox" value="S" name="Q15a">
+                  0. Posso trabalhar tão bem quanto antes
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q15b">
+                  1. É preciso algum esforço extra para fazer alguma coisa
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q15c">
+                  2. Tenho que me esforçar muito para fazer alguma coisa
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q15d">
+                  3. Não consigo mais fazer qualquer trabalho
+                </label>
+            </div>
+  
+            <div class="questao">
+              16.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q16a">
+                  0. Costumo dormir tão bem como o habitual
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q16b">
+                  1. Nã durmo tão bem como costumava
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q16c">
+                  2. Acordo 1 a 2 horas mais cedo do que habitualmente e acho difícil voltar a dormir
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q16d">
+                  3. Acordo várias horas mais cedo do que costumava e não consigo voltar a dormir
+                </label>
+            </div>
+  
+            <div class="questao">
+              17.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q17a">
+                  0. Não fico mais cansado do que o habitual
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q17b">
+                  1. Fico cansado mais facilmente do que costumava
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q17c">
+                  2. Fico cansado em fazer qualquer coisa
+                </label>
+              <br>
+
+              <label>  
+                <input type="checkbox" value="S" name="Q17d">
+                  3. Estou cansado demais para fazer qualquer coisa
+                </label>
+            </div>
+  
+            <div class="questao">
+              18.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q18a">
+                  0. O meu apetite não está pior do que o habitual
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q18b">
+                  1. Meu apetite não é tão bom como costumava ser
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q18c">
+                  2. Meu apetite é muito pior agora
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q18d">
+                  3. Absolutamente não tenho mais apetite
+                </label>
+            </div>
+  
+            <div class="questao">
+              19.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q19a">
+                  0. Não tenho perdido muito peso se é que perdi algum recentemente
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q19b">
+                  1. Perdi mais do que 2 quilos e meio
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q19c">
+                  2. Perdi mais do que 5 quilos
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q19d">
+                  3. Perdi mais do que 7 quilos
+                </label>
+              <br>
+  
+                <label>
+                  Estou tentando perder peso de propósito, comendo menos:
+                </label>
+                <label><input type="radio" value="S" name="Q19">Sim</label>
+                <label><input type="radio" value="N" name="Q19">Não</label>
+            </div>
+  
+            <div class="questao">
+              20.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q20a">
+                  0. Não estou mais preocupado com minha saúde do que o habitual
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q20b">
+                  1. Estou preocupado com problemas físicos, tais como dores, indisposição do estômago ou constipação
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q20c">
+                  2. Estou muito preocupado com problemas fisicos e é difícil pensar em outra coisa
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q20d">
+                  3. Estou tão preocupado com problemas fisicos que não consigo pensar em qualquer outra coisa
+                </label>
+            </div>
+  
+            <div class="questao">
+              21.
+            </div>
+  
+            <div class="resposta">
+
+              <label>
+                <input type="checkbox" value="S" name="Q21a">
+                  0. Não notei qualquer mudança recente em meu interesse por sexo
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q21b">
+                  1. Estou menos interessado por sexo do que costumava
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q21c">
+                  2. Estou muito menos interessado por sexo agora
+                </label>
+              <br>
+
+              <label>
+                <input type="checkbox" value="S" name="Q21d">
+                  3. Perdi completamente o interesse por sexo
+                </label>
+            </div>
+  
+          </div>
+          <br>
+
+        <div class="assinado">
+          Preenchido por:<br>
+          <%= NomeProfissionalAvaliacao %><br>
+          <%= Profissao %><br>
+          <%= NumeroConselho %><br>
+        </div>
+        
+        <button class="btn">SALVAR</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

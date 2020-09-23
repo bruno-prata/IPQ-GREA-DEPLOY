@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/asrs.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>ASRS</h2>
+
+      <%- include('parts/testehead') %>
+
+      <form class="ASRS" action="/editarASRS?idTeste=<%= ASRS.id %>&idPaciente=<%= Paciente.id %>" method="POST">
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+        <div>
+          <p>Por favor, responda as perguntas abaixo se avaliando de acordo com os critérios do lado direito da página.</p>
+          <p>Após responder cada uma das pergunstas, selecione o número que corresponde a como você se sentiu e se comportou nos últimos seis meses.</p>
+          <p>Por favor, dê este questionário completo ao profissional da saúde para que vocês possam discutir na consulta de hoje.</p>
+        </div>
+
+        <div class="avgrid">
+
+          <div class="questao">
+            
+          </div>
+
+          <div class="resposta">
+            Nunca
+          </div>
+
+          <div class="resposta">
+            Raramente
+          </div>
+
+          <div class="resposta">
+            Algumas vezes
+          </div>
+
+          <div class="resposta">
+            Frequentemente
+          </div>
+
+          <div class="resposta"> 
+            Muito frequentemente
+          </div>
+
+
+          <div class="questao">
+            1 – Com que frequência você comete erros por falta de atenção quando tem de trabalhar num projeto chato ou difícil?
+          </div>
+
+          
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ1" <% if (ASRS.AQ1 == '0') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ1" <% if (ASRS.AQ1 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ1" <% if (ASRS.AQ1 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ1" <% if (ASRS.AQ1 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ1" <% if (ASRS.AQ1 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+        
+
+
+          <div class="questao">
+            2 – Com que frequência você tem dificuldade para manter a atenção quando está fazendo um trabalho chato ou repetitivo?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ2" <% if (ASRS.AQ2 == '0') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ2" <% if (ASRS.AQ2 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ2" <% if (ASRS.AQ2 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ2" <% if (ASRS.AQ2 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ2" <% if (ASRS.AQ2 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+
+          <div class="questao">
+            3 – Com que frequência você tem dificuldade para se concentrar no que as pessoas dizem, mesmo quando elas etão falando diretamente com você?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ3" <% if (ASRS.AQ3 == '0') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ3" <% if (ASRS.AQ3 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ3" <% if (ASRS.AQ3 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ3" <% if (ASRS.AQ3 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ3" <% if (ASRS.AQ3 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+
+          <div class="questao">
+            4 – Com que frequência você deixa um projeto pela metade depois de já ter feito as partes mais difíceis?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ4" <% if (ASRS.AQ4 == '0') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ4" <% if (ASRS.AQ4 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ4" <% if (ASRS.AQ4 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ4" <% if (ASRS.AQ4 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ4" <% if (ASRS.AQ4 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            5 – Com que frequência você tem dificuldade para fazer um trabalho que exige organização?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ5" <% if (ASRS.AQ5 == '0') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ5" <% if (ASRS.AQ5 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ5" <% if (ASRS.AQ6 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ5" <% if (ASRS.AQ5 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ5" <% if (ASRS.AQ5 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            6 – Quando você precisa fazer algo que exige muita concentração, com que frequência você evita ou adia o início?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ6" <% if (ASRS.AQ6 == '0') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ6" <% if (ASRS.AQ6 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ6" <% if (ASRS.AQ6 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ6" <% if (ASRS.AQ6 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ6" <% if (ASRS.AQ6 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+          
+          <div class="questao">
+            7 – Com que frequência você coloca as coisas fora do lugar ou tem dificuldade de encontrar as coisas em casa ou no trabalho?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ7" <% if (ASRS.AQ7 == '0') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ7" <% if (ASRS.AQ7 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ7" <% if (ASRS.AQ7 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ7" <% if (ASRS.AQ7 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ7" <% if (ASRS.AQ7 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            8 – Com que frequência você se distrai com atividades ou barulho a sua volta?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ8" <% if (ASRS.AQ8 == '0') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ8" <% if (ASRS.AQ8 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ8" <% if (ASRS.AQ8 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ8" <% if (ASRS.AQ8 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ8" <% if (ASRS.AQ8 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            9 – Com que frequência você tem dificuldade para lembrar de compromissos ou obrigações?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ9" <% if (ASRS.AQ9 == '0') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ9" <% if (ASRS.AQ9 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ9" <% if (ASRS.AQ9 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ9" <% if (ASRS.AQ9 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ9" <% if (ASRS.AQ9 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+        </div>
+
+          <div class="scoreA">PARTE A - TOTAL = <% let A = ASRS.AQ1+ASRS.AQ2+ASRS.AQ3+ASRS.AQ4+ASRS.AQ5+ASRS.AQ6+ASRS.AQ7+ASRS.AQ8+ASRS.AQ9 %><%= A %></div>
+
+          <div class="avgrid">
+
+            <div class="questao">
+              
+            </div>
+  
+            <div class="resposta">
+              Nunca
+            </div>
+  
+            <div class="resposta">
+              Raramente
+            </div>
+  
+            <div class="resposta">
+              Algumas vezes
+            </div>
+  
+            <div class="resposta">
+              Frequentemente
+            </div>
+  
+            <div class="resposta"> 
+              Muito frequentemente
+            </div>
+  
+  
+            <div class="questao">
+              1 – Com que frequência você fica se mexendo na cadeira ou balançando as mãos ou os pés quando precisa ficar sentado(a) por muito tempo?
+            </div>
+  
+            
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ1" <% if (ASRS.BQ1 == '0') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ1" <% if (ASRS.BQ1 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ1" <% if (ASRS.BQ1 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ1" <% if (ASRS.BQ1 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ1" <% if (ASRS.BQ1 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+          
+  
+  
+            <div class="questao">
+              2 – Com que frequência você se levanta da cadeira em reuniões ou em outras situações onde deveria ficar sentado(a)?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ2" <% if (ASRS.BQ2 == '0') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ2" <% if (ASRS.BQ2 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ2" <% if (ASRS.BQ2 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ2" <% if (ASRS.BQ2 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ2" <% if (ASRS.BQ2 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              3 – Com que frequênciavocê se sente inquieto(a) ou agitado(a)?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ3" <% if (ASRS.BQ3 == '0') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ3" <% if (ASRS.BQ3 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ3" <% if (ASRS.BQ3 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ3" <% if (ASRS.BQ3 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ3" <% if (ASRS.BQ3 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              4 – Com que frequência você tem dificuldade para sossegar e relaxar quando tem tempo livre para vocês?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ4" <% if (ASRS.BQ4 == '0') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ4" <% if (ASRS.BQ4 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ4" <% if (ASRS.BQ4 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ4" <% if (ASRS.BQ4 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ4" <% if (ASRS.BQ4 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              5 – Com que frequência você se sente ativo(a) semais e necessitando fazer coisas, como se estivesse "com um motor ligado"?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ5" <% if (ASRS.BQ5 == '0') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ5" <% if (ASRS.BQ5 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ5" <% if (ASRS.BQ5 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ5" <% if (ASRS.BQ5 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ5" <% if (ASRS.BQ5 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              6 – Com que frequência você se pega falando demais em situações sociais?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ6" <% if (ASRS.BQ6 == '0') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ6" <% if (ASRS.BQ6 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ6" <% if (ASRS.BQ6 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ6" <% if (ASRS.BQ6 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ6" <% if (ASRS.BQ6 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+            
+            <div class="questao">
+              7 – Quando você está conversando, com que frequência você se pega terminando as frases das pessoas antes delas?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ7" <% if (ASRS.BQ7 == '0') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ7" <% if (ASRS.BQ8 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ7" <% if (ASRS.BQ7 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ7" <% if (ASRS.BQ7 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ7" <% if (ASRS.BQ7 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              8 – Com que frequência você tem dificuldade para esperar nas situações onde cada um tem a sua vez?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ8" <% if (ASRS.BQ8 == '0') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ8" <% if (ASRS.BQ8 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ8" <% if (ASRS.BQ8 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ8" <% if (ASRS.BQ8 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ8" <% if (ASRS.BQ8 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              9 – Com que frequência você interrompe os outros quando eles estão ocupados?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ9" <% if (ASRS.BQ9 == '0') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ9" <% if (ASRS.BQ9 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ9" <% if (ASRS.BQ9 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ9" <% if (ASRS.BQ9 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ9" <% if (ASRS.BQ9 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+          </div>
+  
+            <div class="scoreB">PARTE B - TOTAL = <% let B = ASRS.BQ1+ASRS.BQ2+ASRS.BQ3+ASRS.BQ4+ASRS.BQ5+ASRS.BQ6+ASRS.BQ7+ASRS.BQ8+ASRS.BQ9 %><%= B %></div>
+
+            <br>
+
+            <div class="caixa">Última alteração: <%= ASRS.updatedAt.toLocaleString('pt-BR') %> - por: <%= ASRS.NomeProfissionalAvaliacao %></div><br>    
+        
+        <button class="btn">SALVAR ALTERAÇÕES</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

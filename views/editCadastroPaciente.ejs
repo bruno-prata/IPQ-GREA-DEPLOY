@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+    <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/cadastroPaciente.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>Editar Cadastro de Paciente</h2>
+
+      <% if (msg) { %>
+				<div class="ERRO"> <%= msg %> </div>
+        <% } %>
+        
+        <p><a class="paciente" href="/PacienteOptions?id=<%= Paciente.id %>" method='GET'><< VOLTAR PARA PÁGINA DO PACIENTE</a></p>
+
+      
+      <form class="cadastropaciente" method="POST" action="/editarPaciente?id=<%= Paciente.id %>"> <!-- &_method=PUT -->
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+      <div>
+        Unidade de Atendimento:<br>
+        <label>
+          <input type="radio" value="Ambulatorio" name="UnidadeAtendimento" <% if (Paciente.UnidadeAtendimento == 'Ambulatorio') {%> checked <%} %> >
+          Ambulatório
+        </label>
+        <label>
+          <input type="radio" value="Internacao" name="UnidadeAtendimento" <% if (Paciente.UnidadeAtendimento == 'Internacao') {%> checked <%} %> >
+          Internação
+        </label>
+        <label>
+          <input type="radio" value="CRHDA" name="UnidadeAtendimento" <% if (Paciente.UnidadeAtendimento == 'CRHDA') {%> checked <%} %> >
+          CRHDA
+        </label>
+        <label>
+          <input type="radio" value="CRHDI" name="UnidadeAtendimento" <% if (Paciente.UnidadeAtendimento == 'CRHDI') {%> checked <%} %> >
+          CRHDI
+        </label>
+      </div><br>
+
+      <div>
+        Vínculo com o hospital:<br>
+        <label>
+          <input type="radio" value="SUS" name="VinculoHospital" <% if (Paciente.VinculoHospital == 'SUS') {%> checked <%} %> >
+          SUS
+        </label>
+        <label>
+          <input type="radio" value="Particular" name="VinculoHospital" <% if (Paciente.VinculoHospital == 'Particular') {%> checked <%} %> >
+          Particular
+        </label>
+        <label>
+          <input type="radio" value="Convenio" name="VinculoHospital" <% if (Paciente.VinculoHospital == 'Convenio') {%> checked <%} %> >
+          Convênio
+        </label>
+        <label>
+          - Qual:
+          <input type="text" id="QualConvenio" name="QualConvenio" value="<%= Paciente.QualConvenio %>">
+        </label>
+      </div><br>
+
+      <div>
+        Origem do Atendimento do Serviço Social:<br>
+        <label>
+          <input type="radio" value="Demanda espontânea" name="OrigemSS" <% if (Paciente.OrigemSS == 'Demanda espontânea') {%> checked <%} %> >
+          Demanda espontânea
+        </label>
+        <label>
+          <input type="radio" value="Programa de atendimento" name="OrigemSS" <% if (Paciente.OrigemSS == 'Programa de atendimento') {%> checked <%} %> >
+          Programa de atendimento
+        </label>
+        <label>
+          <input type="radio" value="Outros" name="OrigemSS" <% if (Paciente.OrigemSS == 'Outros') {%> checked <%} %> >
+          Outros
+        </label><br>
+        <label>
+          - Encaminhado por:
+          <input type="text" id="EncaminhadoPor" name="EncaminhadoPor" value="<%= Paciente.EncaminhadoPor %>">
+        </label>
+      </div><br>
+
+      <div>
+        <h3>Identificação do Paciente:</h3>
+        <label for="NomeSocial">Nome Social:
+        <input type="text" id="NomeSocial" name="NomeSocial" value="<%= Paciente.NomeSocial %>" required></label>
+
+        <label for="Idade">Idade:
+        <input type="Number" id="Idade" name="Idade" class="idade" value="<%= Paciente.Idade %>"></label><br><br>
+
+        <label for="Naturalidade">Naturalidade:
+        <input type="text" id="Naturalidade" name="Naturalidade" value="<%= Paciente.Naturalidade %>"></label>
+
+        <label for="Nacionalidade">Nacionalidade:
+        <input type="text" id="Nacionalidade" name="Nacionalidade" value="<%= Paciente.Nacionalidade %>"></label><br><br>
+
+        <label for="Sexo">Sexo:</label><br>
+        <label>
+          <input type="radio" value="M" name="Sexo" <% if (Paciente.Sexo == 'M') {%> checked <%} %> >
+          Masculino
+        </label>
+        <label>
+          <input type="radio" value="F" name="Sexo" <% if (Paciente.Sexo == 'F') {%> checked <%} %> >
+          Feminino
+        </label><br><br>
+
+        <label for="RefSexo">Referido por:</label><br>
+        <label>
+          <input type="radio" value="M" name="RefSexo" <% if (Paciente.RefSexo == 'M') {%> checked <%} %> >
+          Masculino
+        </label>
+        <label>
+          <input type="radio" value="F" name="RefSexo" <% if (Paciente.RefSexo == 'F') {%> checked <%} %> >
+          Feminino
+        </label><br><br>
+
+        <label for="Endereco">Endereço:
+        <input type="text" id="Endereco" name="Endereco" value="<%= Paciente.Endereco %>"></label>
+        <label for="Numero">Nº:
+        <input type="number" id="Numero" name="Numero" value="<%= Paciente.Numero %>"></label>
+        <label for="Complemento">Complemento:
+        <input type="text" id="Complemento" name="Complemento" value="<%= Paciente.Complemento %>"></label><br><br>
+
+        <label for="Bairro">Bairro:
+        <input type="text" id="Bairro" name="Bairro" value="<%= Paciente.Bairro %>"></label>
+        <label for="Cidade">Cidade:
+        <input type="text" id="Cidade" name="Cidade" value="<%= Paciente.Cidade %>"></label><br><br>
+
+        <label for="Estado">Estado:
+        <input type="text" id="Estado" name="Estado" value="<%= Paciente.Estado %>"></label><br><br>
+
+        <label for="CEP">CEP:
+        <input type="text" id="CEP" name="CEP" value="<%= Paciente.CEP %>"></label><br><br>
+
+        <label for="Telefone">Telefone:
+        <input type="text" id="Telefone" name="Telefone" value="<%= Paciente.Telefone %>"></label><br>
+
+        <label>
+          <input type="radio" value="SemEnderecoFixo" name="End" <% if (Paciente.End == 'SemEnderecoFixo') {%> checked <%} %> >
+          Sem endereço fixo
+        </label>
+        <label>
+          <input type="radio" value="EmSituacaoDeRua" name="End" <% if (Paciente.End == 'EmSituacaoDeRua') {%> checked <%} %> >
+          Em situação de rua
+        </label>
+        <label>
+          <input type="radio" value="Outros" name="End" <% if (Paciente.End == 'Outros') {%> checked <%} %> >
+          Outros
+        </label>
+        <label>
+          - Especificar:
+          <input type="text" id="EspecificaSituacao" name="EspecificaSituacao" value="<%= Paciente.EspecificaSituacao %>">
+        </label>
+      </div><br>
+
+
+      <div>
+        <h3>Tratamento Fora de Domicílio - TFD:</h3>
+        <label>
+          <input type="radio" value="S" name="TFD" <% if (Paciente.TFD == 'S') {%> checked <%} %> >
+          Sim
+        </label>
+        <label>
+          <input type="radio" value="N" name="TFD" <% if (Paciente.TFD == 'N') {%> checked <%} %> >
+          Não
+        </label><br>
+
+        <label for="EstadoOrigem">Estado de Origem:
+        <input type="text" id="EstadoOrigem" name="EstadoOrigem" value="<%= Paciente.EstadoOrigem %>"></label><br>
+
+        <label for="LocalAcolhimento">Local de Acolhimento em São Paulo:</label><br>
+          <label>
+            <input type="radio" value="Pensao" name="LocalAcolhimento" <% if (Paciente.LocalAcolhimento == 'Pensao') {%> checked <%} %> >
+            Pensão
+          </label>
+            <label>
+            <input type="radio" value="Casa de Familiares" name="LocalAcolhimento" <% if (Paciente.LocalAcolhimento == 'Casa de Familiares') {%> checked <%} %> >
+            Casa de Familiares
+          </label>
+          <label>
+            <input type="radio" value="Hotel" name="LocalAcolhimento" <% if (Paciente.LocalAcolhimento == 'Hotel') {%> checked <%} %> >
+            Hotel
+          </label>
+          <label>
+            <input type="radio" value="Casa de Apoio" name="LocalAcolhimento" <% if (Paciente.LocalAcolhimento == 'Casa de Apoio') {%> checked <%} %> >
+            Casa de Apoio
+          </label>
+          <label>
+            <input type="radio" value="Outros" name="LocalAcolhimento" <% if (Paciente.LocalAcolhimento == 'Outros') {%> checked <%} %> >
+            Outros
+          </label>
+          <label>
+            - Especificar:
+            <input type="text" id="EspecificarLocalAcolhimento" name="EspecificarLocalAcolhimento" value="<%= Paciente.EspecificarLocalAcolhimento %>">
+          </label>
+        <br>
+        <label for="EnderecoAcolhimento">Endereço:
+          <input type="text" id="EnderecoAcolhimento" name="EnderecoAcolhimento" value="<%= Paciente.EnderecoAcolhimento %>">
+        </label>
+        <br>
+        <label for="TelefoneAcolhimento">Telefone:
+          <input type="text" id="TelefoneAcolhimento" name="TelefoneAcolhimento" value="<%= Paciente.TelefoneAcolhimento %>">
+        </label>
+        <label for="ContatoAcolhimento">Contato com:
+          <input type="text" id="ContatoAcolhimento" name="ContatoAcolhimento" value="<%= Paciente.ContatoAcolhimento %>">
+        </label>
+      </div><br>
+
+      <div>
+        <label for="Religiao">Religião:</label>
+        <br>
+        <label>
+            <input type="radio" value="S" name="Religiao" <% if (Paciente.Religiao == 'S') {%> checked <%} %> >
+            Sim
+          </label>
+          <label>
+            <input type="radio" value="N" name="Religiao" <% if (Paciente.Religiao == 'N') {%> checked <%} %> >
+            Não
+          </label>
+            <label for="QualReligiao">- Qual:
+            <input type="text" id="QualReligiao" name="QualReligiao" value="<%= Paciente.QualReligiao %>">
+          </label>
+          <br>
+          <label for="Praticante">Praticante:</label>
+          <br>
+          <label>
+            <input type="radio" value="S" name="Praticante" <% if (Paciente.Praticante == 'S') {%> checked <%} %> >
+            Sim
+          </label>
+          <label>
+            <input type="radio" value="N" name="Praticante" <% if (Paciente.Praticante == 'N') {%> checked <%} %> >
+            Não
+          </label><br>
+      </div><br>
+      <div>
+
+      <label for="Escolaridade">Escolaridade:</label>
+      <br>
+        <label>
+          <input type="radio" value="Alfabetizado" name="Escolaridade" <% if (Paciente.Escolaridade == 'Alfabetizado') {%> checked <%} %> >
+          Alfabetizado
+        </label>
+        <label>
+          <input type="radio" value="NaoAlfabetizado" name="Escolaridade" <% if (Paciente.Escolaridade == 'NaoAlfabetizado') {%> checked <%} %> >
+          Não Alfabetizado
+        </label><br>
+
+        <label for="EnsinoFundamental">Ensino Fundamental:</label>
+        <br>
+        <label>
+          <input type="radio" value="EnsinoFundamentalCompleto" name="EnsinoFundamental" <% if (Paciente.EnsinoFundamental == 'EnsinoFundamentalCompleto') {%> checked <%} %> >
+          Completo
+        </label>
+        <label>
+          <input type="radio" value="EnsinoFundamentalIncompleto" name="EnsinoFundamental" <% if (Paciente.EnsinoFundamental == 'EnsinoFundamentalIncompleto') {%> checked <%} %> >
+          Incompleto
+        </label>
+        <label for="UltimoAnoEnsinoFundamental">- Último ano que cursou:
+          <input type="text" id="UltimoAnoEnsinoFundamental" name="UltimoAnoEnsinoFundamental" value="<%= Paciente.UltimoAnoEnsinoFundamental %>">
+        </label>
+        <br>
+
+        <label for="EnsinoMedio">Ensino Médio:</label>
+        <br>
+        <label>
+          <input type="radio" value="EnsinoMedioCompleto" name="EnsinoMedio" <% if (Paciente.EnsinoMedio == 'EnsinoMedioCompleto') {%> checked <%} %> >
+          Completo
+        </label>
+        <label>
+          <input type="radio" value="EnsinoMedioIncompleto" name="EnsinoMedio" <% if (Paciente.EnsinoMedio == 'EnsinoMedioIncompleto') {%> checked <%} %> >
+          Incompleto
+        </label>
+          <label for="UltimoEnsinoMedio">- Último ano que cursou:
+          <input type="text" id="UltimoEnsinoMedio" name="UltimoEnsinoMedio" value="<%= Paciente.UltimoEnsinoMedio %>">
+        </label>
+        <br>
+
+        <label for="EnsinoSuperior">Ensino Superior:</label>
+        <br>
+        <label>
+          <input type="radio" value="EnsinoSuperiorCompleto" name="EnsinoSuperior" <% if (Paciente.EnsinoSuperior == 'EnsinoSuperiorCompleto') {%> checked <%} %> >
+          Completo
+        </label>
+        <label>
+          <input type="radio" value="EnsionoSuperiorIncompleto" name="EnsinoSuperior" <% if (Paciente.EnsinoSuperior == 'EnsionoSuperiorIncompleto') {%> checked <%} %> >
+          Incompleto
+        </label>
+        <label for="UltimoEnsinoSuperior">- Último ano que cursou:
+          <input type="text" id="UltimoEnsinoSuperior" name="UltimoEnsinoSuperior" value="<%= Paciente.UltimoEnsinoSuperior %>"></label>
+        <br>
+
+        <label for="CursoTecnico">Curso Técnico:</label>
+        <br>
+        <label>
+          <input type="checkbox"  value="S" name="CursoTecnico" <% if (Paciente.CursoTecnico == 'S') {%> checked <%} %> >
+          Completo
+        </label>
+          <label for="QualCursoTecnico">- Especificar:
+          <input type="text" id="QualCursoTecnico" name="QualCursoTecnico" value="<%= Paciente.QualCursoTecnico %>">
+        </label>
+        <br>
+
+        <label for="UnidadeEscolar">Unidade Escolar:</label>
+        <br>
+        <label>
+          <input type="radio" value="Publico" name="UnidadeEscolar" <% if (Paciente.UnidadeEscolar == 'Publico') {%> checked <%} %> >
+          Público
+        </label>
+        <label>
+          <input type="radio" value="Privada" name="UnidadeEscolar" <% if (Paciente.UnidadeEscolar == 'Privada') {%> checked <%} %> >
+          Privada
+        </label>
+      </div>
+      <br>
+      <div>
+        <label for="Moradia">Moradia:</label>
+        <br>
+        <label>
+            <input type="radio" value="Casa" name="Moradia" <% if (Paciente.Moradia == 'Casa') {%> checked <%} %> >
+            Casa
+          </label>
+          <label>
+            <input type="radio" value="Apartamento" name="Moradia" <% if (Paciente.Moradia == 'Apartamento') {%> checked <%} %> >
+            Apartamento
+          </label>
+          <label>
+            <input type="radio" value="Cortiço" name="Moradia" <% if (Paciente.Moradia == 'Cortiço') {%> checked <%} %> >
+            Cortiço
+          </label>
+          <label>
+            <input type="radio" value="Alojamento" name="Moradia" <% if (Paciente.Moradia == 'Alojamento') {%> checked <%} %> >
+            Alojamento
+          </label>
+          <label>
+            <input type="radio" value="Abrigo" name="Moradia" <% if (Paciente.Moradia == 'Abrigo') {%> checked <%} %> >
+            Abrigo
+          </label>
+          <label>
+            <input type="radio" value="Pensão" name="Moradia" <% if (Paciente.Moradia == 'Pensão') {%> checked <%} %> >
+            Pensão
+          </label>
+          <br><br>
+
+          <label for="Constucao">Tipo de Construção:</label>
+          <br>
+          <label>
+            <input type="radio" value="Alvenaria" name="Construcao" <% if (Paciente.Construcao == 'Alvenaria') {%> checked <%} %> >
+            Alvenaria
+          </label>
+          <label>
+            <input type="radio" value="Madeira" name="Construcao" <% if (Paciente.Construcao == 'Madeira') {%> checked <%} %> >
+            Madeira
+          </label>
+          <label>
+            <input type="radio" value="Outros" name="Construcao" <% if (Paciente.Construcao == 'Outros') {%> checked <%} %> >
+            Outros
+          </label>
+            <label for="ConstrucaoEspecificar">- Especificar:
+            <input type="text" id="ConstrucaoEspecificar" name="ConstrucaoEspecificar" value="<%= Paciente.ConstrucaoEspecificar %>"></label>
+          <br>
+
+          <label for="RelacaoPropriedade">Relação de Propriedade:</label>
+          <br>
+          <label>
+            <input type="radio" value="Própria" name="RelacaoPropriedade" <% if (Paciente.RelacaoPropriedade == 'Própria') {%> checked <%} %> >
+            Própria
+          </label>
+          <label>
+            <input type="radio" value="Alugada" name="RelacaoPropriedade" <% if (Paciente.RelacaoPropriedade == 'Alugada') {%> checked <%} %> >
+            Alugada
+          </label>
+          <label>
+            <input type="radio" value="Cedida" name="RelacaoPropriedade" <% if (Paciente.RelacaoPropriedade == 'Cedida') {%> checked <%} %> >
+            Cedida
+          </label>
+          <label>
+            <input type="radio" value="PropriaTerrenoAlheio" name="RelacaoPropriedade" <% if (Paciente.RelacaoPropriedade == 'PropriaTerrenoAlheio') {%> checked <%} %> >
+            Própria terreno alheio
+          </label>
+          <label>
+            <input type="radio" value="Financiada" name="RelacaoPropriedade" <% if (Paciente.RelacaoPropriedade == 'Financiada') {%> checked <%} %> >
+            Financiada
+          </label>
+          <label>
+            <input type="radio" value="Invadida" name="RelacaoPropriedade" <% if (Paciente.RelacaoPropriedade == 'Invadida') {%> checked <%} %> >
+            Invadida
+          </label>
+          <br><br>
+            <label for="NComodos">Nº de Cômodos:
+            <input type="number" id="NComodos" name="NComodos" class="idade" value="<%= Paciente.NComodos %>"></label>
+          <br>
+
+          <label for="Banheiros">Banheiro:</label>
+          <br>
+          <label>
+            <input type="radio" value="Individual" name="Banheiros" <% if (Paciente.Banheiros == 'Individual') {%> checked <%} %> >
+            Individual
+          </label>
+          <label>
+            <input type="radio" value="Coletivo" name="Banheiros" <% if (Paciente.Banheiros == 'Coletivo') {%> checked <%} %> >
+            Coletivo
+          </label>
+          <br>
+
+          <label for="NPessoas">Nº de pessoas na habitação:
+            <input type="number" id="NPessoas" name="NPessoas" class="idade" value="<%= Paciente.NPessoas %>"></label>
+          <br>
+
+          <label for="InfraestruturaUrbana">Infraestrutura Urbana:</label>
+          <br>
+          <label>
+            <input type="radio" value="Total" name="InfraestruturaUrbana" <% if (Paciente.InfraestruturaUrbana == 'Total') {%> checked <%} %> >
+            Total
+          </label>
+          <label>
+            <input type="radio" value="Parcial" name="InfraestruturaUrbana" <% if (Paciente.InfraestruturaUrbana == 'Parcial') {%> checked <%} %> >
+            Parcial
+          </label>
+          <label>
+            <input type="radio" value="Inexistente" name="InfraestruturaUrbana" <% if (Paciente.InfraestruturaUrbana == 'Inexistente') {%> checked <%} %> >
+            Inexistente
+          </label>
+          <br>
+      </div>
+      <br>
+
+      <h3>Composição Familiar:</h3><br>
+      <div class="familia">
+        <label for="NomeFam">Nome:</label>
+        <label for="VinculoFam">Vínculo:</label>
+        <label for="IdadeFam">Idade:</label>
+        <label for="EscolaridadeFam">Escolaridade:</label>
+        <label for="OcupacaoFam">Ocupação:</label>
+        <label for="RendaFam">Renda:</label>
+          <input type="text" id="NomeFam1" name="NomeFam1" value="<%= Paciente.NomeFam1 %>">
+          <input type="text" id="VinculoFam1" name="VinculoFam1" value="<%= Paciente.VinculoFam1 %>">
+          <input type="text" id="IdadeFam1" name="IdadeFam1" class="idade" value="<%= Paciente.IdadeFam1 %>">
+          <input type="text" id="EscolaridadeFam1" name="EscolaridadeFam1" value="<%= Paciente.EscolaridadeFam1 %>">
+          <input type="text" id="OcupacaoFam1" name="OcupacaoFam1" value="<%= Paciente.OcupacaoFam1 %>">
+          <input type="text" id="RendaFam1" name="RendaFam1" value="<%= Paciente.RendaFam1 %>">
+
+          <input type="text" id="NomeFam2" name="NomeFam2" value="<%= Paciente.NomeFam2 %>">
+          <input type="text" id="VinculoFam2" name="VinculoFam2" value="<%= Paciente.VinculoFam2 %>">
+          <input type="text" id="IdadeFam2" name="IdadeFam2" class="idade" value="<%= Paciente.IdadeFam2 %>">
+          <input type="text" id="EscolaridadeFam2" name="EscolaridadeFam2" value="<%= Paciente.EscolaridadeFam2 %>">
+          <input type="text" id="OcupacaoFam2" name="OcupacaoFam2" value="<%= Paciente.OcupacaoFam2 %>">
+          <input type="text" id="RendaFam2" name="RendaFam2" value="<%= Paciente.RendaFam2 %>">
+
+          <input type="text" id="NomeFam3" name="NomeFam3" value="<%= Paciente.NomeFam3 %>">
+          <input type="text" id="VinculoFam3" name="VinculoFam3" value="<%= Paciente.VinculoFam3 %>">
+          <input type="text" id="IdadeFam3" name="IdadeFam3" class="idade" value="<%= Paciente.IdadeFam3 %>">
+          <input type="text" id="EscolaridadeFam3" name="EscolaridadeFam3" value="<%= Paciente.EscolaridadeFam3 %>">
+          <input type="text" id="OcupacaoFam3" name="OcupacaoFam3" value="<%= Paciente.OcupacaoFam3 %>">
+          <input type="text" id="RendaFam3" name="RendaFam3" value="<%= Paciente.RendaFam3 %>">
+
+          <input type="text" id="NomeFam4" name="NomeFam4" value="<%= Paciente.NomeFam4 %>">
+          <input type="text" id="VinculoFam4" name="VinculoFam4" value="<%= Paciente.VinculoFam4 %>">
+          <input type="text" id="IdadeFam4" name="IdadeFam4" class="idade" value="<%= Paciente.IdadeFam4 %>">
+          <input type="text" id="EscolaridadeFam4" name="EscolaridadeFam4" value="<%= Paciente.EscolaridadeFam4 %>">
+          <input type="text" id="OcupacaoFam4" name="OcupacaoFam4" value="<%= Paciente.OcupacaoFam4 %>">
+          <input type="text" id="RendaFam4" name="RendaFam4" value="<%= Paciente.RendaFam4 %>">
+
+          <input type="text" id="NomeFam5" name="NomeFam5" value="<%= Paciente.NomeFam5 %>">
+          <input type="text" id="VinculoFam5" name="VinculoFam5" value="<%= Paciente.VinculoFam5 %>">
+          <input type="text" id="IdadeFam5" name="IdadeFam5" class="idade" value="<%= Paciente.IdadeFam5 %>">
+          <input type="text" id="EscolaridadeFam5" name="EscolaridadeFam5" value="<%= Paciente.EscolaridadeFam5 %>">
+          <input type="text" id="OcupacaoFam5" name="OcupacaoFam5" value="<%= Paciente.OcupacaoFam5 %>">
+          <input type="text" id="RendaFam5" name="RendaFam5" value="<%= Paciente.RendaFam5 %>">
+
+          <input type="text" id="NomeFam6" name="NomeFam6" value="<%= Paciente.NomeFam6 %>">
+          <input type="text" id="VinculoFam6" name="VinculoFam6" value="<%= Paciente.VinculoFam6 %>">
+          <input type="text" id="IdadeFam6" name="IdadeFam6" class="idade" value="<%= Paciente.IdadeFam6 %>">
+          <input type="text" id="EscolaridadeFam6" name="EscolaridadeFam6" value="<%= Paciente.EscolaridadeFam6 %>">
+          <input type="text" id="OcupacaoFam6" name="OcupacaoFam6" value="<%= Paciente.OcupacaoFam6 %>">
+          <input type="text" id="RendaFam6" name="RendaFam6" value="<%= Paciente.RendaFam6 %>">
+
+          <input type="text" id="NomeFam7" name="NomeFam7" value="<%= Paciente.NomeFam7 %>">
+          <input type="text" id="VinculoFam7" name="VinculoFam7" value="<%= Paciente.VinculoFam7 %>">
+          <input type="text" id="IdadeFam7" name="IdadeFam7" class="idade" value="<%= Paciente.IdadeFam7 %>">
+          <input type="text" id="EscolaridadeFam7" name="EscolaridadeFam7" value="<%= Paciente.EscolaridadeFam7 %>">
+          <input type="text" id="OcupacaoFam7" name="OcupacaoFam7" value="<%= Paciente.OcupacaoFam7 %>">
+          <input type="text" id="RendaFam7" name="RendaFam7" value="<%= Paciente.RendaFam7 %>">
+      </div>
+      <br>
+
+      <div>
+        <h3>Ocupacional:</h3>
+        <label for="ProfissaoPaciente">Profissão:
+          <input type="text" id="ProfissaoPaciente" name="ProfissaoPaciente" value="<%= Paciente.ProfissaoPaciente %>"></label>
+          <br>
+        <label for="OcupacaoPaciente">Ocupação:
+          <input type="text" id="OcupacaoPaciente" name="OcupacaoPaciente" value="<%= Paciente.OcupacaoPaciente %>"></label>
+
+          <label for="DesempregadoPaciente">Desempregado:</label>
+          <label>
+            <input type="radio" value="S" name="DesempregadoPaciente"  <% if (Paciente.DesempregadoPaciente == 'S') {%> checked <%} %> >
+            Sim
+          </label>
+          <label>
+            <input type="radio" value="N" name="DesempregadoPaciente" <% if (Paciente.DesempregadoPaciente == 'N') {%> checked <%} %> >
+            Não
+          </label>
+          <br>
+
+        <label for="LocalTrabalho">Local de Trabalho:
+          <input type="text" id="LocalTrabalho" name="LocalTrabalho" value="<%= Paciente.LocalTrabalho %>"></label>
+  
+            <label>
+              <input type="radio" value="Formal" name="TrabalhoFormal" <% if (Paciente.TrabalhoFormal == 'Formal') {%> checked <%} %> >
+              Formal
+            </label>
+            <label>
+              <input type="radio" value="Informal" name="TrabalhoFormal" <% if (Paciente.TrabalhoFormal == 'Informal') {%> checked <%} %> >
+              Informal
+            </label>
+          <br><br>
+
+        <label for="BeneficioPrevidenciario">Benefício Previdenciário:</label>
+        <label>
+          <input type="radio" value="S" name="BeneficioPrevidenciario" <% if (Paciente.BeneficioPrevidenciario == 'S') {%> checked <%} %> >
+          Sim
+        </label>
+        <label>
+          <input type="radio" value="N" name="BeneficioPrevidenciario" <% if (Paciente.BeneficioPrevidenciario == 'N') {%> checked <%} %> >
+          Não
+        </label>
+        <br>
+
+        <label>
+          <input type="radio" value="Auxílio doença" name="TipoBeneficioPrevidenciario"  <% if (Paciente.TipoBeneficioPrevidenciario == 'Auxílio doença') {%> checked <%} %> >
+          Auxílio doença
+        </label>
+        <label>
+          <input type="radio" value="Pensão por morte" name="TipoBeneficioPrevidenciario" <% if (Paciente.TipoBeneficioPrevidenciario == 'Pensão por morte') {%> checked <%} %> >
+          Pensão por morte
+        </label>
+        <br>
+        <label for="TipoBeneficioPrevidenciario">Aposentadoria:</label>
+        <label>
+          <input type="radio" value="Idade" name="TipoBeneficioPrevidenciario" <% if (Paciente.TipoBeneficioPrevidenciario == 'Idade') {%> checked <%} %> >
+          Idade
+        </label>
+        <label>
+          <input type="radio" value="Tempo de Contribuição" name="TipoBeneficioPrevidenciario" <% if (Paciente.TipoBeneficioPrevidenciario == 'Tempo de Contribuição') {%> checked <%} %> >
+          Tempo de Contribuição
+        </label>
+        <label>
+          <input type="radio" value="Invalidez" name="TipoBeneficioPrevidenciario" <% if (Paciente.TipoBeneficioPrevidenciario == 'Invalidez') {%> checked <%} %> >
+          Invalidez
+        </label>
+        <label>
+          <input type="radio" value="Outros" name="TipoBeneficioPrevidenciario" <% if (Paciente.TipoBeneficioPrevidenciario == 'Outros') {%> checked <%} %> >
+          Outros
+        </label>
+        <label for="QualBeneficioPrevidenciario">- Qual:
+          <input type="text" id="QualBeneficioPrevidenciario" name="QualBeneficioPrevidenciario" value="<%= Paciente.QualBeneficioPrevidenciario %>"></label>
+        <br>
+
+        <label for="BeneficioAssistencial">Benefício Assistencial:</label>
+        <label>
+          <input type="radio" value="S" name="BeneficioAssistencial" <% if (Paciente.BeneficioAssistencial == 'S') {%> checked <%} %> >
+          Sim
+        </label>
+        <label>
+          <input type="radio" value="N" name="BeneficioAssistencial" <% if (Paciente.BeneficioAssistencial == 'N') {%> checked <%} %> >
+          Não
+        </label>
+        <label for="QualBeneficioAssistencial">- Qual:
+          <input type="text" id="QualBeneficioAssistencial" name="QualBeneficioAssistencial" value="<%= Paciente.QualBeneficioAssistencial %>"></label>
+
+      <br><br>
+      <label for="Renda">Renda em Salário Mínimo:</label>
+        <label>
+          <input type="radio" value="de 0 a 1" name="Renda" <% if (Paciente.Renda == 'de 0 a 1') {%> checked <%} %> >
+          de 0 a 1
+        </label>
+        <label>
+          <input type="radio" value="de 2 a 3" name="Renda" <% if (Paciente.Renda == 'de 2 a 3') {%> checked <%} %> >
+          de 2 a 3
+        </label>
+        <label>
+          <input type="radio" value="de 4 a 6" name="Renda" <% if (Paciente.Renda == 'de 4 a 6') {%> checked <%} %> >
+          de 4 a 6
+        </label>
+        <label>
+          <input type="radio" value="acima de 6" name="Renda" <% if (Paciente.Renda == 'acima de 6') {%> checked <%} %> >
+          acima de 6
+        </label><br>
+        <label for="RendaEspecifica">- Outras Rendas:
+          <input type="text" id="RendaEspecifica" name="RendaEspecifica"  value="<%= Paciente.RendaEspecifica %>"></label>
+      </div>
+      <br>
+
+      <div>
+        <label for="PlanoTerapeutico">Plano Terapêutico:<br>
+          <textarea type="textarea" rows="10" cols="100" id="PlanoTerapeutico" name="PlanoTerapeutico" placeholder="Problemas identificados, metas terapêuticas, ações terapêuticas, prazo estimado e  resultados." ><%= Paciente.PlanoTerapeutico %></textarea>
+      </div>
+      <br>
+
+      <div>
+        <label for="LocaisDeAtendimento">Locais de referência para atendimento:</label><br>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoUBS"  <% if (Paciente.LocalDeAtendimentoUBS == 'S') {%> checked <%} %> >
+          UBS
+        </label>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoCAPS"  <% if (Paciente.LocalDeAtendimentoCAPS == 'S') {%> checked <%} %> >
+          CAPS
+        </label>
+        <label for="TextoLocalDeAtendimentoUBSCAPS"><br>
+          <textarea type="textarea" rows="5" cols="100" id="TextoLocalDeAtendimentoUBSCAPS" name="TextoLocalDeAtendimentoUBSCAPS"><%= Paciente.TextoLocalDeAtendimentoUBSCAPS %></textarea>
+          <br>
+        <label>
+          CRAS
+        </label>
+        <label for="TextoLocalDeAtendimentoCRAS"><br>
+          <textarea type="textarea" rows="5" cols="100" id="TextoLocalDeAtendimentoCRAS" name="TextoLocalDeAtendimentoCRAS"><%= Paciente.TextoLocalDeAtendimentoCRAS %></textarea>
+        <br>
+        <label>
+          CREAS
+        </label>
+        <label for="TextoLocalDeAtendimentoCREAS"><br>
+          <textarea type="textarea" rows="5" cols="100" id="TextoLocalDeAtendimentoCREAS" name="TextoLocalDeAtendimentoCREAS"><%= Paciente.TextoLocalDeAtendimentoCREAS %></textarea>
+        <br>  
+        <label>
+        <input type="checkbox" value="S" name="LocalDeAtendimentoConselhoTutelar" <% if (Paciente.LocalDeAtendimentoConselhoTutelar == 'S') {%> checked <%} %> >
+          Conselho Tutelar
+        </label>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoConselhoIdoso" <% if (Paciente.LocalDeAtendimentoConselhoIdoso == 'S') {%> checked <%} %> >
+          Conselho do Idoso
+        </label>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoNAI" <% if (Paciente.LocalDeAtendimentoNAI == 'S') {%> checked <%} %> >
+          NAI
+        </label>
+        <label for="TextoLocalDeAtendimentoConselhosNAI"><br>
+          <textarea type="textarea" rows="5" cols="100" id="TextoLocalDeAtendimentoConselhosNAI" name="TextoLocalDeAtendimentoConselhosNAI"><%= Paciente.TextoLocalDeAtendimentoConselhosNAI %></textarea>
+          <br>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoVara" <% if (Paciente.LocalDeAtendimentoVara == 'S') {%> checked <%} %> >
+          Vara da Infância e Juventude
+        </label>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoForum" <% if (Paciente.LocalDeAtendimentoForum == 'S') {%> checked <%} %> >
+          Fórum
+        </label>
+        <label for="TextoLocalDeAtendimentoVaraForum"><br>
+          <textarea type="textarea" rows="5" cols="100" id="TextoLocalDeAtendimentoVaraForum" name="TextoLocalDeAtendimentoVaraForum"><%= Paciente.TextoLocalDeAtendimentoVaraForum %></textarea>
+        <br>
+        
+      </div>
+      <br>
+
+      <div>
+        <label>Motivo do Atendimento: Demandas<br></label>
+        
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoI" <% if (Paciente.AtendimentoI == 'S') {%> checked <%} %> >
+            I - Estudo sócio-econômico, cultural e rede de apoio
+          </label><br><br>
+
+          <label>II - Dificuldade em relação à doença:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII1" <% if (Paciente.AtendimentoII1 == 'S') {%> checked <%} %> >
+            1 - Dificuldade de compreensão do diagnóstico, prognóstico e plano de tratamento. 
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII2" <% if (Paciente.AtendimentoII2 == 'S') {%> checked <%} %> >
+            2 - Dificuldade de comunicação entre paciente/família/acompanhante com Equipe Multiprofissional.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII3" <% if (Paciente.AtendimentoII3 == 'S') {%> checked <%} %> >
+            3 - Implicação sócio-emocional relacionada a doença.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII4" <% if (Paciente.AtendimentoII4 == 'S') {%> checked <%} %> >
+            4 - Não aceitação da doença.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII5" <% if (Paciente.AtendimentoII5 == 'S') {%> checked <%} %> >
+            5 - Incapacidade decorrente da doença.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII6" <% if (Paciente.AtendimentoII6 == 'S') {%> checked <%} %> >
+            6 - Resistência quanto ao tratamento proposto.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII7" <% if (Paciente.AtendimentoII7 == 'S') {%> checked <%} %> >
+            7 - Dificuldade de adesão.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII8" <% if (Paciente.AtendimentoII8 == 'S') {%> checked <%} %> >
+            8 - Abandono do tratamento Ambulatorial.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII9" <% if (Paciente.AtendimentoII9 == 'S') {%> checked <%} %> >
+            9 - Identificação do cuidador.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII10" <% if (Paciente.AtendimentoII10 == 'S') {%> checked <%} %> >
+            10 - Alta a pedido.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII11" <% if (Paciente.AtendimentoII11 == 'S') {%> checked <%} %> >
+            11 - Saída de paciente sem autorização médica.
+          </label><br><br>
+
+          <label>III - Relações Familiares:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIII12" <% if (Paciente.AtendimentoIII12 == 'S') {%> checked <%} %> >
+            12 - Relacionamento familiar conflituoso.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIII13" <% if (Paciente.AtendimentoIII13 == 'S') {%> checked <%} %> >
+            13 - Dificuldade quanto a reorganização da família frente a situação de doença.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIII14" <% if (Paciente.AtendimentoIII14 == 'S') {%> checked <%} %> >
+            14 - Mudança de papéis na família.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIII15" <% if (Paciente.AtendimentoIII15 == 'S') {%> checked <%} %> >
+            15 - Ausência de retaguarda familiar.
+          </label><br><br>
+
+          <label>IV - Necessidade de orientação quanto:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIV16" <% if (Paciente.AtendimentoIV16 == 'S') {%> checked <%} %> >
+            16 - As normas e rotinas institucionais.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIV17" <% if (Paciente.AtendimentoIV17 == 'S') {%> checked <%} %> >
+            17 - Obtenção  de  documentação pessoal.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIV18" <% if (Paciente.AtendimentoIV18 == 'S') {%> checked <%} %> >
+            18 - Legislação vigente: previdência, trabalho, ECA, Estatuto do Idoso, benefícios especiais, seguros, entre outros.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIV19" <% if (Paciente.AtendimentoIV19 == 'S') {%> checked <%} %> >
+            19 - TFD
+          </label><br><br>
+
+          <label>V - Dificuldade sócio-econômica para:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoV20" <% if (Paciente.AtendimentoV20 == 'S') {%> checked <%} %> >
+            20 - Acomodação.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoV21" <% if (Paciente.AtendimentoV21 == 'S') {%> checked <%} %> >
+            21 - Transporte.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoV22" <% if (Paciente.AtendimentoV22 == 'S') {%> checked <%} %> >
+            22 - Alimentação.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoV23" <% if (Paciente.AtendimentoV23 == 'S') {%> checked <%} %> >
+            23 - Aquisição de material de apoio ao tratamento médico.
+          </label><br><br>
+
+          <label>VI - Dificuldade relacionada à alta do paciente:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI24" <% if (Paciente.AtendimentoVI24 == 'S') {%> checked <%} %> >
+            24 - Ausência de domicilio fixo.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI25" <% if (Paciente.AtendimentoVI25 == 'S') {%> checked <%} %> >
+            25 - Paciente em situação de abandono.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI26" <% if (Paciente.AtendimentoVI26 == 'S') {%> checked <%} %> >
+            26 - Paciente procedente de outro município de São Paulo ou de outro Estado.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI27" <% if (Paciente.AtendimentoVI27 == 'S') {%> checked <%} %> >
+            27 - Situação de Rua.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI28" <% if (Paciente.AtendimentoVI28 == 'S') {%> checked <%} %> >
+            28 - Não aceitação da indicação de alta.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI29" <% if (Paciente.AtendimentoVI29 == 'S') {%> checked <%} %> >
+            29 - Dificuldade de retorno ao próprio domicílio.
+          </label><br><br>
+
+          <label>VII - Necessidades específicas:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII30" <% if (Paciente.AtendimentoVII30 == 'S') {%> checked <%} %> >
+            30 - Paciente internado como desconhecido.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII31"  <% if (Paciente.AtendimentoVII31 == 'S') {%> checked <%} %> >
+            31 - Paciente com indicação de Oxigenoterapia Domiciliar.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII32" <% if (Paciente.AtendimentoVII32 == 'S') {%> checked <%} %>>
+            32 - Paciente com indicação de Atendimento Domiciliar.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII33" <% if (Paciente.AtendimentoVII33 == 'S') {%> checked <%} %>>
+            33 - Paciente com indicação de Terapia Renal Substitutiva - Diálise.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII34" <% if (Paciente.AtendimentoVII34 == 'S') {%> checked <%} %>>
+            34 - Transferência Hospitalar.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII35" <% if (Paciente.AtendimentoVII35 == 'S') {%> checked <%} %>>
+            35 - Dificuldade de efetivar a transferência hospitalar relacionada a questões sociais.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII36" <% if (Paciente.AtendimentoVII36 == 'S') {%> checked <%} %>>
+            36 - Óbito.
+          </label><br>          
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII37" <% if (Paciente.AtendimentoVII37 == 'S') {%> checked <%} %>>
+            37 - Pacientes Crianças/adolescentes vitimizados.
+          </label><br>          
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII38" <% if (Paciente.AtendimentoVII38 == 'S') {%> checked <%} %>>
+            38 - Pacientes maiores vitimizados.
+          </label><br>          
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII39" <% if (Paciente.AtendimentoVII39 == 'S') {%> checked <%} %>>
+            39 - Pacientes idosos vitimizados.
+          </label><br>          
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII40" <% if (Paciente.AtendimentoVII40 == 'S') {%> checked <%} %>>
+            40 - Necessidade de orientação para a melhoria da qualidade de vida:educação, cultura e lazer.
+          </label><br>          
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII41" <% if (Paciente.AtendimentoVII41 == 'S') {%> checked <%} %>>
+            41 - Convocação de pacientes / familiares / acompanhantes.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII42" <% if (Paciente.AtendimentoVII42 == 'S') {%> checked <%} %>>
+            42 - Necessidade de encaminhamento/orientação quanto a utilização de Recursos Sociais ou de Saúde na comunidade.
+          </label><br><br>
+
+          <label>VIII - Programas:</label><br>
+          <label for="Programas">
+            <textarea type="textarea" rows="5" cols="100" id="Programas" name="Programas"><%= Paciente.Programas %></textarea>
+        <br>
+          <label>IX - Outros:</label><br>
+          <label for="Outros">
+            <textarea type="textarea" rows="5" cols="100" id="Outros" name="Outros"><%= Paciente.Outros %></textarea>
+        <br>
+      </div>
+      <br>
+
+      <div>
+        <h3>Intervenção:</h3><br>
+        <div class="intervencao">
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao1" <% if (Paciente.Intervencao1 == 'S') {%> checked <%} %> >
+            1 - Identificação e intervenção nas situações sócio-econômicas e culturais que estejam  interferindo no processo saúde/doença.  
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao21" <% if (Paciente.Intervencao21 == 'S') {%> checked <%} %> >
+            21 - Concessão de auxílio material de apoio direto ao tratamento.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao2" <% if (Paciente.Intervencao2 == 'S') {%> checked <%} %> >
+            2 - Identificação e intervenção nas situações sócio–econômicas e culturais que estejam dificultando o processo de alta hospitalar.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao22" <% if (Paciente.Intervencao22 == 'S') {%> checked <%} %> >
+            22 - Concessão de outros materiais.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao3" <% if (Paciente.Intervencao3 == 'S') {%> checked <%} %>>
+            3 - Identificação e intervenção nas situações sócio–econômicas e culturais que estejam dificultando o retorno ambulatorial.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao23" <% if (Paciente.Intervencao23 == 'S') {%> checked <%} %>>
+            23 - Orientação quanto a utilização / encaminhamento à recursos sociais ou de saúde na comunidade.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao4" <% if (Paciente.Intervencao4 == 'S') {%> checked <%} %> >
+            4 - Interpretação de Normas e Rotinas Institucionais.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao24" <% if (Paciente.Intervencao24 == 'S') {%> checked <%} %> >
+            24 - Orientações quanto a obtenção de documentação pessoal e a sua importância no exercício da cidadania.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao5" <% if (Paciente.Intervencao5 == 'S') {%> checked <%} %> >
+            5 - Orientações pertinentes à alta ambulatorial/hospitalar.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao25" <% if (Paciente.Intervencao25 == 'S') {%> checked <%} %> >
+            25 - Orientações quanto a Legislação vigente, direitos e deveres.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao6" <% if (Paciente.Intervencao6 == 'S') {%> checked <%} %> >
+            6 - Facilitação da relação/comunicação entre equipe/ paciente/família.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao26" <% if (Paciente.Intervencao26 == 'S') {%> checked <%} %> >
+            26 - Orientação e providência quanto a isenção tarifária para transporte.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao7" <% if (Paciente.Intervencao7 == 'S') {%> checked <%} %> >
+            7 - Interpretação das orientações fornecidas pela Equipe de Saúde.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao27" <% if (Paciente.Intervencao27 == 'S') {%> checked <%} %> >
+            27 - Orientação e providência quanto a Passe Livre.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao8" <% if (Paciente.Intervencao8 == 'S') {%> checked <%} %> >
+            8 - Mediação entre paciente /família Equipe de Saúde.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao28" <% if (Paciente.Intervencao28 == 'S') {%> checked <%} %> >
+            28 - Orientação e providência quanto ao ATENDE.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao9" <% if (Paciente.Intervencao9 == 'S') {%> checked <%} %> >
+            9 - Mediação entre paciente /família e Recursos Sociais ou de Saúde. 
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao29" <% if (Paciente.Intervencao29 == 'S') {%> checked <%} %> >
+            29 - Orientação e providência quanto a BPC.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao10" <% if (Paciente.Intervencao10 == 'S') {%> checked <%} %> >
+            10 - Mobilização de rede de apoio.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao30" <% if (Paciente.Intervencao30 == 'S') {%> checked <%} %> >
+            30 - Orientação e providência quanto a Programas Sociais.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao11" <% if (Paciente.Intervencao11 == 'S') {%> checked <%} %> >
+            11 - Orientações quanto a reorganização da família frente a situação de doença.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao31" <% if (Paciente.Intervencao31 == 'S') {%> checked <%} %> >
+            31 - Orientação e providência quanto a Previdência Social.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao12" <% if (Paciente.Intervencao12 == 'S') {%> checked <%} %> >
+            12 - Apoio, orientação e providencias pertinentes frente a situação apresentada.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao32" <% if (Paciente.Intervencao32 == 'S') {%> checked <%} %> >
+            32 - Orientação quanto a Processo jurídico / policial.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao13" <% if (Paciente.Intervencao13 == 'S') {%> checked <%} %> >
+            13 - Orientações e providências pertinentes à transferência hospitalar.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao33" <% if (Paciente.Intervencao33 == 'S') {%> checked <%} %> >
+            33 - Orientação e providência quanto a TFD.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao14" <% if (Paciente.Intervencao14 == 'S') {%> checked <%} %> >
+            14 - Orientações / providências em situação de dificuldades de adesão. 
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao34" <% if (Paciente.Intervencao34 == 'S') {%> checked <%} %> >
+            34 - Orientação e providência quanto a Direitos garantidos por Lei decorrentes de Diagnostico.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao15" <% if (Paciente.Intervencao15 == 'S') {%> checked <%} %> >
+            15 - Orientações / providências em situação de abandono do tratamento.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao35" <% if (Paciente.Intervencao35 == 'S') {%> checked <%} %> >
+            35 - Orientação /providências quanto a Direitos trabalhistas.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao16" <% if (Paciente.Intervencao16 == 'S') {%> checked <%} %> >
+            16 - Orientações / providências em situação de indicação de Terapia Renal Substitutiva.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao36" <% if (Paciente.Intervencao36 == 'S') {%> checked <%} %> >
+            36 - Orientação /providências quanto a seguros Ex: seguro de vida, DPVAT e outros.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao17" <% if (Paciente.Intervencao17 == 'S') {%> checked <%} %> >
+            17 - Orientações / providências em situação de indicação de Oxigenoterapia Domiciliar.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao37" <% if (Paciente.Intervencao37 == 'S') {%> checked <%} %> >
+            37 - Convocação de paciente / família.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao18" <% if (Paciente.Intervencao18 == 'S') {%> checked <%} %> >
+            18 - Orientações pertinentes a saída do paciente sem autorização médica.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao38" <% if (Paciente.Intervencao38 == 'S') {%> checked <%} %> >
+            38 - Visita domiciliar.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao19" <% if (Paciente.Intervencao19 == 'S') {%> checked <%} %> >
+            19 - Concessão de auxílio transporte.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao39" <% if (Paciente.Intervencao39 == 'S') {%> checked <%} %> >
+            39 - Mobilização de recursos da comunidade da cidade de origem para efetivação do tratamento médico proposto.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao20" <% if (Paciente.Intervencao20 == 'S') {%> checked <%} %> >
+            20 - Concessão de auxílio financeiro.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao40" <% if (Paciente.Intervencao40 == 'S') {%> checked <%} %> >
+            40 - Inclusão em Programas sociais
+          </label>
+          <br>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao41" <% if (Paciente.Intervencao41 == 'S') {%> checked <%} %> >
+            41 - Outros
+          </label>
+        </div>
+        <br>
+          <label for="OutrasIntervencoes">
+            <textarea type="textarea" rows="5" cols="100" id="OutrasIntervencoes" name="OutrasIntervencoes"><%= Paciente.OutrasIntervencoes %></textarea>
+        
+      </div>
+      <br>
+
+      <div>
+        <label for="DadosAlta">Dados de Alta - Paciente encaminhado para:</label><br>
+        <label>
+          <input type="radio" value="UBS" name="DadosAlta" <% if (Paciente.DadosAlta == 'UBS') {%> checked <%} %> >
+          UBS
+        </label>
+        <label>
+          <input type="radio" value="CAPS I" name="DadosAlta" <% if (Paciente.DadosAlta == 'CAPS I') {%> checked <%} %> >
+          CAPS I
+        </label>
+        <label>
+          <input type="radio" value="CECCO" name="DadosAlta" <% if (Paciente.DadosAlta == 'CECCO') {%> checked <%} %> >
+          CECCO
+        </label>
+        <label>
+          <input type="radio" value="Ambulatório IPQ" name="DadosAlta" <% if (Paciente.DadosAlta == 'Ambulatório IPQ') {%> checked <%} %> >
+          Ambulatório IPQ
+        </label><br><br>
+        <label for="RelatorioAtendimento">Relatório de Atendimento:<br>
+          <textarea type="textarea" rows="10" cols="100" id="RelatorioAtendimento" name="RelatorioAtendimento"><%= Paciente.RelatorioAtendimento %></textarea>
+      
+      </div>
+      <br>
+
+      <div>Última alteração: <%= Paciente.updatedAt.toLocaleString('pt-BR') %> - por: <%= Paciente.NomeProfissionalAvaliacao %></div><br>
+
+      <button class="btn">SALVAR ALTERAÇÕES</button>
+      </form>
+    </div>
+  </div>
+
+  </body>
+
+
+</html>

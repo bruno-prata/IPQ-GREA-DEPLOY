@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/bscs.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>BRIEF SUBSTANCE CRAVING SCALE</h2>
+
+      <%- include('parts/testehead') %>
+
+      <form class="BSCS" action="/GravarNovoBSCS?id=<%= Paciente.id %>" method="POST">
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+        <div class="questaoA">
+          <h3>STAFF USE ONLY</h3><br>
+          A. Identify the primary substance dependence for which the participant is being treated at this clinic.
+          <br>
+          <label>
+          <input type="radio" value="1" name="A1">
+              1. Downers or Sedatives (Barbiturates, etc.)
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="2" name="A1">
+              2. Benzos (Valium, Xanax, etc.)
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="3" name="A1">
+              3. Hallucinogens (including ecstasy)
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="4" name="A1">
+              4. Alcohol
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="5" name="A1">
+              5. Heroin or other Opiates (Morphine, etc.)
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="6" name="A1">
+              6. Marijuana
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="7" name="A1">
+              7. Stimulants (cocaine, amphetamine)
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="8" name="A1">
+              8. Other (specify):
+              <input type="text" class="input" name="Atext">
+            </label>
+          <br>
+        </div>
+        <br>
+
+        <h3>Please answer the following questions with regard to your craving for the <i>primary drug.</i></h3>
+        <div class="questao">
+          1. The INTENSITY of my craving, that is, how much I desired this drug in the past 24 hours was:
+          <br>
+          <label>
+          <input type="radio" value="0" name="Q1">
+              0. None at all
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="1" name="Q1">
+              1. Slight
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="2" name="Q1">
+              2. Moderate
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="3" name="Q1">
+             3. Considerable
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="4" name="Q1">
+             4. Extreme
+            </label>
+          <br>
+        </div>
+        <br>
+
+        <div class="questao">
+          2. The FREQUENCY of my craving, that is, how often I desired this drug in the past 24 hours was:
+          <br>
+          <label>
+          <input type="radio" value="0" name="Q2">
+              0. Never
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="1" name="Q2">
+              1. Almost never
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="2" name="Q2">
+              2. Several times
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="3" name="Q2">
+             3. Regularly
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="4" name="Q2">
+             4. Almost constantly
+            </label>
+          <br>
+        </div>
+        <br>
+
+        <div class="questao">
+          3. The LENGTH of time I spent in craving this drug during the past 24 hours was:
+          <br>
+          <label>
+          <input type="radio" value="0" name="Q3">
+              0. None at all
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="1" name="Q3">
+              1. Very short
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="2" name="Q3">
+              2. Short
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="3" name="Q3">
+             3. Somewhat long
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="4" name="Q3">
+             4. Very long
+            </label>
+          <br>
+        </div>
+        <br>
+
+        <div class="questao">
+          4. Write in the NUMBER of times you think you had craving for this drug during the past 24 hours.
+          <input type="text" class="input" name="Q4">
+          <br>
+        </div>
+        <br>
+
+        <div class="questaoA">
+          B. A second craved substance during the past 24 hours was:<br>
+          <i>Choose only ONE from the following. If NONE, please do not answer Questions 5-8.</i>
+          <br>
+          <label>
+          <input type="radio" value="1" name="B1">
+              1. Downers or Sedatives (Barbiturates, etc.)
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="2" name="B1">
+              2. Benzos (Valium, Xanax, etc.)
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="3" name="B1">
+              3. Hallucinogens (including ecstasy)
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="4" name="B1">
+              4. Alcohol
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="5" name="B1">
+              5. Heroin or other Opiates (Morphine, etc.)
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="6" name="B1">
+              6. Marijuana
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="7" name="B1">
+              7. Stimulants (cocaine, amphetamine)
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="8" name="B1">
+              8. Other (specify):
+              <input type="text" class="input" name="Btext">
+            </label>
+          <br>
+        </div>
+        <br>
+
+        <h3>Please answer the following questions with regard to a <i>second craved drug.</i></h3>
+        <div class="questao">
+          5. The INTENSITY of my craving, that is, how much I desired this drug in the past 24 hours was:
+          <br>
+          <label>
+          <input type="radio" value="0" name="Q5">
+              0. None at all
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="1" name="Q5">
+              1. Slight
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="2" name="Q5">
+              2. Moderate
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="3" name="Q5">
+             3. Considerable
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="4" name="Q5">
+             4. Extreme
+            </label>
+          <br>
+        </div>
+        <br>
+
+        <div class="questao">
+          6. The FREQUENCY of my craving, that is, how often I desired this drug in the past 24 hours was:
+          <br>
+          <label>
+          <input type="radio" value="0" name="Q6">
+              0. Never
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="1" name="Q6">
+              1. Almost never
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="2" name="Q6">
+              2. Several times
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="3" name="Q6">
+             3. Regularly
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="4" name="Q6">
+             4. Almost constantly
+            </label>
+          <br>
+        </div>
+        <br>
+
+        <div class="questao">
+          7. The LENGTH of time I spent in craving this drug during the past 24 hours was:
+          <br>
+          <label>
+          <input type="radio" value="0" name="Q7">
+              0. None at all
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="1" name="Q7">
+              1. Very short
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="2" name="Q7">
+              2. Short
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="3" name="Q7">
+             3. Somewhat long
+            </label>
+          <br>
+          <label>
+          <input type="radio" value="4" name="Q7">
+             4. Very long
+            </label>
+          <br>
+        </div>
+        <br>
+
+        <div class="questao">
+          8. Write in the NUMBER of times you think you had craving for this drug during the past 24 hours.
+          <input type="text" class="input" name="Q8text">
+          <br>
+        </div>
+        <br>
+
+        <div class="assinado">
+          Preenchido por:<br>
+          <%= NomeProfissionalAvaliacao %><br>
+          <%= Profissao %><br>
+          <%= NumeroConselho %><br>
+        </div>
+        
+        <button class="btn">SALVAR</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

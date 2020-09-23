@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+	<link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/login.css" />
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+	<%- include('parts/background') %>
+	
+		<div class="img">
+			<img src="images/bg.svg">
+		</div>
+		<div class="login-content">
+			<form action="/login" method="POST">
+				<img src="images/avatar.png">
+				<h2 class="title">BEM-VINDO</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>E-mail</h5>
+           		   		<input type="text" name="email" class="input" autocomplete="email">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Senha</h5>
+           		    	<input type="password" name="senha" class="input" autocomplete="current-password">
+            	   </div>
+            	</div>
+            	<a href="#">Esqueceu sua senha?</a>
+				<input type="submit" class="btn" value="Login">
+
+				<% if (error) { %>
+				<div class="ERRO"> <%= error %> </div>
+				<% } %>
+				
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="javascripts/main.js"></script>
+
+  </body>
+
+</html>

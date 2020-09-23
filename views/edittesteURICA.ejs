@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/urica.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <div class="principal">
+        <h2>UNIVERSITY OF RHODE ISLAND CHANGE ASSESSMENT SCALE – URICA</h2>
+
+        <%- include('parts/testehead') %>
+
+        <form class="URICA" action="/editarURICA?idTeste=<%= URICA.id %>&idPaciente=<%= Paciente.id %>" method="POST">
+  
+          <div style="display: none;">
+            <input type="submit" name="prevent-enter-submit" onclick="return false;">
+          </div>
+          
+          <div>
+            <p>Cada frase abaixo descreve como uma pessoa pode se sentir quando começa um tratamento ou aborda um problema na sua vida. Por favor, indique o quanto concorda ou discorda de cada frase. Em cada frase, faça uma escolha em termos do que está sentindo agora e não do que sentiu no passado ou gostaria de sentir.</p>
+            <p>Para todas as frases que se referem ao seu problema, pense em seu uso de álcool ou outras drogas.</p>
+            <p>Existem 5 (cinco) respostas possíveis para cada um dos itens do questionário. Indique a resposta que melhor descreve sua opinião.</p>
+          </div>
+  
+          <div class="avgrid">
+  
+            <div class="questao">
+              
+            </div>
+  
+            <div class="resposta">
+              Discordo Totalmente
+            </div>
+  
+            <div class="resposta">
+              Discordo
+            </div>
+  
+            <div class="resposta">
+              Indeciso
+            </div>
+  
+            <div class="resposta">
+              Concordo
+            </div>
+  
+            <div class="resposta"> 
+              Concordo Totalmente
+            </div>
+  
+  
+            <div class="questao">
+              1 – No meu ponto de vista, não tenho nenhum problema que precise de mudança.
+            </div>
+  
+            
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q1" <% if (URICA.Q1 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q1" <% if (URICA.Q1 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q1" <% if (URICA.Q1 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q1" <% if (URICA.Q1 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q1" <% if (URICA.Q1 == '5') {%> checked <%} %>>
+              </label>
+            </div>
+          
+  
+  
+            <div class="questao">
+              2 – Acho que posso estar pronto para alguma melhora pessoal referente ao meu uso de <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q2" <% if (URICA.Q2 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q2" <% if (URICA.Q2 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q2" <% if (URICA.Q2 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q2" <% if (URICA.Q2 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q2" <% if (URICA.Q2 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              3 – Estou fazendo algo sobre meus problemas com <i>álcool/drogas</i>, que estão me incomodando.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q3" <% if (URICA.Q3 == '1') {%> checked <%} %>>
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q3" <% if (URICA.Q3 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q3" <% if (URICA.Q3 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q3" <% if (URICA.Q3 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q3" <% if (URICA.Q3 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              4 – Vale a pena trabalhar o meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q4" <% if (URICA.Q4 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q4" <% if (URICA.Q4 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q4" <% if (URICA.Q4 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q4" <% if (URICA.Q4 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q4"  <% if (URICA.Q4 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              5 – Não sou eu quem tem o problema, por fazer uso de <i>álcool/drogas</i>. Não faz muito sentido para eu estar aqui.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q5" <% if (URICA.Q5 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q5" <% if (URICA.Q5 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q5"  <% if (URICA.Q5 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q5"  <% if (URICA.Q5 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q5"  <% if (URICA.Q5 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              6 – Me preocupo em voltar a ter o problema com <i>álcool/drogas</i>, que pensei que já tivesse resolvido, por isso estou buscando ajuda.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q6" <% if (URICA.Q6 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q6" <% if (URICA.Q6 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q6" <% if (URICA.Q6 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q6" <% if (URICA.Q6 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q6" <% if (URICA.Q6 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+            
+            <div class="questao">
+              7 – Estou finalmente tomando providências para resolver meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q7" <% if (URICA.Q7 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q7" <% if (URICA.Q7 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q7" <% if (URICA.Q7 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q7" <% if (URICA.Q7 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q7" <% if (URICA.Q7 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              8 – Tenho pensado que posso querer mudar alguma coisa sobre eu mesmo, relacionado ao meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q8" <% if (URICA.Q8 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q8"  <% if (URICA.Q8 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q8" <% if (URICA.Q8 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q8" <% if (URICA.Q8 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q8" <% if (URICA.Q8 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              9 – Tenho obtido sucesso em resolver meu problema com <i>álcool/drogas</i>, mas não tenho certeza que posso manter este esforço sozinho(a).
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q9" <% if (URICA.Q9 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q9" <% if (URICA.Q9 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q9" <% if (URICA.Q9 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q9" <% if (URICA.Q9 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q9" <% if (URICA.Q9 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              10 ­- Ás vezes, meu problema é difícil, mas estou tentando resolvê­-lo.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q10" <% if (URICA.Q10 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q10" <% if (URICA.Q10 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q10" <% if (URICA.Q10 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q10" <% if (URICA.Q10 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q10" <% if (URICA.Q10 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              11 – Estar aqui é uma perda de tempo para mim, porque o problema não tem nada a ver comigo.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q11" <% if (URICA.Q11 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q11" <% if (URICA.Q11 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q11" <% if (URICA.Q11 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q11" <% if (URICA.Q11 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q11" <% if (URICA.Q11 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              12 – Espero que este lugar me ajude a entender melhor meu problema com <i>álcool/drogas</i>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q12" <% if (URICA.Q12 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q12" <% if (URICA.Q12 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q12" <% if (URICA.Q12 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q12" <% if (URICA.Q12 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q12" <% if (URICA.Q12 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              13 – Suponho ter defeitos, mas não há nada que realmente precise mudar.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q13" <% if (URICA.Q13 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q13" <% if (URICA.Q13 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q13" <% if (URICA.Q13 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q13" <% if (URICA.Q13 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q13" <% if (URICA.Q13 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              14 – Estou realmente me esforçando muito para mudar meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q14" <% if (URICA.Q14 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q14" <% if (URICA.Q14 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q14" <% if (URICA.Q14 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q14" <% if (URICA.Q14 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q14" <% if (URICA.Q14 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              15 – Tenho um problema e realmente acho que deveria tentar resolvê­-lo.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q15" <% if (URICA.Q15 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q15" <% if (URICA.Q15 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q15" <% if (URICA.Q15 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q15" <% if (URICA.Q15 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q15" <% if (URICA.Q15 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              16 – Não estou conseguindo dar continuidade, como esperava, ao que já tinha mudado e quero prevenir uma recaída decorrente do meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q16" <% if (URICA.Q16 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q16" <% if (URICA.Q16 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q16" <% if (URICA.Q16 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q16" <% if (URICA.Q16 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q16" <% if (URICA.Q16 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              17 – Mesmo que nem sempre tenha sucesso com a mudança, pelo menos estou me esforçando para resolver meu problema.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q17" <% if (URICA.Q17 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q17" <% if (URICA.Q17 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q17" <% if (URICA.Q17 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q17" <% if (URICA.Q17 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q17" <% if (URICA.Q17 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              18 – Pensei que uma vez resolvido o problema <i>álcool/drogas</i>, estaria livre dele. Mas algumas vezes ainda percebo que estou lutando contra ele.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q18" <% if (URICA.Q18 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q18" <% if (URICA.Q18 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q18" <% if (URICA.Q18 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q18" <% if (URICA.Q18 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q18" <% if (URICA.Q18 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              19 – Espero ter mais ideias de como resolver meu problema <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q19" <% if (URICA.Q19 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q19" <% if (URICA.Q19 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q19" <% if (URICA.Q19 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q19" <% if (URICA.Q19 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q19" <% if (URICA.Q19 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              20 – Comecei q tentar resolver meu problema com <i>álcool/drogas</i>, mas gostaria de receber ajuda.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q20" <% if (URICA.Q20 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q20" <% if (URICA.Q20 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q20" <% if (URICA.Q20 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q20" <% if (URICA.Q20 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q20" <% if (URICA.Q20 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              21 – Talvez esse lugar ou alguém possa me ajuda com o meu problema <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q21" <% if (URICA.Q21 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q21" <% if (URICA.Q21 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q21" <% if (URICA.Q21 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q21" <% if (URICA.Q21 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q21" <% if (URICA.Q21 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              22 – Posso precisar de um estímulo agora para ajudar a manter as mudanças que já fiz com relação ao meu problema <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q22" <% if (URICA.Q22 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q22" <% if (URICA.Q22 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q22" <% if (URICA.Q22 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q22" <% if (URICA.Q22 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q22" <% if (URICA.Q22 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              23 – É possível que eu seja parte do problema, mas não acho que sou.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q23" <% if (URICA.Q23 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q23" <% if (URICA.Q23 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q23" <% if (URICA.Q23 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q23" <% if (URICA.Q23 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q23" <% if (URICA.Q23 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              24 – Espero que aqui, alguém possa me dar boas orientações quanto ao meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q24" <% if (URICA.Q24 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q24" <% if (URICA.Q24 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q24" <% if (URICA.Q24 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q24" <% if (URICA.Q24 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q24" <% if (URICA.Q24 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              25 – Qualquer um pode falar sobre mudanças no seu consumo de <i>álcool/drogas</i>s, mas estou realmente fazendo alguma coisa sobre isso.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q25" <% if (URICA.Q25 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q25" <% if (URICA.Q25 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q25" <% if (URICA.Q25 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q25" <% if (URICA.Q25 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q25" <% if (URICA.Q25 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              26 – Toda essa conversa sobre psicologia é chata. Por que as pessoas não podem simplesmente esquecer seus problemas com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q26" <% if (URICA.Q26 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q26" <% if (URICA.Q26 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q26" <% if (URICA.Q26 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q26" <% if (URICA.Q26 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q26" <% if (URICA.Q26 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              27 – Estou aqui para prevenir uma recaída.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q27" <% if (URICA.Q27 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q27" <% if (URICA.Q27 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q27" <% if (URICA.Q27 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q27" <% if (URICA.Q27 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q27" <% if (URICA.Q27 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              28 – É frustrante, mas acho que posso estar tendo uma recaída.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q28" <% if (URICA.Q28 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q28" <% if (URICA.Q28 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q28" <% if (URICA.Q28 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q28" <% if (URICA.Q28 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q28" <% if (URICA.Q28 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              29 – Tenho preocupações com meu problema com <i>álcool/drogas</i>, como todo mundo tem. Por que perder tempo pensando nelas?
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q29" <% if (URICA.Q29 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q29" <% if (URICA.Q29 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q29" <% if (URICA.Q29 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q29" <% if (URICA.Q29 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q29" <% if (URICA.Q29 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              30 – Estou tentando ativamente resolver meu problema.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q30" <% if (URICA.Q30 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q30" <% if (URICA.Q30 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q30" <% if (URICA.Q30 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q30" <% if (URICA.Q30 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q30" <% if (URICA.Q30 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              31 – Eu preferiria conviver com meus defeitos a tentar muda­-los.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q31" <% if (URICA.Q31 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q31" <% if (URICA.Q31 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q31" <% if (URICA.Q31 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q31" <% if (URICA.Q31 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q31" <% if (URICA.Q31 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="questao">
+              32 – Depois de tudo que fiz para mudar meu problema, ás vezes ele volta a me perseguir.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q32" <% if (URICA.Q32 == '1') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q32" <% if (URICA.Q32 == '2') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q32" <% if (URICA.Q32 == '3') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q32"  <% if (URICA.Q32 == '4') {%> checked <%} %> >
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q32" <% if (URICA.Q32 == '5') {%> checked <%} %> >
+              </label>
+            </div>
+  
+  
+          </div>
+          <br>
+          <h2>RESULTADO</h2>
+          <div class="resultgrid">
+            
+            <div class="categorias">
+              Escala P<br>(Pré‐contemplação)
+            </div>
+            <div class="categorias">
+              Escala C<br>(Contemplação)
+            </div>
+            <div class="categorias"> 
+              Escala A<br>(Ação)
+            </div>
+            <div class="categorias">
+              Escala M<br>(Manutenção)
+            </div>
+  
+            <div>1 = <%= URICA.Q1 %> </div>
+            <div>2 = <%= URICA.Q2 %></div>
+            <div>3 = <%= URICA.Q3 %></div>
+            <div>6 = <%= URICA.Q6 %></div>
+  
+            <div>5 = <%= URICA.Q5 %></div>
+            <div>4 (omitir) = <%= URICA.Q4 %></div>
+            <div>7 = <%= URICA.Q7 %></div>
+            <div>9 (omitir) = <%= URICA.Q9 %></div>
+  
+            <div>11 = <%= URICA.Q11 %></div>
+            <div>8 = <%= URICA.Q8 %></div>
+            <div>10 = <%= URICA.Q10 %></div>
+            <div>16 = <%= URICA.Q16 %></div>
+  
+            <div>13 = <%= URICA.Q13 %></div>
+            <div>12 = <%= URICA.Q12 %></div>
+            <div>14 = <%= URICA.Q14 %></div>
+            <div>18 = <%= URICA.Q18 %></div>
+  
+            <div>23 = <%= URICA.Q23 %></div>
+            <div>15 = <%= URICA.Q15 %></div>
+            <div>17 = <%= URICA.Q17 %></div>
+            <div>22 = <%= URICA.Q22 %></div>
+  
+            <div>26 = <%= URICA.Q26 %></div>
+            <div>19 = <%= URICA.Q19 %></div>
+            <div>20 (omitir) = <%= URICA.Q20 %></div>
+            <div>27 = <%= URICA.Q27 %></div>
+  
+            <div>29 = <%= URICA.Q29 %></div>
+            <div>21 = <%= URICA.Q21 %></div>
+            <div>25 = <%= URICA.Q25 %></div>
+            <div>28 = <%= URICA.Q28 %></div>
+  
+            <div>31 (omitir) = <%= URICA.Q31 %></div>
+            <div>24 = <%= URICA.Q24 %></div>
+            <div>30 = <%= URICA.Q30 %></div>
+            <div>32 = <%= URICA.Q32 %></div>
+  
+            <div>Total = <% let P = URICA.Q1+URICA.Q5+URICA.Q11+URICA.Q13+URICA.Q23+URICA.Q26+URICA.Q29 %><%= P %></div>
+            <div>Total = <% let C = URICA.Q2+URICA.Q8+URICA.Q12+URICA.Q15+URICA.Q19+URICA.Q21+URICA.Q24 %><%= C %></div>
+            <div>Total = <% let A = URICA.Q3+URICA.Q7+URICA.Q10+URICA.Q14+URICA.Q17+URICA.Q25+URICA.Q30 %><%= A %></div>
+            <div>Total = <% let M = URICA.Q6+URICA.Q16+URICA.Q18+URICA.Q22+URICA.Q27+URICA.Q28+URICA.Q32 %><%= M %></div>
+          </div>
+          *O valor mais alto é o estágio em que a pessoa se encontra<br>
+          <div class="score">Score final = (C+A+M) – P/7 = <%= score = ((C+A+M)-P)/7 %></div>
+  
+          Abaixo de 8 = Pré‐contemplação <br>
+          8 a 12 = Contemplação <br>
+          Acima de 12 = Preparação/Ação <br><br>
+
+          <div class="caixa">Última alteração: <%= URICA.updatedAt.toLocaleString('pt-BR') %> - por: <%= URICA.NomeProfissionalAvaliacao %></div><br>
+
+          <button class="btn">SALVAR ALTERAÇÕES</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

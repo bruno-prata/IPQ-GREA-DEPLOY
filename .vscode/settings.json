@@ -1,0 +1,9 @@
+{
+    "git.ignoreLimitWarning": true,
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/7c5acc2f-75d2-4be7-91a1-70ce71e7f839/resourceGroups/IPQ-GREA/providers/Microsoft.Web/sites/IPQDEPLOY"
+}

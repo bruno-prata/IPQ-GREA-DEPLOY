@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/bai.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>INVENTÁRIO DE ANSIEDADE DE BECK - BAI</h2>
+
+      <%- include('parts/testehead') %>
+
+      <form class="BAI" action="/GravarNovoBAI?id=<%= Paciente.id %>" method="POST">
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+        <div>
+          <p>Abaixo está uma lista de sintomas comuns de ansiedade. Por favor, leia cuidadosamente cada item da lista. Identifique o quanto você tem sido incomodado por cada sintoma durante a última semana, incluindo hoje.</p>
+          </div>
+
+        <div class="avgrid">
+
+          <div class="questao">
+            
+          </div>
+
+          <div class="resposta">
+            Absolutamente<br>não
+          </div>
+
+          <div class="resposta">
+            Levemente<br>Não me incomodou muito
+          </div>
+
+          <div class="resposta">
+            Moderadamente<br>Foi muito desagradável mas pude suportar
+          </div>
+
+          <div class="resposta">
+            Gravemente<br>Dificilmente pude suportar
+          </div>
+
+          <div class="questao">
+            1. Dormência ou formigamento
+          </div>
+
+          
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q1">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q1">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q1">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q1">
+            </label>
+          </div>
+
+          <div class="questao">
+            2. Sensação de calor
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q2">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q2">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q2">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q2">
+            </label>
+          </div>
+
+          <div class="questao">
+            3. Tremores nas pernas
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q3">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q3">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q3">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q3">
+            </label>
+          </div>
+
+          <div class="questao">
+            4. Incapaz de relaxar
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q4">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q4">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q4">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q4">
+            </label>
+          </div>
+
+          <div class="questao">
+            5. Medo que aconteça o pior
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q5">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q5">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q5">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q5">
+            </label>
+          </div>
+
+          <div class="questao">
+            6. Atordoado ou tonto  
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q6">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q6">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q6">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q6">
+            </label>
+          </div>
+          
+          <div class="questao">
+            7. Palpitação ou aceleração do coração
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q7">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q7">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q7">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q7">
+            </label>
+          </div>
+
+          <div class="questao">
+            8. Sem equilíbrio
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q8">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q8">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q8">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q8">
+            </label>
+          </div>
+
+          <div class="questao">
+            9. Aterrorizado
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q9">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q9">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q9">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q9">
+            </label>
+          </div>
+
+
+          <div class="questao">
+            10. Nervoso
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q10">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q10">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q10">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q10">
+            </label>
+          </div>
+
+          <div class="questao">
+            11. Sensação de sufocação
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q11">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q11">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q11">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q11">
+            </label>
+          </div>
+
+          <div class="questao">
+            12. Tremores nas mãos
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q12">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q12">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q12">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q12">
+            </label>
+          </div>
+
+          <div class="questao">
+            13. Trêmulo
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q13">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q13">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q13">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q13">
+            </label>
+          </div>
+
+          <div class="questao">
+            14. Medo de perder o controle
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q14">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q14">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q14">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q14">
+            </label>
+          </div>
+
+          <div class="questao">
+            15. Dificuldade de respirar
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q15">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q15">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q15">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q15">
+            </label>
+          </div>
+
+          <div class="questao">
+            16. Medo de morrer
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q16">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q16">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q16">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q16">
+            </label>
+          </div>
+
+          <div class="questao">
+            17. Assustado
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q17">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q17">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q17">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q17">
+            </label>
+          </div>
+
+          <div class="questao">
+            18. Indigestão ou desconforto no abdômen
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q18">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q18">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q18">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q18">
+            </label>
+          </div>
+
+          <div class="questao">
+            19. Sensação de desmaio
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q19">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q19">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q19">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q19">
+            </label>
+          </div>
+
+          <div class="questao">
+            20. Rosto afogueado
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q20">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q20">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q20">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q20">
+            </label>
+          </div>
+
+          <div class="questao">
+            21. Suor (não devido ao calor)
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q21">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q21">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q21">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q21">
+            </label>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="assinado">
+          Preenchido por:<br>
+          <%= NomeProfissionalAvaliacao %><br>
+          <%= Profissao %><br>
+          <%= NumeroConselho %><br>
+        </div>
+        
+        <button class="btn">SALVAR</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

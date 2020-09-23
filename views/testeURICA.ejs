@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/urica.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <div class="principal">
+        <h2>UNIVERSITY OF RHODE ISLAND CHANGE ASSESSMENT SCALE – URICA</h2>
+
+        <%- include('parts/testehead') %>
+        
+        <form class="URICA" action="/GravarNovoURICA?id=<%= Paciente.id %>" method="POST">
+
+          <div style="display: none;">
+            <input type="submit" name="prevent-enter-submit" onclick="return false;">
+          </div>
+  
+          <div>
+            <p>Cada frase abaixo descreve como uma pessoa pode se sentir quando começa um tratamento ou aborda um problema na sua vida. Por favor, indique o quanto concorda ou discorda de cada frase. Em cada frase, faça uma escolha em termos do que está sentindo agora e não do que sentiu no passado ou gostaria de sentir.</p>
+            <p>Para todas as frases que se referem ao seu problema, pense em seu uso de álcool ou outras drogas.</p>
+            <p>Existem 5 (cinco) respostas possíveis para cada um dos itens do questionário. Indique a resposta que melhor descreve sua opinião.</p>
+          </div>
+  
+          <div class="avgrid">
+  
+            <div class="questao">
+              
+            </div>
+  
+            <div class="resposta">
+              Discordo Totalmente
+            </div>
+  
+            <div class="resposta">
+              Discordo
+            </div>
+  
+            <div class="resposta">
+              Indeciso
+            </div>
+  
+            <div class="resposta">
+              Concordo
+            </div>
+  
+            <div class="resposta"> 
+              Concordo Totalmente
+            </div>
+  
+  
+            <div class="questao">
+              1 – No meu ponto de vista, não tenho nenhum problema que precise de mudança.
+            </div>
+  
+            
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q1">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q1">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q1">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q1">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q1">
+              </label>
+            </div>
+          
+  
+  
+            <div class="questao">
+              2 – Acho que posso estar pronto para alguma melhora pessoal referente ao meu uso de <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q2">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q2">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q2">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q2">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q2">
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              3 – Estou fazendo algo sobre meus problemas com <i>álcool/drogas</i>, que estão me incomodando.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q3">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q3">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q3">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q3">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q3">
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              4 – Vale a pena trabalhar o meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q4">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q4">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q4">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q4">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q4">
+              </label>
+            </div>
+  
+            <div class="questao">
+              5 – Não sou eu quem tem o problema, por fazer uso de <i>álcool/drogas</i>. Não faz muito sentido para eu estar aqui.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q5">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q5">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q5">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q5">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q5">
+              </label>
+            </div>
+  
+            <div class="questao">
+              6 – Me preocupo em voltar a ter o problema com <i>álcool/drogas</i>, que pensei que já tivesse resolvido, por isso estou buscando ajuda.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q6">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q6">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q6">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q6">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q6">
+              </label>
+            </div>
+            
+            <div class="questao">
+              7 – Estou finalmente tomando providências para resolver meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q7">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q7">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q7">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q7">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q7">
+              </label>
+            </div>
+  
+            <div class="questao">
+              8 – Tenho pensado que posso querer mudar alguma coisa sobre eu mesmo, relacionado ao meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q8">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q8">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q8">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q8">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q8">
+              </label>
+            </div>
+  
+            <div class="questao">
+              9 – Tenho obtido sucesso em resolver meu problema com <i>álcool/drogas</i>, mas não tenho certeza que posso manter este esforço sozinho(a).
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q9">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q9">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q9">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q9">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q9">
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              10 ­- Ás vezes, meu problema é difícil, mas estou tentando resolvê­-lo.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q10">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q10">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q10">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q10">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q10">
+              </label>
+            </div>
+  
+            <div class="questao">
+              11 – Estar aqui é uma perda de tempo para mim, porque o problema não tem nada a ver comigo.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q11">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q11">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q11">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q11">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q11">
+              </label>
+            </div>
+  
+            <div class="questao">
+              12 – Espero que este lugar me ajude a entender melhor meu problema com <i>álcool/drogas</i>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q12">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q12">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q12">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q12">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q12">
+              </label>
+            </div>
+  
+            <div class="questao">
+              13 – Suponho ter defeitos, mas não há nada que realmente precise mudar.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q13">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q13">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q13">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q13">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q13">
+              </label>
+            </div>
+  
+            <div class="questao">
+              14 – Estou realmente me esforçando muito para mudar meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q14">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q14">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q14">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q14">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q14">
+              </label>
+            </div>
+  
+            <div class="questao">
+              15 – Tenho um problema e realmente acho que deveria tentar resolvê­-lo.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q15">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q15">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q15">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q15">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q15">
+              </label>
+            </div>
+  
+            <div class="questao">
+              16 – Não estou conseguindo dar continuidade, como esperava, ao que já tinha mudado e quero prevenir uma recaída decorrente do meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q16">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q16">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q16">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q16">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q16">
+              </label>
+            </div>
+  
+            <div class="questao">
+              17 – Mesmo que nem sempre tenha sucesso com a mudança, pelo menos estou me esforçando para resolver meu problema.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q17">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q17">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q17">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q17">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q17">
+              </label>
+            </div>
+  
+            <div class="questao">
+              18 – Pensei que uma vez resolvido o problema <i>álcool/drogas</i>, estaria livre dele. Mas algumas vezes ainda percebo que estou lutando contra ele.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q18">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q18">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q18">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q18">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q18">
+              </label>
+            </div>
+  
+            <div class="questao">
+              19 – Espero ter mais ideias de como resolver meu problema <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q19">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q19">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q19">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q19">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q19">
+              </label>
+            </div>
+  
+            <div class="questao">
+              20 – Comecei q tentar resolver meu problema com <i>álcool/drogas</i>, mas gostaria de receber ajuda.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q20">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q20">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q20">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q20">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q20">
+              </label>
+            </div>
+  
+            <div class="questao">
+              21 – Talvez esse lugar ou alguém possa me ajuda com o meu problema <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q21">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q21">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q21">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q21">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q21">
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              22 – Posso precisar de um estímulo agora para ajudar a manter as mudanças que já fiz com relação ao meu problema <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q22">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q22">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q22">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q22">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q22">
+              </label>
+            </div>
+  
+            <div class="questao">
+              23 – É possível que eu seja parte do problema, mas não acho que sou.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q23">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q23">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q23">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q23">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q23">
+              </label>
+            </div>
+  
+            <div class="questao">
+              24 – Espero que aqui, alguém possa me dar boas orientações quanto ao meu problema com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q24">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q24">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q24">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q24">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q24">
+              </label>
+            </div>
+  
+            <div class="questao">
+              25 – Qualquer um pode falar sobre mudanças no seu consumo de <i>álcool/drogas</i>s, mas estou realmente fazendo alguma coisa sobre isso.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q25">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q25">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q25">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q25">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q25">
+              </label>
+            </div>
+  
+            <div class="questao">
+              26 – Toda essa conversa sobre psicologia é chata. Por que as pessoas não podem simplesmente esquecer seus problemas com <i>álcool/drogas</i>.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q26">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q26">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q26">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q26">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q26">
+              </label>
+            </div>
+  
+            <div class="questao">
+              27 – Estou aqui para prevenir uma recaída.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q27">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q27">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q27">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q27">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q27">
+              </label>
+            </div>
+  
+            <div class="questao">
+              28 – É frustrante, mas acho que posso estar tendo uma recaída.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q28">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q28">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q28">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q28">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q28">
+              </label>
+            </div>
+  
+            <div class="questao">
+              29 – Tenho preocupações com meu problema com <i>álcool/drogas</i>, como todo mundo tem. Por que perder tempo pensando nelas?
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q29">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q29">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q29">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q29">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q29">
+              </label>
+            </div>
+  
+            <div class="questao">
+              30 – Estou tentando ativamente resolver meu problema.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q30">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q30">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q30">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q30">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q30">
+              </label>
+            </div>
+  
+            <div class="questao">
+              31 – Eu preferiria conviver com meus defeitos a tentar muda­-los.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q31">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q31">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q31">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q31">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q31">
+              </label>
+            </div>
+  
+            <div class="questao">
+              32 – Depois de tudo que fiz para mudar meu problema, ás vezes ele volta a me perseguir.
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="Q32">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="Q32">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="Q32">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>4
+                <input type="radio" value="4" name="Q32">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>5
+                <input type="radio" value="5" name="Q32">
+              </label>
+            </div>
+  
+  
+          </div>
+          <br>
+          <h2>RESULTADO</h2>
+          <div class="resultgrid">
+            
+            <div class="categorias">
+              Escala P<br>(Pré‐contemplação)
+            </div>
+            <div class="categorias">
+              Escala C<br>(Contemplação)
+            </div>
+            <div class="categorias"> 
+              Escala A<br>(Ação)
+            </div>
+            <div class="categorias">
+              Escala M<br>(Manutenção)
+            </div>
+  
+            <div>1 = </div>
+            <div>2 = </div>
+            <div>3 = </div>
+            <div>6 = </div>
+  
+            <div>5 = </div>
+            <div>4 (omitir) = </div>
+            <div>7 = </div>
+            <div>9 (omitir) = </div>
+  
+            <div>11 = </div>
+            <div>8 = </div>
+            <div>10 = </div>
+            <div>16 = </div>
+  
+            <div>13 = </div>
+            <div>12 = </div>
+            <div>14 = </div>
+            <div>18 = </div>
+  
+            <div>23 = </div>
+            <div>15 = </div>
+            <div>17 = </div>
+            <div>22 = </div>
+  
+            <div>16 = </div>
+            <div>19 = </div>
+            <div>20 (omitir) = </div>
+            <div>27 = </div>
+  
+            <div>29 = </div>
+            <div>21 = </div>
+            <div>25 = </div>
+            <div>28 = </div>
+  
+            <div>31 (omitir) = </div>
+            <div>24 = </div>
+            <div>30 = </div>
+            <div>32 = </div>
+  
+            <div>Total = </div>
+            <div>Total = </div>
+            <div>Total = </div>
+            <div>Total = </div>
+          </div>
+          *O valor mais alto é o estágio em que a pessoa se encontra<br>
+          <div class="score">Score final = (C+A+M) – P/7 = </div>
+  
+          Abaixo de 8 = Pré‐contemplação <br>
+          8 a 12 = Contemplação <br>
+          Acima de 12 = Preparação/Ação <br>
+
+          <div class="assinado">
+            Preenchido por:<br>
+            <%= NomeProfissionalAvaliacao %><br>
+            <%= Profissao %><br>
+            <%= NumeroConselho %><br>
+          </div>
+  
+          <button class="btn">SALVAR</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

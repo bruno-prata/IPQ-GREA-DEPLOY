@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/bai.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>INVENTÁRIO DE ANSIEDADE DE BECK - BAI</h2>
+
+      <%- include('parts/testehead') %>
+
+      <form class="BAI" action="/editarBAI?idTeste=<%= BAI.id %>&idPaciente=<%= Paciente.id %>" method="POST">
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+        <div>
+          <p>Abaixo está uma lista de sintomas comuns de ansiedade. Por favor, leia cuidadosamente cada item da lista. Identifique o quanto você tem sido incomodado por cada sintoma durante a última semana, incluindo hoje.</p>
+          </div>
+
+        <div class="avgrid">
+
+          <div class="questao">
+            
+          </div>
+
+          <div class="resposta">
+            Absolutamente<br>não
+          </div>
+
+          <div class="resposta">
+            Levemente<br>Não me incomodou muito
+          </div>
+
+          <div class="resposta">
+            Moderadamente<br>Foi muito desagradável mas pude suportar
+          </div>
+
+          <div class="resposta">
+            Gravemente<br>Dificilmente pude suportar
+          </div>
+
+          <div class="questao">
+            1. Dormência ou formigamento
+          </div>
+
+          
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q1" <% if (BAI.Q1 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q1" <% if (BAI.Q1 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q1" <% if (BAI.Q1 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q1" <% if (BAI.Q1 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            2. Sensação de calor
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q2" <% if (BAI.Q2 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q2" <% if (BAI.Q2 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q2" <% if (BAI.Q2 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q2" <% if (BAI.Q2 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            3. Tremores nas pernas
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q3" <% if (BAI.Q3 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q3" <% if (BAI.Q3 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q3" <% if (BAI.Q3 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q3" <% if (BAI.Q3 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            4. Incapaz de relaxar
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q4" <% if (BAI.Q4 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q4" <% if (BAI.Q4 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q4" <% if (BAI.Q4 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q4" <% if (BAI.Q4 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            5. Medo que aconteça o pior
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q5" <% if (BAI.Q5 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q5" <% if (BAI.Q5 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q5" <% if (BAI.Q5 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q5" <% if (BAI.Q5 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            6. Atordoado ou tonto  
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q6" <% if (BAI.Q6 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q6" <% if (BAI.Q6 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q6" <% if (BAI.Q6 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q6" <% if (BAI.Q6 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+          
+          <div class="questao">
+            7. Palpitação ou aceleração do coração
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q7" <% if (BAI.Q7 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q7" <% if (BAI.Q7 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q7" <% if (BAI.Q7 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q7" <% if (BAI.Q7 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            8. Sem equilíbrio
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q8" <% if (BAI.Q8 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q8" <% if (BAI.Q8 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q8" <% if (BAI.Q8 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q8" <% if (BAI.Q8 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            9. Aterrorizado
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q9" <% if (BAI.Q9 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q9" <% if (BAI.Q9 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q9" <% if (BAI.Q9 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q9" <% if (BAI.Q9 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+
+          <div class="questao">
+            10. Nervoso
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q10" <% if (BAI.Q10 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q10" <% if (BAI.Q10 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q10" <% if (BAI.Q10 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q10" <% if (BAI.Q10 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            11. Sensação de sufocação
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q11" <% if (BAI.Q11 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q11" <% if (BAI.Q11 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q11" <% if (BAI.Q11 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q11" <% if (BAI.Q11 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            12. Tremores nas mãos
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q12" <% if (BAI.Q12 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q12" <% if (BAI.Q12 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q12" <% if (BAI.Q12 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q12" <% if (BAI.Q12 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            13. Trêmulo
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q13" <% if (BAI.Q13 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q13" <% if (BAI.Q13 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q13" <% if (BAI.Q13 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q13" <% if (BAI.Q13 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            14. Medo de perder o controle
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q14" <% if (BAI.Q14 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q14" <% if (BAI.Q14 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q14" <% if (BAI.Q14 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q14" <% if (BAI.Q14 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            15. Dificuldade de respirar
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q15" <% if (BAI.Q15 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q15" <% if (BAI.Q15 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q15" <% if (BAI.Q15 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q15" <% if (BAI.Q15 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            16. Medo de morrer
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q16" <% if (BAI.Q16 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q16" <% if (BAI.Q16 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q16" <% if (BAI.Q16 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q16" <% if (BAI.Q16 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            17. Assustado
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q17" <% if (BAI.Q17 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q17" <% if (BAI.Q17 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q17" <% if (BAI.Q17 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q17" <% if (BAI.Q17 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            18. Indigestão ou desconforto no abdômen
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q18" <% if (BAI.Q18 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q18" <% if (BAI.Q18 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q18" <% if (BAI.Q18 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q18" <% if (BAI.Q18 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            19. Sensação de desmaio
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q19" <% if (BAI.Q19 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q19" <% if (BAI.Q19 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q19" <% if (BAI.Q19 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q19" <% if (BAI.Q19 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            20. Rosto afogueado
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q20" <% if (BAI.Q20 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q20" <% if (BAI.Q20 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q20" <% if (BAI.Q20 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q20" <% if (BAI.Q20 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="questao">
+            21. Suor (não devido ao calor)
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="Q21" <% if (BAI.Q21 == '1') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="Q21" <% if (BAI.Q21 == '2') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="Q21" <% if (BAI.Q21 == '3') {%> checked <%} %> >
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>4
+              <input type="radio" value="4" name="Q21" <% if (BAI.Q21 == '4') {%> checked <%} %> >
+            </label>
+          </div>
+        </div>
+        <br>
+
+        <div class="caixa">Última alteração: <%= BAI.updatedAt.toLocaleString('pt-BR') %> - por: <%= BAI.NomeProfissionalAvaliacao %></div><br>
+        
+        <button class="btn">SALVAR ALTERAÇÕES</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

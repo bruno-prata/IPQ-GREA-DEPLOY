@@ -1,0 +1,49 @@
+.avgrid {
+	display: grid;
+	grid-template-columns: 1fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr;
+	grid-row-gap: 2rem;
+	grid-column-gap: 0.25rem;
+}
+
+.questao {
+	
+}
+
+.resposta {
+	text-align: center;
+	margin: auto; 
+}
+
+.resultgrid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	background-color: #0d558a;
+	padding: 1rem;
+	color: #fff;
+	border-radius: 20px;
+}
+
+.scoreA{
+	background-color: #de0a16;
+	padding: 1rem;
+	color: #fff;
+	border-radius: 20px;
+	text-align: center;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.scoreB{
+	background-color: #de0a16;
+	padding: 1rem;
+	color: #fff;
+	border-radius: 20px;
+	text-align: center;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.categorias {
+
+
+}

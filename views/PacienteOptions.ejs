@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <div class="caixa">
+        <p><b>PACIENTE:</b> <%= Paciente.NomeSocial %></p>
+        <p><b>CID:</b> <%= Paciente.CID %></p>
+
+        <p><a class="paciente" href="/verCadastroPaciente?id=<%= Paciente.id %>" method='GET'>VER / EDITAR CADASTRO DO PACIENTE</a>
+      </div></p>
+
+      <div class="caixa">
+        <h3>NOVA AVALIAÇÃO:</h3><br>
+        <a class="paciente" href="/URICA?id=<%= Paciente.id %>" method='GET'>UNIVERSITY OF RHODE ISLAND CHANGE ASSESSMENT SCALE – URICA</a><br>
+        <a class="paciente" href="#" method='GET'>ASI 16 - ÁLCOOL E DROGAS</a><br>
+        <a class="paciente" href="/COWS?id=<%= Paciente.id %>" method='GET'>CLINICAL OPIATE WITHDRAWAL SCALE (COWS)</a><br>
+        <a class="paciente" href="#" method='GET'>ANAMNESE</a><br>
+        <a class="paciente" href="#" method='GET'>ASSIST OMS</a><br>
+        <a class="paciente" href="#" method='GET'>M.I.N.I.: MINI INTERNATIONAL NEUROPSYCHIATRIC INTERVIEW </a><br>
+        <a class="paciente" href="#" method='GET'>MONTREAL COGNITIVE ASSESSMENT - MoCA</a><br>
+        <a class="paciente" href="/ASRS?id=<%= Paciente.id %>" method='GET'>ASRS</a><br>
+        <a class="paciente" href="/BAI?id=<%= Paciente.id %>" method='GET'>INVENTÁRIO DE ANSIEDADE DE BECK - BAI</a><br>
+        <a class="paciente" href="/BDI?id=<%= Paciente.id %>" method='GET'>INVENTÁRIO DE DEPRESSÃO DE BECK - BDI</a><br>
+        <a class="paciente" href="/BSCS?id=<%= Paciente.id %>" method='GET'>BRIEF SUBSTANCE CRAVING SCALE</a><br>
+        <a class="paciente" href="/CIWAAR?id=<%= Paciente.id %>" method='GET'>CLINICAL INSTITUTE WITHDRAWAL ASSESSMENTE FOR ALCOHOL, REVISED (CIWA-Ar)</a><br>
+        <a class="paciente" href="/EVA?id=<%= Paciente.id %>" method='GET'>ESCALA VISUAL ANALÓGICA MOTIVAÇÃO</a><br>
+      </div><br>
+
+      <div class="caixa">
+      <h3>HISTÓRICO DE AVALIAÇÕES:</h3><br>
+
+        <% if (URICA == '' && EVA == ''&& COWS == ''&& BDI == ''&& ASRS == ''&& BAI ==''&& BSCS ==''&& CIWAAR =='') 
+          {%> <div class="ERRO"> Não foram encontradas avaliações cadastradas para este paciente </div> <%} %> 
+
+        <% URICA.forEach(urica => {  %>
+          <a class="paciente" href="/verURICA?idTeste=<%= urica.id %>&idPaciente=<%= urica.idPaciente %>" method='GET'>UNIVERSITY OF RHODE ISLAND CHANGE ASSESSMENT SCALE – URICA</a> - <%= urica.updatedAt.toLocaleString('pt-BR') %><br>
+        <% }) %>
+
+        <% EVA.forEach(eva => {  %>
+          <a class="paciente" href="/verEVA?idTeste=<%= eva.id %>&idPaciente=<%= eva.idPaciente %>" method='GET'>ESCALA VISUAL ANALÓGICA MOTIVAÇÃO</a> - <%= eva.updatedAt.toLocaleString('pt-BR') %><br>
+        <% }) %>
+
+        <% COWS.forEach(cows => {  %>
+          <a class="paciente" href="/verCOWS?idTeste=<%= cows.id %>&idPaciente=<%= cows.idPaciente %>" method='GET'>CLINICAL OPIATE WITHDRAWAL SCALE (COWS)</a> - <%= cows.updatedAt.toLocaleString('pt-BR')%><br>
+        <% }) %>
+
+        <% BDI.forEach(bdi => {  %>
+          <a class="paciente" href="/verBDI?idTeste=<%= bdi.id %>&idPaciente=<%= bdi.idPaciente %>" method='GET'>INVENTÁRIO DE DEPRESSÃO DE BECK - BDI</a> - <%= bdi.updatedAt.toLocaleString('pt-BR')%><br>
+        <% }) %>
+
+        <% ASRS.forEach(asrs => {  %>
+          <a class="paciente" href="/verASRS?idTeste=<%= asrs.id %>&idPaciente=<%= asrs.idPaciente %>" method='GET'>ASRS</a> - <%= asrs.updatedAt.toLocaleString('pt-BR') %><br>
+        <% }) %>
+         
+        <% BAI.forEach(bai => {  %>
+          <a class="paciente" href="/verBAI?idTeste=<%= bai.id %>&idPaciente=<%= bai.idPaciente %>" method='GET'>INVENTÁRIO DE ANSIEDADE DE BECK - BAI</a> - <%= bai.updatedAt.toLocaleString('pt-BR') %><br>
+        <% }) %>
+
+        <% BSCS.forEach(bscs => {  %>
+          <a class="paciente" href="/verBSCS?idTeste=<%= bscs.id %>&idPaciente=<%= bscs.idPaciente %>" method='GET'>BRIEF SUBSTANCE CRAVING SCALE</a> - <%= bscs.updatedAt.toLocaleString('pt-BR') %><br>
+        <% }) %>
+
+        <% CIWAAR.forEach(ciwaar => {  %>
+          <a class="paciente" href="/verCIWAAR?idTeste=<%= ciwaar.id %>&idPaciente=<%= ciwaar.idPaciente %>" method='GET'>CLINICAL INSTITUTE WITHDRAWAL ASSESSMENTE FOR ALCOHOL, REVISED (CIWA-Ar)</a> - <%= ciwaar.updatedAt.toLocaleString('pt-BR') %><br>
+        <% }) %>
+
+      </div><br>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

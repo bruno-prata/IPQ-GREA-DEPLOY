@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2> Selecione um Paciente</h2>
+      <% if (error) { %>
+				<div class="ERRO"> <%= error %> </div>
+        <% } %>
+        <br>
+        
+        <div class="caixa">
+          <% listaPacientes.forEach(paciente => {  %>
+            <a class="paciente" href="/PacienteOptions?id=<%= paciente.id %>" method='GET'> <%= paciente.NomeSocial %> </a> - cadastrado em: <%= paciente.createdAt.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %>
+            <br><br>
+          <% }) %>
+        </div>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

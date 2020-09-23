@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/ciwaar.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>CLINICAL INSTITUTE WITHDRAWAL ASSESSMENTE FOR ALCOHOL, REVISED (CIWA-Ar)</h2>
+
+      <%- include('parts/testehead') %>
+
+      <form class="CIWAAR" action="/editarCIWAAR?idTeste=<%= CIWAAR.id %>&idPaciente=<%= Paciente.id %>" method="POST">
+
+        <div class="avgrid">
+
+          <div class="questao">
+            1. Você sente um mal estar no estômago (enjôo)? Você tem vomitado?
+            <br>
+            <label>
+            <input type="radio" value="0" name="Q1" <% if (CIWAAR.Q1 == '0') {%> checked <%} %> >
+                0. Não
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="1" name="Q1" <% if (CIWAAR.Q1 == '1') {%> checked <%} %> >
+              1. Náusea leve e sem vômito
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="4" name="Q1" <% if (CIWAAR.Q1 == '4') {%> checked <%} %> >
+              4. Náusea recorrente com ânsia de vômito
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="7" name="Q1" <% if (CIWAAR.Q1 == '7') {%> checked <%} %> >
+              7. Náusea constante, ânsia de vômito e vômito
+            </label>
+            <br>
+          </div>
+
+          <div class="scoreparcial">
+            <button class="btn" name="NQ1">1 = <%= CIWAAR.Q1 %></button>
+          </div>
+
+
+          <div class="questao">
+            2. Tremor com os braços estendidos e os dedos separados:
+            <br>
+            <label>
+            <input type="radio" value="0" name="Q2" <% if (CIWAAR.Q2 == '0') {%> checked <%} %> >
+                0. Não
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="1" name="Q2" <% if (CIWAAR.Q2 == '1') {%> checked <%} %> >
+              1. Não visível, mas sente
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="4" name="Q2" <% if (CIWAAR.Q2 == '4') {%> checked <%} %> >
+              4. Moderado, com os braços estendidos
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="7" name="Q2" <% if (CIWAAR.Q2 == '7') {%> checked <%} %> >
+              7. Severo, mesmo com os braços estendidos
+            </label>
+            <br>
+          </div>
+
+          <div class="scoreparcial">
+            <button class="btn" name="NQ2">2 = <%= CIWAAR.Q2 %></button>
+          </div>
+
+          <div class="questao">
+            3. Sudorese:
+            <br>
+            <label>
+            <input type="radio" value="0" name="Q3" <% if (CIWAAR.Q3 == '0') {%> checked <%} %> >
+                0. Não
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="4" name="Q3" <% if (CIWAAR.Q3 == '4') {%> checked <%} %> >
+              4. Facial
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="7" name="Q3" <% if (CIWAAR.Q3 == '7') {%> checked <%} %> >
+              7. Profusa
+            </label>
+            <br>
+          
+          </div>
+
+          <div class="scoreparcial">
+            <button class="btn" name="NQ3">3 = <%= CIWAAR.Q3 %></button>
+          </div>
+
+          <div class="questao">
+            4. Tem sentido coceiras, sensação de insetos andando no corpo, formigamentos, pinicações?
+            <br>
+            <label>
+            <input type="radio" value="0" name="Q4" <% if (CIWAAR.Q4 == '0') {%> checked <%} %> >
+                0. Não
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="1" name="Q4" <% if (CIWAAR.Q4 == '1') {%> checked <%} %> >
+                1. Muito leve
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="2" name="Q4" <% if (CIWAAR.Q4 == '2') {%> checked <%} %> >
+                2. Leve
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="3" name="Q4" <% if (CIWAAR.Q4 == '3') {%> checked <%} %> >
+                3. Moderado
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="4" name="Q4" <% if (CIWAAR.Q4 == '4') {%> checked <%} %> >
+              4. Moderado/Grave
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="5" name="Q4" <% if (CIWAAR.Q4 == '5') {%> checked <%} %> >
+              5. Grave
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="6" name="Q4" <% if (CIWAAR.Q4 == '6') {%> checked <%} %> >
+              6. Muito grave
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="7" name="Q4" <% if (CIWAAR.Q4 == '7') {%> checked <%} %> >
+              7. Extremamente grave
+            </label>
+            <br>
+          
+          </div>
+
+          <div class="scoreparcial">
+            <button class="btn" name="NQ4">4 = <%= CIWAAR.Q4 %></button>
+          </div>
+
+          <div class="questao">
+            5. Você tem ouvido sons a sua volta? Algo perturbador, sem detectar nada por perto?
+            <br>
+            <label>
+            <input type="radio" value="0" name="Q5" <% if (CIWAAR.Q5 == '0') {%> checked <%} %> >
+                0. Não
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="1" name="Q5" <% if (CIWAAR.Q5 == '1') {%> checked <%} %> >
+                1. Muito leve
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="2" name="Q5" <% if (CIWAAR.Q5 == '2') {%> checked <%} %> >
+                2. Leve
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="3" name="Q5" <% if (CIWAAR.Q5 == '3') {%> checked <%} %> >
+                3. Moderado
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="4" name="Q5" <% if (CIWAAR.Q5 == '4') {%> checked <%} %> >
+              4. Moderado/Grave
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="5" name="Q5" <% if (CIWAAR.Q5 == '5') {%> checked <%} %> >
+              5. Grave
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="6" name="Q5" <% if (CIWAAR.Q5 == '6') {%> checked <%} %> >
+              6. Muito grave
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="7" name="Q5" <% if (CIWAAR.Q5 == '7') {%> checked <%} %> >
+              7. Extremamente grave
+            </label>
+            <br>
+          
+          </div>
+
+          <div class="scoreparcial">
+            <button class="btn" name="NQ5">5 = <%= CIWAAR.Q5 %></button>
+          </div>
+
+          <div class="questao">
+            6. As luzes têm parecido muito brilhantes? De cores diferentes? Incomodam os olhos? Você tem visto algo que tem lhe perturbado? Você tem visto coisas que não estão presentes?
+            <br>
+            <label>
+            <input type="radio" value="0" name="Q6" <% if (CIWAAR.Q6 == '0') {%> checked <%} %> >
+                0. Não
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="1" name="Q6" <% if (CIWAAR.Q6 == '1') {%> checked <%} %> >
+                1. Muito leve
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="2" name="Q6" <% if (CIWAAR.Q6 == '2') {%> checked <%} %> >
+                2. Leve
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="3" name="Q6" <% if (CIWAAR.Q6 == '3') {%> checked <%} %> >
+                3. Moderado
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="4" name="Q6" <% if (CIWAAR.Q6 == '4') {%> checked <%} %> >
+              4. Alucinações moderadas
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="5" name="Q6" <% if (CIWAAR.Q6 == '5') {%> checked <%} %> >
+              5. Alucinações graves
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="6" name="Q6" <% if (CIWAAR.Q6 == '6') {%> checked <%} %> >
+              6. Extremamente graves
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="7" name="Q6" <% if (CIWAAR.Q6 == '7') {%> checked <%} %> >
+              7. Contínua
+            </label>
+            <br>
+          
+          </div>
+
+          <div class="scoreparcial">
+            <button class="btn" name="NQ6">6 = <%= CIWAAR.Q6 %></button>
+          </div>
+          
+          <div class="questao">
+            7. Você se sente nervoso (a)? (observação)
+            <br>
+            <label>
+            <input type="radio" value="0" name="Q7" <% if (CIWAAR.Q7 == '0') {%> checked <%} %> >
+                0. Não
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="1" name="Q7" <% if (CIWAAR.Q7 == '1') {%> checked <%} %> >
+                1. Muito leve
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="4" name="Q7" <% if (CIWAAR.Q7 == '4') {%> checked <%} %> >
+              4. Leve
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="7" name="Q7" <% if (CIWAAR.Q7 == '7') {%> checked <%} %> >
+              7. Ansiedade grave, um estado de pânico, semelhante a um episódio psicótico
+              agudo?
+            </label>
+            <br>
+          
+          </div>
+
+          <div class="scoreparcial">
+            <button class="btn" name="NQ7">7 = <%= CIWAAR.Q7 %></button>
+          </div>
+
+          <div class="questao">
+            8. Você sente algo na cabeça? Tontura, dor, apagamento?
+            <br>
+            <label>
+            <input type="radio" value="0" name="Q8" <% if (CIWAAR.Q8 == '0') {%> checked <%} %> >
+                0. Não
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="1" name="Q8" <% if (CIWAAR.Q8 == '1') {%> checked <%} %> >
+                1. Muito leve
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="2" name="Q8" <% if (CIWAAR.Q8 == '2') {%> checked <%} %> >
+                2. Leve
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="3" name="Q8" <% if (CIWAAR.Q8 == '3') {%> checked <%} %> >
+                3. Moderado
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="4" name="Q8" <% if (CIWAAR.Q8 == '4') {%> checked <%} %> >
+              4. Alucinações moderadas
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="5" name="Q8" <% if (CIWAAR.Q8 == '5') {%> checked <%} %> >
+              5. Alucinações graves
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="6" name="Q8" <% if (CIWAAR.Q8 == '6') {%> checked <%} %> >
+              6. Extremamente graves
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="7" name="Q8" <% if (CIWAAR.Q8 == '7') {%> checked <%} %> >
+              7. Contínua
+            </label>
+            <br>
+          
+          </div>
+
+          <div class="scoreparcial">
+            <button class="btn" name="NQ8">8 = <%= CIWAAR.Q8 %></button>
+          </div>
+
+          <div class="questao">
+            9. Agitação: (observação)
+            <br>
+            <label>
+            <input type="radio" value="0" name="Q9" <% if (CIWAAR.Q9 == '0') {%> checked <%} %> >
+                0. Normal
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="1" name="Q9" <% if (CIWAAR.Q9 == '1') {%> checked <%} %> >
+                1. Um pouco mais que a atividade normal
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="4" name="Q9" <% if (CIWAAR.Q9 == '4') {%> checked <%} %> >
+              4. Moderadamente
+            </label>
+            <br>
+            <label>
+            <input type="radio" value="7" name="Q9" <% if (CIWAAR.Q9 == '7') {%> checked <%} %> >
+              7. Constante
+            </label>
+            <br>
+          
+          </div>
+
+          <div class="scoreparcial">
+            <button class="btn" name="NQ9">9 = <%= CIWAAR.Q9 %></button>
+          </div>
+
+          <div class="questao">
+            10. Que dia é hoje? Onde você está? Quem sou eu? (observação)
+            <br>
+            <label>
+            <input type="radio" value="0" name="Q10" <% if (CIWAAR.Q10 == '0') {%> checked <%} %> >
+                0. Orientado
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="1" name="Q10" <% if (CIWAAR.Q10 == '1') {%> checked <%} %> >
+                1. Incerto sobre a data, não responde seguramente
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="2" name="Q10" <% if (CIWAAR.Q10 == '2') {%> checked <%} %> >
+                2. Desorientado com a data, mas não mais do que 2 dias
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="3" name="Q10" <% if (CIWAAR.Q10 == '3') {%> checked <%} %> >
+                3. Desorientado com a data, com mais de 2 dias
+              </label>
+            <br>
+            <label>
+            <input type="radio" value="4" name="Q10" <% if (CIWAAR.Q10 == '4') {%> checked <%} %> >
+              4. Desorientado com o lugar e pessoa
+            </label>
+            <br>
+          
+          </div>
+
+          <div class="scoreparcial">
+            <button class="btn" name="NQ10">10 = <%= CIWAAR.Q10 %></button>
+          </div>
+
+        </div>
+        
+        <div class="score">SCORE = <%= CIWAAR.Q1+CIWAAR.Q2+CIWAAR.Q3+CIWAAR.Q4+CIWAAR.Q5+CIWAAR.Q6+CIWAAR.Q7+CIWAAR.Q8+CIWAAR.Q9+CIWAAR.Q10 %></div>
+        
+
+        <div class="caixa">Última alteração: <%= CIWAAR.updatedAt.toLocaleString('pt-BR') %> - por: <%= CIWAAR.NomeProfissionalAvaliacao %></div>
+        <br>
+ 
+        <button class="btn">SALVAR ALTERAÇÕES</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

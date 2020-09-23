@@ -1,0 +1,29 @@
+{
+  "name": "projeto",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "sequelize db:migrate:undo:all",
+    "migrate": "yarn sequelize db:migrate && sequelize db:seed:all",
+    "unseed": "sequelize db:seed:undo:all"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "http-errors": "~1.6.3",
+    "method-override": "^3.0.0",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.3",
+    "sequelize-cli": "^6.2.0",
+    "serve-favicon": "^2.5.0"
+  }
+}

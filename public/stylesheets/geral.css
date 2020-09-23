@@ -1,0 +1,43 @@
+.ERRO {
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	color: red;
+	text-align: center;
+}
+
+.btn{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #0d558a, #2e78ae, #54a2db);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.btn:hover{
+	background-position: right;
+}
+
+.fa {
+	border: none;
+	background-color: transparent;
+	font-size: 1.25em;
+}
+
+.caixa {
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: gray;
+    color: darkslategray;
+    padding: 20px;
+}

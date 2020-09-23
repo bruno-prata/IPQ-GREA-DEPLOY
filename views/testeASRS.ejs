@@ -1,0 +1,737 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/asrs.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>ASRS</h2>
+
+      <%- include('parts/testehead') %>
+
+      <form class="ASRS" action="/GravarNovoASRS?id=<%= Paciente.id %>" method="POST">
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+        <div>
+          <p>Por favor, responda as perguntas abaixo se avaliando de acordo com os critérios do lado direito da página.</p>
+          <p>Após responder cada uma das pergunstas, selecione o número que corresponde a como você se sentiu e se comportou nos últimos seis meses.</p>
+          <p>Por favor, dê este questionário completo ao profissional da saúde para que vocês possam discutir na consulta de hoje.</p>
+        </div>
+
+        <div class="avgrid">
+
+          <div class="questao">
+            
+          </div>
+
+          <div class="resposta">
+            Nunca
+          </div>
+
+          <div class="resposta">
+            Raramente
+          </div>
+
+          <div class="resposta">
+            Algumas vezes
+          </div>
+
+          <div class="resposta">
+            Frequentemente
+          </div>
+
+          <div class="resposta"> 
+            Muito frequentemente
+          </div>
+
+
+          <div class="questao">
+            1 – Com que frequência você comete erros por falta de atenção quando tem de trabalhar num projeto chato ou difícil?
+          </div>
+
+          
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ1">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ1">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ1">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ1">
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ1">
+            </label>
+          </div>
+        
+
+
+          <div class="questao">
+            2 – Com que frequência você tem dificuldade para manter a atenção quando está fazendo um trabalho chato ou repetitivo?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ2">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ2">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ2">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ2">
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ2">
+            </label>
+          </div>
+
+
+          <div class="questao">
+            3 – Com que frequência você tem dificuldade para se concentrar no que as pessoas dizem, mesmo quando elas etão falando diretamente com você?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ3">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ3">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ3">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ3">
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ3">
+            </label>
+          </div>
+
+
+          <div class="questao">
+            4 – Com que frequência você deixa um projeto pela metade depois de já ter feito as partes mais difíceis?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ4">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ4">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ4">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ4">
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ4">
+            </label>
+          </div>
+
+          <div class="questao">
+            5 – Com que frequência você tem dificuldade para fazer um trabalho que exige organização?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ5">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ5">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ5">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ5">
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ5">
+            </label>
+          </div>
+
+          <div class="questao">
+            6 – Quando você precisa fazer algo que exige muita concentração, com que frequência você evita ou adia o início?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ6">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ6">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ6">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ6">
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ6">
+            </label>
+          </div>
+          
+          <div class="questao">
+            7 – Com que frequência você coloca as coisas fora do lugar ou tem dificuldade de encontrar as coisas em casa ou no trabalho?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ7">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ7">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ7">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ7">
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ7">
+            </label>
+          </div>
+
+          <div class="questao">
+            8 – Com que frequência você se distrai com atividades ou barulho a sua volta?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ8">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ8">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ8">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ8">
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ8">
+            </label>
+          </div>
+
+          <div class="questao">
+            9 – Com que frequência você tem dificuldade para lembrar de compromissos ou obrigações?
+          </div>
+
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ9">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ9">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>2
+              <input type="radio" value="2" name="AQ9">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>3
+              <input type="radio" value="3" name="AQ9">
+            </label>
+          </div>
+
+          <div class="resposta"> 
+            <label>4
+              <input type="radio" value="4" name="AQ9">
+            </label>
+          </div>
+        </div>
+
+          <div class="scoreA">PARTE A - TOTAL = </div>
+
+          <div class="avgrid">
+
+            <div class="questao">
+              
+            </div>
+  
+            <div class="resposta">
+              Nunca
+            </div>
+  
+            <div class="resposta">
+              Raramente
+            </div>
+  
+            <div class="resposta">
+              Algumas vezes
+            </div>
+  
+            <div class="resposta">
+              Frequentemente
+            </div>
+  
+            <div class="resposta"> 
+              Muito frequentemente
+            </div>
+  
+  
+            <div class="questao">
+              1 – Com que frequência você fica se mexendo na cadeira ou balançando as mãos ou os pés quando precisa ficar sentado(a) por muito tempo?
+            </div>
+  
+            
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ1">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ1">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ1">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ1">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ1">
+              </label>
+            </div>
+          
+  
+  
+            <div class="questao">
+              2 – Com que frequência você se levanta da cadeira em reuniões ou em outras situações onde deveria ficar sentado(a)?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ2">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ2">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ2">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ2">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ2">
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              3 – Com que frequênciavocê se sente inquieto(a) ou agitado(a)?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ3">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ3">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ3">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ3">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ3">
+              </label>
+            </div>
+  
+  
+            <div class="questao">
+              4 – Com que frequência você tem dificuldade para sossegar e relaxar quando tem tempo livre para vocês?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ4">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ4">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ4">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ4">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ4">
+              </label>
+            </div>
+  
+            <div class="questao">
+              5 – Com que frequência você se sente ativo(a) semais e necessitando fazer coisas, como se estivesse "com um motor ligado"?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ5">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ5">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ5">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ5">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ5">
+              </label>
+            </div>
+  
+            <div class="questao">
+              6 – Com que frequência você se pega falando demais em situações sociais?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ6">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ6">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ6">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ6">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ6">
+              </label>
+            </div>
+            
+            <div class="questao">
+              7 – Quando você está conversando, com que frequência você se pega terminando as frases das pessoas antes delas?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ7">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ7">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ7">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ7">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ7">
+              </label>
+            </div>
+  
+            <div class="questao">
+              8 – Com que frequência você tem dificuldade para esperar nas situações onde cada um tem a sua vez?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ8">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ8">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ8">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ8">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ8">
+              </label>
+            </div>
+  
+            <div class="questao">
+              9 – Com que frequência você interrompe os outros quando eles estão ocupados?
+            </div>
+  
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ9">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ9">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>2
+                <input type="radio" value="2" name="BQ9">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>3
+                <input type="radio" value="3" name="BQ9">
+              </label>
+            </div>
+  
+            <div class="resposta"> 
+              <label>4
+                <input type="radio" value="4" name="BQ9">
+              </label>
+            </div>
+          </div>
+  
+            <div class="scoreB">PARTE B - TOTAL = </div>
+
+        <div class="assinado">
+          Preenchido por:<br>
+          <%= NomeProfissionalAvaliacao %><br>
+          <%= Profissao %><br>
+          <%= NumeroConselho %><br>
+        </div>
+        
+        <button class="btn">SALVAR</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,9 @@
+{
+
+    "username": "ipqgreaadmin",
+    "password": "$TUPID10",
+    "database": "ipqgrea",
+    "host": "ipqgrea.database.windows.net",
+    "dialect": "mysql"
+  
+}

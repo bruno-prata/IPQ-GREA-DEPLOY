@@ -1,0 +1,11 @@
+<% if (msg) { %>
+    <div class="ERRO"> <%= msg %> </div><br>
+    <% } %>
+  <p><a class="paciente" href="/PacienteOptions?id=<%= Paciente.id %>" method='GET'><< VOLTAR PARA PÁGINA DO PACIENTE</a></p>
+  
+  <div class="caixa">
+    <b><p>PACIENTE:</b> <%= Paciente.NomeSocial %> </p>
+    <p><b>CID:</b> <%= Paciente.CID %></p>  </div>
+  <br>
+
+  

@@ -1,0 +1,40 @@
+<% if (error.status = '404') { %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+    <link rel="stylesheet" href="stylesheets/error.css" />
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+		  <div class="img">
+        <img src="images/404.svg">
+      </div>
+    
+      <div class="back">
+        <a href="/">Voltar para página inicial</a>
+      </div>
+
+   </div>
+
+
+  </body>
+
+</html>
+
+<% } else { %>
+
+<h1><%= message %></h1>
+<h2><%= error.status %></h2>
+<pre><%= error.stack %></pre>
+
+<% } %>

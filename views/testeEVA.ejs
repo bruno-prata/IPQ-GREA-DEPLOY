@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/eva.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>ESCALA VISUAL ANALÓGICA MOTIVAÇÃO</h2>
+
+      <%- include('parts/testehead') %>
+
+      <form class="EVA" action="/GravarNovoEVA?id=<%= Paciente.id %>" method="POST">
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+        <div>
+          <h3>1ª Aplicação</h3>
+        </div>
+
+        <div class="avgrid">
+
+          <div class="questao">
+            
+          </div>
+
+          <div class="resposta">
+            Sem motivação
+          </div>
+
+          <div class="resposta">
+            Motivação leve
+          </div>
+
+          <div class="resposta">
+            Motivação moderada
+          </div>
+
+          <div class="resposta">
+            Motivação Elevada
+          </div>
+
+
+          <div class="questao">
+          Como você avalia seu grau de motivação (numa escala de 0 a 10)para a cessão do uso de substância(s)?  (avalie o tamanho da sua intenção de para usar drogas)
+          </div>
+
+          
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ1">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ1">
+            </label>
+            <label>2
+              <input type="radio" value="2" name="AQ1">
+            </label>
+            <label>3
+              <input type="radio" value="3" name="AQ1">
+            </label>
+            <label>4
+              <input type="radio" value="4" name="AQ1">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>5
+              <input type="radio" value="5" name="AQ1">
+            </label>
+            <label>6
+              <input type="radio" value="6" name="AQ1">
+            </label>
+            <label>7
+              <input type="radio" value="7" name="AQ1">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>8
+              <input type="radio" value="8" name="AQ1">
+            </label>
+            <label>9
+              <input type="radio" value="9" name="AQ1">
+            </label>
+            <label>10
+              <input type="radio" value="10" name="AQ1">
+            </label>
+          </div>
+
+          <div class="questao">
+          Quanto você acredita (numa escala de 0 a 10) que é capaz de interromper o uso de substância(s)?
+          </div>
+
+          
+          <div class="resposta">
+            <label>0
+              <input type="radio" value="0" name="AQ2">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>1
+              <input type="radio" value="1" name="AQ2">
+            </label>
+            <label>2
+              <input type="radio" value="2" name="AQ2">
+            </label>
+            <label>3
+              <input type="radio" value="3" name="AQ2">
+            </label>
+            <label>4
+              <input type="radio" value="4" name="AQ2">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>5
+              <input type="radio" value="5" name="AQ2">
+            </label>
+            <label>6
+              <input type="radio" value="6" name="AQ2">
+            </label>
+            <label>7
+              <input type="radio" value="7" name="AQ2">
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>8
+              <input type="radio" value="8" name="AQ2">
+            </label>
+            <label>9
+              <input type="radio" value="9" name="AQ2">
+            </label>
+            <label>10
+              <input type="radio" value="10" name="AQ2">
+            </label>
+          </div>
+
+        </div>
+          <br><br>
+          <div>
+            <h3>Re-Aplicação</h3>
+          </div>
+
+          <div class="avgrid">
+
+            <div class="questao">
+            
+            </div>
+  
+            <div class="resposta">
+              Sem motivação
+            </div>
+  
+            <div class="resposta">
+              Motivação leve
+            </div>
+  
+            <div class="resposta">
+              Motivação moderada
+            </div>
+  
+            <div class="resposta">
+              Motivação Elevada
+            </div>
+  
+  
+            <div class="questao">
+              Como você avalia seu grau de motivação (numa escala de 0 a 10)para MANTER a cessão do uso de substância(s)?  (avalie o tamanho da sua intenção de para usar drogas)
+            </div>
+  
+            
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ1">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ1">
+              </label>
+              <label>2
+                <input type="radio" value="2" name="BQ1">
+              </label>
+              <label>3
+                <input type="radio" value="3" name="BQ1">
+              </label>
+              <label>4
+                <input type="radio" value="4" name="BQ1">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>5
+                <input type="radio" value="5" name="BQ1">
+              </label>
+              <label>6
+                <input type="radio" value="6" name="BQ1">
+              </label>
+              <label>7
+                <input type="radio" value="7" name="BQ1">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>8
+                <input type="radio" value="8" name="BQ1">
+              </label>
+              <label>9
+                <input type="radio" value="9" name="BQ1">
+              </label>
+              <label>10
+                <input type="radio" value="10" name="BQ1">
+              </label>
+            </div>
+
+            <div class="questao">
+              Quanto você acredita (numa escala de 0 a 10) que é capaz MANTER a abstinência o uso de substância(s)?
+            </div>
+  
+            
+            <div class="resposta">
+              <label>0
+                <input type="radio" value="0" name="BQ2">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>1
+                <input type="radio" value="1" name="BQ2">
+              </label>
+              <label>2
+                <input type="radio" value="2" name="BQ2">
+              </label>
+              <label>3
+                <input type="radio" value="3" name="BQ2">
+              </label>
+              <label>4
+                <input type="radio" value="4" name="BQ2">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>5
+                <input type="radio" value="5" name="BQ2">
+              </label>
+              <label>6
+                <input type="radio" value="6" name="BQ2">
+              </label>
+              <label>7
+                <input type="radio" value="7" name="BQ2">
+              </label>
+            </div>
+  
+            <div class="resposta">
+              <label>8
+                <input type="radio" value="8" name="BQ2">
+              </label>
+              <label>9
+                <input type="radio" value="9" name="BQ2">
+              </label>
+              <label>10
+                <input type="radio" value="10" name="BQ2">
+              </label>
+            </div>
+  
+        </div>
+
+        <div class="assinado">
+          Preenchido por:<br>
+          <%= NomeProfissionalAvaliacao %><br>
+          <%= Profissao %><br>
+          <%= NumeroConselho %><br>
+        </div>
+        
+        <button class="btn">SALVAR</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

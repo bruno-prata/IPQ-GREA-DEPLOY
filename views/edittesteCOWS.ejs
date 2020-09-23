@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/cows.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>CLINICAL OPIATE WITHDRAWAL SCALE (COWS)</h2>
+
+      <%- include('parts/testehead') %>
+
+      <form class="COWS" action="/editarCOWS?idTeste=<%= COWS.id %>&idPaciente=<%= Paciente.id %>" method="POST">
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+        <div>
+          <p>For Buprenorphine/naloxone induction: Enter scores at time zero, 1-2 h after first dose, and at additional times that buprenorphine/naloxone is given over the induction period.</p>
+        </div>
+        <br>
+
+        <div class="avgrid">
+
+          <div class="questao">
+            Resting Pulse Rate: (record beats per minute) Measured after patient is sitting/lying for one minute.
+          </div>
+
+          
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ1" <% if (COWS.AQ1 == '0') {%> checked <%} %> >
+              0. pulse rate 80 or below
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="1" name="AQ1" <% if (COWS.AQ1 == '1') {%> checked <%} %> >
+              1. pulse rate 81-100
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="2" name="AQ1" <% if (COWS.AQ1 == '2') {%> checked <%} %> >
+              2. pulse rate 101-120
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="4" name="AQ1" <% if (COWS.AQ1 == '4') {%> checked <%} %> >
+              4. pulse rate greater than 120
+            </label>
+          </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+          <div class="avgrid5">
+
+          <div class="questao">
+            Sweating: Over past 1⁄2 hour not accounted for by room temperature or patient activity.
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ2" <% if (COWS.AQ2 == '0') {%> checked <%} %> >
+              0. no report of chills of flushing
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="1" name="AQ2" <% if (COWS.AQ2 == '1') {%> checked <%} %> >
+              1. one subjective report of chills or flushing
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="2" name="AQ2" <% if (COWS.AQ2 == '2') {%> checked <%} %> >
+              2. flushed or observable moistness on face
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="3" name="AQ2" <% if (COWS.AQ2 == '3') {%> checked <%} %> >
+              3. beads of sweat on brow or face
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="4" name="AQ2" <% if (COWS.AQ2 == '4') {%> checked <%} %> >
+              4. sweat streaming off face
+            </label>
+          </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+          <div class="avgrid">
+
+          <div class="questao">
+            Restlessness: Observation during assessment.
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ3" <% if (COWS.AQ3 == '0') {%> checked <%} %> >
+              0. able to sit still
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="1" name="AQ3" <% if (COWS.AQ3 == '1') {%> checked <%} %> >
+              1. report difficulty sitting still, but is able to do so
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="3" name="AQ3" <% if (COWS.AQ3 == '3') {%> checked <%} %> >
+              3. frequent shifting or extraneous movements of legs/arms
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="5" name="AQ3" <% if (COWS.AQ3 == '5') {%> checked <%} %> >
+              5. unable to sit still for more than a few seconds
+            </label>
+          </div>
+        </div>
+
+          <br>
+          <hr>
+          <br>
+
+          <div class="avgrid">
+
+          <div class="questao">
+            Pupil Size:
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ4" <% if (COWS.AQ4 == '0') {%> checked <%} %> >
+              0. pupils pinned or normal size for room light
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="1" name="AQ4" <% if (COWS.AQ4 == '1') {%> checked <%} %> >
+              1. pupils possibly larger than normal for room light
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="2" name="AQ4" <% if (COWS.AQ4 == '2') {%> checked <%} %> >
+              2. pupils moderately dilated
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="5" name="AQ4" <% if (COWS.AQ4 == '5') {%> checked <%} %> >
+              5. pupils so dilated that only rim of the iris is visible
+            </label>
+          </div>
+        </div>
+
+          <br>
+          <hr>
+          <br>
+          
+        <div class="avgrid">
+
+          <div class="questao">
+            Bone or Joint aches: If patient was having pains previously, only the additional component attributed to opiate withdrawal is scored.
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ5" <% if (COWS.AQ5 == '0') {%> checked <%} %> >
+              0. not present
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="1" name="AQ5" <% if (COWS.AQ5 == '1') {%> checked <%} %> >
+              1. mild diffuse discomfort
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="2" name="AQ5" <% if (COWS.AQ5 == '2') {%> checked <%} %> >
+              2. patient reports severe diffuse aching of joints/muscles
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="4" name="AQ5" <% if (COWS.AQ5 == '4') {%> checked <%} %> >
+              4. patient is rubbing joints or muscles and is unable to sit still because of discomfort
+            </label>
+          </div>
+        </div>
+
+          <br>
+          <hr>
+          <br>
+          
+        <div class="avgrid">
+
+          <div class="questao">
+            Runny nose or tearing: Not accounted for by cold symptoms or allergies.
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ6" <% if (COWS.AQ6 == '0') {%> checked <%} %> >
+              0. not present
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="1" name="AQ6" <% if (COWS.AQ6 == '1') {%> checked <%} %> >
+              1. nasal stuffiness or unusually moist eyes
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="2" name="AQ6" <% if (COWS.AQ6 == '2') {%> checked <%} %> >
+              2. nose running or tearing
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="4" name="AQ6" <% if (COWS.AQ6 == '4') {%> checked <%} %> >
+              4. nose constantly running or tears streaming down cheeks
+            </label>
+          </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+        
+      <div class="avgrid5">
+
+          <div class="questao">
+            GI Upset: Over last 1⁄2 hour
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ7" <% if (COWS.AQ7 == '0') {%> checked <%} %> >
+              0. no GI symptoms
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="1" name="AQ7" <% if (COWS.AQ7 == '1') {%> checked <%} %> >
+              1. stomach cramps
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="2" name="AQ7" <% if (COWS.AQ7 == '2') {%> checked <%} %> >
+              2. nausea or loose stools
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="3" name="AQ7" <% if (COWS.AQ7 == '3') {%> checked <%} %> >
+              3. vomiting or diarrhea 
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="5" name="AQ7" <% if (COWS.AQ7 == '5') {%> checked <%} %> >
+              5. multiple episodes of diarrhea or vomiting
+            </label>
+          </div>
+        </div>
+
+      <br>
+      <hr>
+      <br>
+      
+        <div class="avgrid">
+
+          <div class="questao">
+            Tremor: Observation of outstretched hands
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ8" <% if (COWS.AQ8 == '0') {%> checked <%} %> >
+              0. no tremor
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="1" name="AQ8" <% if (COWS.AQ8 == '1') {%> checked <%} %> >
+              1. tremor can be felt, but not observed
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="2" name="AQ8" <% if (COWS.AQ8 == '2') {%> checked <%} %> >
+              2. slight tremor observable
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="4" name="AQ8" <% if (COWS.AQ8 == '4') {%> checked <%} %> >
+              4. gross tremor or muscle twitching
+            </label>
+          </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+        
+          <div class="avgrid">
+  
+          <div class="questao">
+            Yawning: Observation during assessment
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ9" <% if (COWS.AQ9 == '0') {%> checked <%} %> >
+              0. no yawning
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="1" name="AQ9" <% if (COWS.AQ9 == '1') {%> checked <%} %> >
+              1. yawning once or twice during assessment
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="2" name="AQ9" <% if (COWS.AQ9 == '2') {%> checked <%} %> >
+              2. yawning three or more times during assessment
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="4" name="AQ9" <% if (COWS.AQ9 == '4') {%> checked <%} %> >
+              4. yawning several times/minute
+            </label>
+          </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+        
+          <div class="avgrid">
+  
+          <div class="questao">
+            Anxiety or Irritability
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ10" <% if (COWS.AQ10 == '0') {%> checked <%} %> >
+              0. none
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="1" name="AQ10" <% if (COWS.AQ10 == '1') {%> checked <%} %> >
+              1. patient reports increasing irritability or anxiousness
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="2" name="AQ10" <% if (COWS.AQ10 == '2') {%> checked <%} %> >
+              2. patient obviously irritable, anxious
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="4" name="AQ10" <% if (COWS.AQ10 == '4') {%> checked <%} %> >
+              4. patient so irritable or anxious that participation in the assessment is difficult
+            </label>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+
+          <div class="avgrid3">
+
+          <div class="questao">
+            Gooseflesh skin
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="0" name="AQ11" <% if (COWS.AQ11 == '0') {%> checked <%} %> >
+              0. skin is smooth
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="3" name="AQ11" <% if (COWS.AQ11 == '3') {%> checked <%} %> >
+              3. piloerection of skin can be felt or hairs standing up on arms
+            </label>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="radio" value="5" name="AQ11" <% if (COWS.AQ11 == '5') {%> checked <%} %> >
+              5. prominent piloerection
+            </label>
+          </div>
+
+        </div>
+        <br>
+
+          <div class="TotalScore">Total Score = <%= COWS.AQ1+COWS.AQ2+COWS.AQ3+COWS.AQ4+COWS.AQ5+COWS.AQ6+COWS.AQ7+COWS.AQ8+COWS.AQ9+COWS.AQ10+COWS.AQ11 %></div>
+          <div class="BloodPressure">Blood Pressure / Pulse = <input class="nothing" name="BloodPressure" value="<%= COWS.BloodPressure %>" ></div>
+          <div class="BloodPressure">Dose of Buprenorphine/naloxone Given = <input class="nothing" name="DoseGiven" value="<%= COWS.DoseGiven %>" ></div>
+
+          Note: Give first dose when COWS score > 7<br><br>
+          SCORE:<br>
+          5-12 = Mild<br>
+          13-24 = Moderate<br>
+          25-36 = moderately severe <br>
+          More than 36 = severe withdrawal<br><br>
+
+          <div class="caixa">Última alteração: <%= COWS.updatedAt.toLocaleString('pt-BR') %> - por: <%= COWS.NomeProfissionalAvaliacao %></div><br>
+
+        <button class="btn">SALVAR ALTERAÇÕES</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>

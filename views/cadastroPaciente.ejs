@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+    <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/cadastroPaciente.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>Cadastrar Novo Paciente</h2>
+
+      <% if (error) { %>
+				<div class="ERRO"> <%= error %> </div>
+				<% } %>
+      
+      <form class="cadastropaciente" action="/cadastrarNovoPaciente" method="POST">
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+      <div>
+        Unidade de Atendimento:<br>
+        <label>
+          <input type="radio" value="Ambulatorio" name="UnidadeAtendimento">
+          Ambulatório
+        </label>
+        <label>
+          <input type="radio" value="Internacao" name="UnidadeAtendimento">
+          Internação
+        </label>
+        <label>
+          <input type="radio" value="CRHDA" name="UnidadeAtendimento">
+          CRHDA
+        </label>
+        <label>
+          <input type="radio" value="CRHDI" name="UnidadeAtendimento">
+          CRHDI
+        </label>
+      </div><br>
+
+      <div>
+        Vínculo com o hospital:<br>
+        <label>
+          <input type="radio" value="SUS" name="VinculoHospital">
+          SUS
+        </label>
+        <label>
+          <input type="radio" value="Particular" name="VinculoHospital">
+          Particular
+        </label>
+        <label>
+          <input type="radio" value="Convenio" name="VinculoHospital">
+          Convênio
+        </label>
+        <label>
+          - Qual:
+          <input type="text" id="QualConvenio" name="QualConvenio">
+        </label>
+      </div><br>
+
+      <div>
+        Origem do Atendimento do Serviço Social:<br>
+        <label>
+          <input type="radio" value="Demanda espontânea" name="OrigemSS">
+          Demanda espontânea
+        </label>
+        <label>
+          <input type="radio" value="Programa de atendimento" name="OrigemSS">
+          Programa de atendimento
+        </label>
+        <label>
+          <input type="radio" value="Outros" name="OrigemSS">
+          Outros
+        </label><br>
+        <label>
+          - Encaminhado por:
+          <input type="text" id="EncaminhadoPor" name="EncaminhadoPor">
+        </label>
+      </div><br>
+
+      <div>
+        <h3>Identificação do Paciente:</h3>
+        <label for="NomeSocial">Nome Social:
+        <input type="text" id="NomeSocial" name="NomeSocial" required></label>
+
+        <label for="Idade">Idade:
+        <input type="Number" id="Idade" name="Idade" class="idade"></label><br><br>
+
+        <label for="Naturalidade">Naturalidade:
+        <input type="text" id="Naturalidade" name="Naturalidade"></label>
+
+        <label for="Nacionalidade">Nacionalidade:
+        <input type="text" id="Nacionalidade" name="Nacionalidade"></label><br><br>
+
+        <label for="Sexo">Sexo:</label><br>
+        <label>
+          <input type="radio" value="M" name="Sexo">
+          Masculino
+        </label>
+        <label>
+          <input type="radio" value="F" name="Sexo">
+          Feminino
+        </label><br><br>
+
+        <label for="RefSexo">Referido por:</label><br>
+        <label>
+          <input type="radio" value="M" name="RefSexo">
+          Masculino
+        </label>
+        <label>
+          <input type="radio" value="F" name="RefSexo">
+          Feminino
+        </label><br><br>
+
+        <label for="Endereco">Endereço:
+        <input type="text" id="Endereco" name="Endereco"></label>
+        <label for="Numero">Nº:
+        <input type="number" id="Numero" name="Numero"></label>
+        <label for="Complemento">Complemento:
+        <input type="text" id="Complemento" name="Complemento"></label><br><br>
+
+        <label for="Bairro">Bairro:
+        <input type="text" id="Bairro" name="Bairro"></label>
+        <label for="Cidade">Cidade:
+        <input type="text" id="Cidade" name="Cidade"></label><br><br>
+
+        <label for="Estado">Estado:
+        <input type="text" id="Estado" name="Estado"></label><br><br>
+
+        <label for="CEP">CEP:
+        <input type="text" id="CEP" name="CEP"></label><br><br>
+
+        <label for="Telefone">Telefone:
+        <input type="text" id="Telefone" name="Telefone"></label><br>
+
+        <label>
+          <input type="radio" value="SemEnderecoFixo" name="End">
+          Sem endereço fixo
+        </label>
+        <label>
+          <input type="radio" value="EmSituacaoDeRua" name="End">
+          Em situação de rua
+        </label>
+        <label>
+          <input type="radio" value="Outros" name="End">
+          Outros
+        </label>
+        <label>
+          - Especificar:
+          <input type="text" id="EspecificaSituacao" name="EspecificaSituacao">
+        </label>
+      </div><br>
+
+
+      <div>
+        <h3>Tratamento Fora de Domicílio - TFD:</h3>
+        <label>
+          <input type="radio" value="S" name="TFD">
+          Sim
+        </label>
+        <label>
+          <input type="radio" value="N" name="TFD">
+          Não
+        </label><br>
+
+        <label for="EstadoOrigem">Estado de Origem:
+        <input type="text" id="EstadoOrigem" name="EstadoOrigem"></label><br>
+
+        <label for="LocalAcolhimento">Local de Acolhimento em São Paulo:</label><br>
+          <label>
+            <input type="radio" value="Pensao" name="LocalAcolhimento">
+            Pensão
+          </label>
+            <label>
+            <input type="radio" value="Casa de Familiares" name="LocalAcolhimento">
+            Casa de Familiares
+          </label>
+          <label>
+            <input type="radio" value="Hotel" name="LocalAcolhimento">
+            Hotel
+          </label>
+          <label>
+            <input type="radio" value="Casa de Apoio" name="LocalAcolhimento">
+            Casa de Apoio
+          </label>
+          <label>
+            <input type="radio" value="Outros" name="LocalAcolhimento">
+            Outros
+          </label>
+          <label>
+            - Especificar:
+            <input type="text" id="EspecificarLocalAcolhimento" name="EspecificarLocalAcolhimento">
+          </label>
+        <br>
+        <label for="EnderecoAcolhimento">Endereço:
+          <input type="text" id="EnderecoAcolhimento" name="EnderecoAcolhimento">
+        </label>
+        <br>
+        <label for="TelefoneAcolhimento">Telefone:
+          <input type="text" id="TelefoneAcolhimento" name="TelefoneAcolhimento">
+        </label>
+        <label for="ContatoAcolhimento">Contato com:
+          <input type="text" id="ContatoAcolhimento" name="ContatoAcolhimento">
+        </label>
+      </div><br>
+
+      <div>
+        <label for="Religiao">Religião:</label>
+        <br>
+        <label>
+            <input type="radio" value="S" name="Religiao">
+            Sim
+          </label>
+          <label>
+            <input type="radio" value="N" name="Religiao">
+            Não
+          </label>
+            <label for="QualReligiao">- Qual:
+            <input type="text" id="QualReligiao" name="QualReligiao">
+          </label>
+          <br>
+          <label for="Praticante">Praticante:</label>
+          <br>
+          <label>
+            <input type="radio" value="S" name="Praticante">
+            Sim
+          </label>
+          <label>
+            <input type="radio" value="N" name="Praticante">
+            Não
+          </label><br>
+      </div><br>
+      <div>
+
+      <label for="Escolaridade">Escolaridade:</label>
+      <br>
+        <label>
+          <input type="radio" value="Alfabetizado" name="Escolaridade">
+          Alfabetizado
+        </label>
+        <label>
+          <input type="radio" value="NaoAlfabetizado" name="Escolaridade">
+          Não Alfabetizado
+        </label><br>
+
+        <label for="EnsinoFundamental">Ensino Fundamental:</label>
+        <br>
+        <label>
+          <input type="radio" value="EnsinoFundamentalCompleto" name="EnsinoFundamental">
+          Completo
+        </label>
+        <label>
+          <input type="radio" value="EnsinoFundamentalIncompleto" name="EnsinoFundamental">
+          Incompleto
+        </label>
+        <label for="UltimoAnoEnsinoFundamental">- Último ano que cursou:
+          <input type="text" id="UltimoAnoEnsinoFundamental" name="UltimoAnoEnsinoFundamental">
+        </label>
+        <br>
+
+        <label for="EnsinoMedio">Ensino Médio:</label>
+        <br>
+        <label>
+          <input type="radio" value="EnsinoMedioCompleto" name="EnsinoMedio">
+          Completo
+        </label>
+        <label>
+          <input type="radio" value="EnsinoMedioIncompleto" name="EnsinoMedio">
+          Incompleto
+        </label>
+          <label for="UltimoEnsinoMedio">- Último ano que cursou:
+          <input type="text" id="UltimoEnsinoMedio" name="UltimoEnsinoMedio">
+        </label>
+        <br>
+
+        <label for="EnsinoSuperior">Ensino Superior:</label>
+        <br>
+        <label>
+          <input type="radio" value="EnsinoSuperiorCompleto" name="EnsinoSuperior">
+          Completo
+        </label>
+        <label>
+          <input type="radio" value="EnsionoSuperiorIncompleto" name="EnsinoSuperior">
+          Incompleto
+        </label>
+        <label for="UltimoEnsinoSuperior">- Último ano que cursou:
+          <input type="text" id="UltimoEnsinoSuperior" name="UltimoEnsinoSuperior"></label>
+        <br>
+
+        <label for="CursoTecnico">Curso Técnico:</label>
+        <br>
+        <label>
+          <input type="checkbox"  value="S" name="CursoTecnico">
+          Completo
+        </label>
+          <label for="QualCursoTecnico">- Especificar:
+          <input type="text" id="QualCursoTecnico" name="QualCursoTecnico">
+        </label>
+        <br>
+
+        <label for="UnidadeEscolar">Unidade Escolar:</label>
+        <br>
+        <label>
+          <input type="radio" value="Publico" name="UnidadeEscolar">
+          Público
+        </label>
+        <label>
+          <input type="radio" value="Privada" name="UnidadeEscolar">
+          Privada
+        </label>
+      </div>
+      <br>
+      <div>
+        <label for="Moradia">Moradia:</label>
+        <br>
+        <label>
+            <input type="radio" value="Casa" name="Moradia">
+            Casa
+          </label>
+          <label>
+            <input type="radio" value="Apartamento" name="Moradia">
+            Apartamento
+          </label>
+          <label>
+            <input type="radio" value="Cortiço" name="Moradia">
+            Cortiço
+          </label>
+          <label>
+            <input type="radio" value="Alojamento" name="Moradia">
+            Alojamento
+          </label>
+          <label>
+            <input type="radio" value="Abrigo" name="Moradia">
+            Abrigo
+          </label>
+          <label>
+            <input type="radio" value="Pensão" name="Moradia">
+            Pensão
+          </label>
+          <br><br>
+
+          <label for="Constucao">Tipo de Construção:</label>
+          <br>
+          <label>
+            <input type="radio" value="Alvenaria" name="Construcao">
+            Alvenaria
+          </label>
+          <label>
+            <input type="radio" value="Madeira" name="Construcao">
+            Madeira
+          </label>
+          <label>
+            <input type="radio" value="Outros" name="Construcao">
+            Outros
+          </label>
+            <label for="ConstrucaoEspecificar">- Especificar:
+            <input type="text" id="ConstrucaoEspecificar" name="ConstrucaoEspecificar"></label>
+          <br>
+
+          <label for="RelacaoPropriedade">Relação de Propriedade:</label>
+          <br>
+          <label>
+            <input type="radio" value="Própria" name="RelacaoPropriedade">
+            Própria
+          </label>
+          <label>
+            <input type="radio" value="Alugada" name="RelacaoPropriedade">
+            Alugada
+          </label>
+          <label>
+            <input type="radio" value="Cedida" name="RelacaoPropriedade">
+            Cedida
+          </label>
+          <label>
+            <input type="radio" value="PropriaTerrenoAlheio" name="RelacaoPropriedade">
+            Própria terreno alheio
+          </label>
+          <label>
+            <input type="radio" value="Financiada" name="RelacaoPropriedade">
+            Financiada
+          </label>
+          <label>
+            <input type="radio" value="Invadida" name="RelacaoPropriedade">
+            Invadida
+          </label>
+          <br><br>
+            <label for="NComodos">Nº de Cômodos:
+            <input type="text" id="NComodos" name="NComodos"></label>
+          <br>
+
+          <label for="Banheiros">Banheiro:</label>
+          <br>
+          <label>
+            <input type="radio" value="Individual" name="Banheiros">
+            Individual
+          </label>
+          <label>
+            <input type="radio" value="Coletivo" name="Banheiros">
+            Coletivo
+          </label>
+          <br>
+
+          <label for="NPessoas">Nº de pessoas na habitação:
+            <input type="text" id="NPessoas" name="NPessoas"></label>
+          <br>
+
+          <label for="InfraestruturaUrbana">Infraestrutura Urbana:</label>
+          <br>
+          <label>
+            <input type="radio" value="Total" name="InfraestruturaUrbana">
+            Total
+          </label>
+          <label>
+            <input type="radio" value="Parcial" name="InfraestruturaUrbana">
+            Parcial
+          </label>
+          <label>
+            <input type="radio" value="Inexistente" name="InfraestruturaUrbana">
+            Inexistente
+          </label>
+          <br>
+      </div>
+      <br>
+
+      <h3>Composição Familiar:</h3><br>
+      <div class="familia">
+        <label for="NomeFam">Nome:</label>
+        <label for="VinculoFam">Vínculo:</label>
+        <label for="IdadeFam">Idade:</label>
+        <label for="EscolaridadeFam">Escolaridade:</label>
+        <label for="OcupacaoFam">Ocupação:</label>
+        <label for="RendaFam">Renda:</label>
+          <input type="text" id="NomeFam1" name="NomeFam1">
+          <input type="text" id="VinculoFam1" name="VinculoFam1">
+          <input type="text" id="IdadeFam1" name="IdadeFam1" class="idade">
+          <input type="text" id="EscolaridadeFam1" name="EscolaridadeFam1">
+          <input type="text" id="OcupacaoFam1" name="OcupacaoFam1">
+          <input type="text" id="RendaFam1" name="RendaFam1">
+
+          <input type="text" id="NomeFam2" name="NomeFam2">
+          <input type="text" id="VinculoFam2" name="VinculoFam2">
+          <input type="text" id="IdadeFam2" name="IdadeFam2" class="idade">
+          <input type="text" id="EscolaridadeFam2" name="EscolaridadeFam2">
+          <input type="text" id="OcupacaoFam2" name="OcupacaoFam2">
+          <input type="text" id="RendaFam2" name="RendaFam2">
+
+          <input type="text" id="NomeFam3" name="NomeFam3">
+          <input type="text" id="VinculoFam3" name="VinculoFam3">
+          <input type="text" id="IdadeFam3" name="IdadeFam3" class="idade">
+          <input type="text" id="EscolaridadeFam3" name="EscolaridadeFam3">
+          <input type="text" id="OcupacaoFam3" name="OcupacaoFam3">
+          <input type="text" id="RendaFam3" name="RendaFam3">
+
+          <input type="text" id="NomeFam4" name="NomeFam4">
+          <input type="text" id="VinculoFam4" name="VinculoFam4">
+          <input type="text" id="IdadeFam4" name="IdadeFam4" class="idade">
+          <input type="text" id="EscolaridadeFam4" name="EscolaridadeFam4">
+          <input type="text" id="OcupacaoFam4" name="OcupacaoFam4">
+          <input type="text" id="RendaFam4" name="RendaFam4">
+
+          <input type="text" id="NomeFam5" name="NomeFam5">
+          <input type="text" id="VinculoFam5" name="VinculoFam5">
+          <input type="text" id="IdadeFam5" name="IdadeFam5" class="idade">
+          <input type="text" id="EscolaridadeFam5" name="EscolaridadeFam5">
+          <input type="text" id="OcupacaoFam5" name="OcupacaoFam5">
+          <input type="text" id="RendaFam5" name="RendaFam5">
+
+          <input type="text" id="NomeFam6" name="NomeFam6">
+          <input type="text" id="VinculoFam6" name="VinculoFam6">
+          <input type="text" id="IdadeFam6" name="IdadeFam6" class="idade">
+          <input type="text" id="EscolaridadeFam6" name="EscolaridadeFam6">
+          <input type="text" id="OcupacaoFam6" name="OcupacaoFam6">
+          <input type="text" id="RendaFam6" name="RendaFam6">
+
+          <input type="text" id="NomeFam7" name="NomeFam7">
+          <input type="text" id="VinculoFam7" name="VinculoFam7">
+          <input type="text" id="IdadeFam7" name="IdadeFam7" class="idade">
+          <input type="text" id="EscolaridadeFam7" name="EscolaridadeFam7">
+          <input type="text" id="OcupacaoFam7" name="OcupacaoFam7">
+          <input type="text" id="RendaFam7" name="RendaFam7">
+      </div>
+      <br>
+
+      <div>
+        <h3>Ocupacional:</h3>
+        <label for="ProfissaoPaciente">Profissão:
+          <input type="text" id="ProfissaoPaciente" name="ProfissaoPaciente"></label>
+          <br>
+        <label for="OcupacaoPaciente">Ocupação:
+          <input type="text" id="OcupacaoPaciente" name="OcupacaoPaciente"></label>
+
+          <label for="DesempregadoPaciente">Desempregado:</label>
+          <label>
+            <input type="radio" value="S" name="DesempregadoPaciente">
+            Sim
+          </label>
+          <label>
+            <input type="radio" value="N" name="DesempregadoPaciente">
+            Não
+          </label>
+          <br>
+
+        <label for="LocalTrabalho">Local de Trabalho:
+          <input type="text" id="LocalTrabalho" name="LocalTrabalho"></label>
+  
+            <label>
+              <input type="radio" value="Formal" name="TrabalhoFormal">
+              Formal
+            </label>
+            <label>
+              <input type="radio" value="Informal" name="TrabalhoFormal">
+              Informal
+            </label>
+          <br><br>
+
+        <label for="BeneficioPrevidenciario">Benefício Previdenciário:</label>
+        <label>
+          <input type="radio" value="S" name="BeneficioPrevidenciario">
+          Sim
+        </label>
+        <label>
+          <input type="radio" value="N" name="BeneficioPrevidenciario">
+          Não
+        </label>
+        <br>
+
+        <label>
+          <input type="radio" value="Auxílio doença" name="TipoBeneficioPrevidenciario">
+          Auxílio doença
+        </label>
+        <label>
+          <input type="radio" value="Pensão por morte" name="TipoBeneficioPrevidenciario">
+          Pensão por morte
+        </label>
+        <br>
+        <label for="TipoBeneficioPrevidenciario">Aposentadoria:</label>
+        <label>
+          <input type="radio" value="Idade" name="TipoBeneficioPrevidenciario">
+          Idade
+        </label>
+        <label>
+          <input type="radio" value="Tempo de Contribuição" name="TipoBeneficioPrevidenciario">
+          Tempo de Contribuição
+        </label>
+        <label>
+          <input type="radio" value="Invalidez" name="TipoBeneficioPrevidenciario">
+          Invalidez
+        </label>
+        <label>
+          <input type="radio" value="Outros" name="TipoBeneficioPrevidenciario">
+          Outros
+        </label>
+        <label for="QualBeneficioPrevidenciario">- Qual:
+          <input type="text" id="QualBeneficioPrevidenciario" name="QualBeneficioPrevidenciario"></label>
+        <br>
+
+        <label for="BeneficioAssistencial">Benefício Assistencial:</label>
+        <label>
+          <input type="radio" value="S" name="BeneficioAssistencial">
+          Sim
+        </label>
+        <label>
+          <input type="radio" value="N" name="BeneficioAssistencial">
+          Não
+        </label>
+        <label for="QualBeneficioAssistencial">- Qual:
+          <input type="text" id="QualBeneficioAssistencial" name="QualBeneficioAssistencial"></label>
+
+      <br><br>
+      <label for="Renda">Renda em Salário Mínimo:</label>
+        <label>
+          <input type="radio" value="de 0 a 1" name="Renda">
+          de 0 a 1
+        </label>
+        <label>
+          <input type="radio" value="de 2 a 3" name="Renda">
+          de 2 a 3
+        </label>
+        <label>
+          <input type="radio" value="de 4 a 6" name="Renda">
+          de 4 a 6
+        </label>
+        <label>
+          <input type="radio" value="acima de 6" name="Renda">
+          acima de 6
+        </label><br>
+        <label for="RendaEspecifica">- Outras Rendas:
+          <input type="text" id="RendaEspecifica" name="RendaEspecifica"></label>
+      </div>
+      <br>
+
+      <div>
+        <label for="PlanoTerapeutico">Plano Terapêutico:<br>
+          <textarea type="textarea" rows="10" cols="100" id="PlanoTerapeutico" name="PlanoTerapeutico" placeholder="Problemas identificados, metas terapêuticas, ações terapêuticas, prazo estimado e  resultados."></textarea>
+      </div>
+      <br>
+
+      <div>
+        <label for="LocaisDeAtendimento">Locais de referência para atendimento:</label><br>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoUBS">
+          UBS
+        </label>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoCAPS">
+          CAPS
+        </label>
+        <label for="TextoLocalDeAtendimentoUBSCAPS"><br>
+          <textarea type="textarea" rows="5" cols="100" id="TextoLocalDeAtendimentoUBSCAPS" name="TextoLocalDeAtendimentoUBSCAPS" ></textarea>
+          <br>
+        <label>
+          CRAS
+        </label>
+        <label for="TextoLocalDeAtendimentoCRAS"><br>
+          <textarea type="textarea" rows="5" cols="100" id="TextoLocalDeAtendimentoCRAS" name="TextoLocalDeAtendimentoCRAS" ></textarea>
+        <br>
+        <label>
+          CREAS
+        </label>
+        <label for="TextoLocalDeAtendimentoCREAS"><br>
+          <textarea type="textarea" rows="5" cols="100" id="TextoLocalDeAtendimentoCREAS" name="TextoLocalDeAtendimentoCREAS" ></textarea>
+        <br>  
+        <label>
+        <input type="checkbox" value="S" name="LocalDeAtendimentoConselhoTutelar">
+          Conselho Tutelar
+        </label>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoConselhoIdoso">
+          Conselho do Idoso
+        </label>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoNAI">
+          NAI
+        </label>
+        <label for="TextoLocalDeAtendimentoConselhosNAI"><br>
+          <textarea type="textarea" rows="5" cols="100" id="TextoLocalDeAtendimentoConselhosNAI" name="TextoLocalDeAtendimentoConselhosNAI" ></textarea>
+          <br>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoVara">
+          Vara da Infância e Juventude
+        </label>
+        <label>
+          <input type="checkbox" value="S" name="LocalDeAtendimentoForum">
+          Fórum
+        </label>
+        <label for="TextoLocalDeAtendimentoVaraForum"><br>
+          <textarea type="textarea" rows="5" cols="100" id="TextoLocalDeAtendimentoVaraForum" name="TextoLocalDeAtendimentoVaraForum" ></textarea>
+        <br>
+        
+      </div>
+      <br>
+
+      <div>
+        <label>Motivo do Atendimento: Demandas<br></label>
+        
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoI">
+            I - Estudo sócio-econômico, cultural e rede de apoio
+          </label><br><br>
+
+          <label>II - Dificuldade em relação à doença:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII1">
+            1 - Dificuldade de compreensão do diagnóstico, prognóstico e plano de tratamento. 
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII2">
+            2 - Dificuldade de comunicação entre paciente/família/acompanhante com Equipe Multiprofissional.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII3">
+            3 - Implicação sócio-emocional relacionada a doença.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII4">
+            4 - Não aceitação da doença.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII5">
+            5 - Incapacidade decorrente da doença.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII6">
+            6 - Resistência quanto ao tratamento proposto.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII7">
+            7 - Dificuldade de adesão.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII8">
+            8 - Abandono do tratamento Ambulatorial.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII9">
+            9 - Identificação do cuidador.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII10">
+            10 - Alta a pedido.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoII11">
+            11 - Saída de paciente sem autorização médica.
+          </label><br><br>
+
+          <label>III - Relações Familiares:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIII12">
+            12 - Relacionamento familiar conflituoso.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIII13">
+            13 - Dificuldade quanto a reorganização da família frente a situação de doença.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIII14">
+            14 - Mudança de papéis na família.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIII15">
+            15 - Ausência de retaguarda familiar.
+          </label><br><br>
+
+          <label>IV - Necessidade de orientação quanto:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIV16">
+            16 - As normas e rotinas institucionais.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIV17">
+            17 - Obtenção  de  documentação pessoal.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIV18">
+            18 - Legislação vigente: previdência, trabalho, ECA, Estatuto do Idoso, benefícios especiais, seguros, entre outros.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoIV19">
+            19 - TFD
+          </label><br><br>
+
+          <label>V - Dificuldade sócio-econômica para:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoV20">
+            20 - Acomodação.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoV21">
+            21 - Transporte.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoV22">
+            22 - Alimentação.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoV23">
+            23 - Aquisição de material de apoio ao tratamento médico.
+          </label><br><br>
+
+          <label>VI - Dificuldade relacionada à alta do paciente:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI24">
+            24 - Ausência de domicilio fixo.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI25">
+            25 - Paciente em situação de abandono.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI26">
+            26 - Paciente procedente de outro município de São Paulo ou de outro Estado.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI27">
+            27 - Situação de Rua.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI28">
+            28 - Não aceitação da indicação de alta.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVI29">
+            29 - Dificuldade de retorno ao próprio domicílio.
+          </label><br><br>
+
+          <label>VII - Necessidades específicas:</label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII30">
+            30 - Paciente internado como desconhecido.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII31">
+            31 - Paciente com indicação de Oxigenoterapia Domiciliar.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII32">
+            32 - Paciente com indicação de Atendimento Domiciliar.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII33">
+            33 - Paciente com indicação de Terapia Renal Substitutiva - Diálise.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII34">
+            34 - Transferência Hospitalar.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII35">
+            35 - Dificuldade de efetivar a transferência hospitalar relacionada a questões sociais.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII36">
+            36 - Óbito.
+          </label><br>          
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII37">
+            37 - Pacientes Crianças/adolescentes vitimizados.
+          </label><br>          
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII38">
+            38 - Pacientes maiores vitimizados.
+          </label><br>          
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII39">
+            39 - Pacientes idosos vitimizados.
+          </label><br>          
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII40">
+            40 - Necessidade de orientação para a melhoria da qualidade de vida:educação, cultura e lazer.
+          </label><br>          
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII41">
+            41 - Convocação de pacientes / familiares / acompanhantes.
+          </label><br>
+          <label>
+            <input type="checkbox"  value="S" name="AtendimentoVII42">
+            42 - Necessidade de encaminhamento/orientação quanto a utilização de Recursos Sociais ou de Saúde na comunidade.
+          </label><br><br>
+
+          <label>VIII - Programas:</label><br>
+          <label for="Programas">
+            <textarea type="textarea" rows="5" cols="100" id="Programas" name="Programas"></textarea>
+        <br>
+          <label>IX - Outros:</label><br>
+          <label for="Outros">
+            <textarea type="textarea" rows="5" cols="100" id="Outros" name="Outros"></textarea>
+        <br>
+      </div>
+      <br>
+
+      <div>
+        <h3>Intervenção:</h3><br>
+        <div class="intervencao">
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao1">
+            1 - Identificação e intervenção nas situações sócio-econômicas e culturais que estejam  interferindo no processo saúde/doença.  
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao21">
+            21 - Concessão de auxílio material de apoio direto ao tratamento.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao2">
+            2 - Identificação e intervenção nas situações sócio–econômicas e culturais que estejam dificultando o processo de alta hospitalar.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao22">
+            22 - Concessão de outros materiais.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao3">
+            3 - Identificação e intervenção nas situações sócio–econômicas e culturais que estejam dificultando o retorno ambulatorial.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao23">
+            23 - Orientação quanto a utilização / encaminhamento à recursos sociais ou de saúde na comunidade.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao4">
+            4 - Interpretação de Normas e Rotinas Institucionais.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao24">
+            24 - Orientações quanto a obtenção de documentação pessoal e a sua importância no exercício da cidadania.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao5">
+            5 - Orientações pertinentes à alta ambulatorial/hospitalar.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao25">
+            25 - Orientações quanto a Legislação vigente, direitos e deveres.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao6">
+            6 - Facilitação da relação/comunicação entre equipe/ paciente/família.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao26">
+            26 - Orientação e providência quanto a isenção tarifária para transporte.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao7">
+            7 - Interpretação das orientações fornecidas pela Equipe de Saúde.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao27">
+            27 - Orientação e providência quanto a Passe Livre.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao8">
+            8 - Mediação entre paciente /família Equipe de Saúde.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao28">
+            28 - Orientação e providência quanto ao ATENDE.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao9">
+            9 - Mediação entre paciente /família e Recursos Sociais ou de Saúde. 
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao29">
+            29 - Orientação e providência quanto a BPC.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao10">
+            10 - Mobilização de rede de apoio.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao30">
+            30 - Orientação e providência quanto a Programas Sociais.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao11">
+            11 - Orientações quanto a reorganização da família frente a situação de doença.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao31">
+            31 - Orientação e providência quanto a Previdência Social.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao12">
+            12 - Apoio, orientação e providencias pertinentes frente a situação apresentada.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao32">
+            32 - Orientação quanto a Processo jurídico / policial.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao13">
+            13 - Orientações e providências pertinentes à transferência hospitalar.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao33">
+            33 - Orientação e providência quanto a TFD.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao14">
+            14 - Orientações / providências em situação de dificuldades de adesão. 
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao34">
+            34 - Orientação e providência quanto a Direitos garantidos por Lei decorrentes de Diagnostico.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao15">
+            15 - Orientações / providências em situação de abandono do tratamento.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao35">
+            35 - Orientação /providências quanto a Direitos trabalhistas.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao16">
+            16 - Orientações / providências em situação de indicação de Terapia Renal Substitutiva.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao36">
+            36 - Orientação /providências quanto a seguros Ex: seguro de vida, DPVAT e outros.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao17">
+            17 - Orientações / providências em situação de indicação de Oxigenoterapia Domiciliar.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao37">
+            37 - Convocação de paciente / família.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao18">
+            18 - Orientações pertinentes a saída do paciente sem autorização médica.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao38">
+            38 - Visita domiciliar.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao19">
+            19 - Concessão de auxílio transporte.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao39">
+            39 - Mobilização de recursos da comunidade da cidade de origem para efetivação do tratamento médico proposto.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao20">
+            20 - Concessão de auxílio financeiro.
+          </label>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao40">
+            40 - Inclusão em Programas sociais
+          </label>
+          <br>
+          <label>
+            <input type="checkbox"  value="S" name="Intervencao41">
+            41 - Outros
+          </label>
+        </div>
+          <label for="OutrasIntervencoes">
+            <textarea type="textarea" rows="5" cols="100" id="OutrasIntervencoes" name="OutrasIntervencoes"></textarea>
+        
+      </div>
+      <br>
+
+      <div>
+        <label for="DadosAlta">Dados de Alta - Paciente encaminhado para:</label><br>
+        <label>
+          <input type="radio" value="UBS" name="DadosAlta">
+          UBS
+        </label>
+        <label>
+          <input type="radio" value="CAPS I" name="DadosAlta">
+          CAPS I
+        </label>
+        <label>
+          <input type="radio" value="CECCO" name="DadosAlta">
+          CECCO
+        </label>
+        <label>
+          <input type="radio" value="Ambulatório IPQ" name="DadosAlta">
+          Ambulatório IPQ
+        </label><br><br>
+        <label for="RelatorioAtendimento">Relatório de Atendimento:<br>
+          <textarea type="textarea" rows="10" cols="100" id="RelatorioAtendimento" name="RelatorioAtendimento"></textarea>
+      
+      </div>
+      <br>
+
+      <div class="assinado">
+        Preenchido por:<br>
+        <%= NomeProfissionalAvaliacao %><br>
+        <%= Profissao %><br>
+        <%= NumeroConselho %><br>
+
+      </div>
+
+      <button class="btn">SALVAR</button>
+      </form>
+    </div>
+  </div>
+
+  </body>
+
+
+</html>
