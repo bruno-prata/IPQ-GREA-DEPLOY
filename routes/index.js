@@ -40,6 +40,15 @@ router.get('/verURICA', auth.continuaLogado, viewcontrollers.verURICA);
 
 router.post('/editarURICA', auth.continuaLogado, viewcontrollers.editarURICA);
 
+//ASI16
+router.get('/ASI16', auth.continuaLogado, viewcontrollers.ASI16);
+
+router.post('/GravarNovoASI16', auth.continuaLogado, viewcontrollers.GravarNovoASI16);
+
+router.get('/verASI16', auth.continuaLogado, viewcontrollers.verASI16);
+
+router.post('/editarASI16', auth.continuaLogado, viewcontrollers.editarASI16);
+
 //EVA
 router.get('/EVA', auth.continuaLogado, viewcontrollers.EVA);
 

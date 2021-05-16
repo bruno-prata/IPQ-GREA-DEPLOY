@@ -29,7 +29,7 @@
       <div class="caixa">
         <h3>NOVA AVALIAÇÃO:</h3><br>
         <a class="paciente" href="/URICA?id=<%= Paciente.id %>" method='GET'>UNIVERSITY OF RHODE ISLAND CHANGE ASSESSMENT SCALE – URICA</a><br>
-        <a class="paciente" href="#" method='GET'>ASI 16 - ÁLCOOL E DROGAS</a><br>
+        <a class="paciente" href="/ASI16?id=<%= Paciente.id %>" method='GET'>ASI 16 - ÁLCOOL E DROGAS</a><br>
         <a class="paciente" href="/COWS?id=<%= Paciente.id %>" method='GET'>CLINICAL OPIATE WITHDRAWAL SCALE (COWS)</a><br>
         <a class="paciente" href="#" method='GET'>ANAMNESE</a><br>
         <a class="paciente" href="#" method='GET'>ASSIST OMS</a><br>
@@ -46,11 +46,15 @@
       <div class="caixa">
       <h3>HISTÓRICO DE AVALIAÇÕES:</h3><br>
 
-        <% if (URICA == '' && EVA == ''&& COWS == ''&& BDI == ''&& ASRS == ''&& BAI ==''&& BSCS ==''&& CIWAAR =='') 
+        <% if (URICA == '' && ASI16 == '' && EVA == '' && COWS == '' && BDI == '' && ASRS == '' && BAI =='' && BSCS =='' && CIWAAR =='') 
           {%> <div class="ERRO"> Não foram encontradas avaliações cadastradas para este paciente </div> <%} %> 
 
         <% URICA.forEach(urica => {  %>
           <a class="paciente" href="/verURICA?idTeste=<%= urica.id %>&idPaciente=<%= urica.idPaciente %>" method='GET'>UNIVERSITY OF RHODE ISLAND CHANGE ASSESSMENT SCALE – URICA</a> - <%= urica.updatedAt.toLocaleString('pt-BR') %><br>
+        <% }) %>
+
+        <% ASI16.forEach(asi16 => {  %>
+          <a class="paciente" href="/verASI16?idTeste=<%= asi16.id %>&idPaciente=<%= asi16.idPaciente %>" method='GET'>ASI16</a> - <%= asi16.updatedAt.toLocaleString('pt-BR') %><br>
         <% }) %>
 
         <% EVA.forEach(eva => {  %>

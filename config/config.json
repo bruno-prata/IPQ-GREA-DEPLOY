@@ -1,9 +1,24 @@
-{
 
-    "username": "ipqgreaadmin",
-    "password": "$TUPID10",
-    "database": "ipqgrea",
-    "host": "ipqgrea.database.windows.net",
-    "dialect": "mysql"
-  
-}
+    {
+      "development": {
+        "username": "root",
+        "password": "tr0ntr0n",
+        "database": "GREA",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+        },
+        "test": {
+          "username": "root",
+          "password": "tr0ntr0n",
+          "database": "GREA",
+          "host": "127.0.0.1",
+          "dialect": "mysql"
+        },
+        "production": {
+          "username": "root",
+          "password": "tr0ntr0n",
+          "database": "GREA",
+          "host": "127.0.0.1",
+          "dialect": "mysql"
+        }
+      }

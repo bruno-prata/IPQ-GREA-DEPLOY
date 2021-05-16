@@ -1,0 +1,1344 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPQ-GREA</title>
+
+
+	  <link rel="stylesheet" href="stylesheets/geral.css" />
+    <link rel="stylesheet" href="stylesheets/dashboard.css" />
+    <link rel="stylesheet" href="stylesheets/asi16.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+ 
+    <%- include('parts/background') %>
+    
+    <%- include('parts/menu') %>
+
+    <div class="principal">
+      <h2>ASI16</h2>
+
+      <%- include('parts/testehead') %>
+
+      <form class="ASI16" action="/editarASI16?idTeste=<%= ASI16.id %>&idPaciente=<%= Paciente.id %>" method="POST">
+
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+
+        <div>
+          <p>Drogas / Álcool – As questões a seguir são sobre o seu uso de álcool e drogas, e sobre qualquer tratamento para abuso de substâncias que você tenha recebido.</p>
+        </div><br>
+
+        <div class="sectiontitle">
+          Histórico de Tratamento
+        </div><br>
+
+        <div class="avgrid1">
+
+          <div class="questao">
+            D1 - Quantas vezes diferentes você já foi tratado para seu uso de álcool ou drogas?
+            <i>– inclua avaliações para tratamento mesmo que não tenham se transformado em tratamento. Não incluir AA / NA.</i>
+          </div>
+
+          
+          <div class="resposta">
+            <label>
+              <input type="number" value="<%= ASI16.D1 %>" name="D1">
+            </label><br>
+            00 -> D6
+          </div>
+
+          <div class="questao">
+            D2 - Quantos desses tratamentos foram apenas para desintoxicação?
+            <i>– desintoxicação não seguida por tratamento adicional.</i>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="number" value="<%= ASI16.D2 %>" name="D2">
+            </label>
+          </div>
+
+          <div class="questao">
+            D3 - Que idade você tinha quando entrou pela primeira vez em um tratamento para álcool/drogas?
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="number" value="<%= ASI16.D3 %>" name="D3">
+            </label>
+          </div>
+          
+        </div><br>
+
+          <div>
+            <hr>
+          </div><br>
+
+          <div class="avgrid2">
+
+            <div class="questao">
+              D4 - Participou de programa ambulatorial ou de consulta médica para tratamento de problemas relacionados a álcool ou drogas)?
+            </div>
+            
+            <div class="resposta">
+              <label>A. Últimos 6 meses
+                <input type="number" value="<%= ASI16.D4a %>" name="D4a">
+              </label><br>
+              00 -> D5
+            </div>
+
+            <div class="resposta">
+              <label>B. 30 dias
+                <input type="number" value="<%= ASI16.D4b %>" name="D4b">
+              </label><br><br>
+            </div>
+  
+            <div class="questao">
+              D5 - Tomou medicação prescrita para tratar seu uso de álcool ou drogas?
+              <i>– ex. dissulfiram, naltrexone (Revia), acamprosato (Campral), medicamento para desintoxicação, diazepam, metadona, etc. – exclua medicações para dependência de nicotina.</i>
+            </div>
+  
+            <div class="resposta">
+              <label>A. Últimos 6 meses
+                <input type="number" value="<%= ASI16.D5a %>" name="D5a">
+              </label><br>
+              00 -> D6
+            </div>
+
+            <div class="resposta">
+              <label>B. 30 dias
+                <input type="number" value="<%= ASI16.D5b %>" name="D5b">
+              </label><br><br>
+            </div>
+
+
+            <div class="questao">
+              D6 - Participou de reuniões de auto-ajuda (ex.: AA, NA)?
+            </div>
+  
+            <div class="resposta">
+              <label>A. Últimos 6 meses
+                <input type="number" value="<%= ASI16.D6a %>" name="D6a">
+              </label><br>
+              Se nunca participou na vida -> D8
+            </div>
+
+            <div class="resposta">
+              <label>B. 30 dias
+                <input type="number" value="<%= ASI16.D6b %>" name="D6b">
+              </label><br><br><br>
+            </div>
+
+            <div class="questao">
+              D7 - Qual o período de tempo contínuo mais longo que você participou de reuniões de auto-ajuda, pelo menos 2 dias/semana?
+            </div>
+  
+            <div class="resposta">
+              <label>
+                <input type="number" value="<%= ASI16.D7a %>" name="D7a">
+              </label><br>
+              Anos
+            </div>
+
+            <div class="resposta">
+              <label>
+                <input type="number" value="<%= ASI16.D7b %>" name="D7b">
+              </label><br>
+              Meses
+            </div>
+
+          </div><br>
+
+          <div>
+            <hr>
+          </div><br>
+
+          <div class="sectiontitle">
+            Uso de Álcool
+          </div><br>
+
+        <div class="avgrid1">
+
+          <div class="questao">
+            D8 - Quantos anos na sua vida você bebeu álcool regularmente, 3 ou + dias/semana?
+            <i>– exclua períodos sem álcool</i>
+          </div>
+
+          
+          <div class="resposta">
+            <label>
+              <input type="number" value="<%= ASI16.D8 %>" name="D8">
+            </label><br>
+            00 -> D10
+          </div>
+
+          <div class="questao">
+            D9 - Quantos anos na sua vida você bebeu pelo menos (5-homem, 4-mulher) drinques[1] por dia regularmente, 3 ou + dias por semana?
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="number" value="<%= ASI16.D9 %>" name="D9">
+            </label><br>
+            >0 -> D11
+          </div>
+
+          <div class="questao">
+            D10 - Você bebeu pelo menos (5 – homem, 4 – mulher) drinques por dia em 50 dias ou mais em sua vida?
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="number" value="<%= ASI16.D10 %>" name="D10">
+            </label><br>
+            1 - Sim, 0 - Não
+          </div>
+
+          <div class="questao">
+            D11 - Que idade você tinha quando bebeu e sentiu pela primeira vez os efeitos do álcool?
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="text" value="<%= ASI16.D11 %>" name="D11">
+            </label><br>
+            se nunca, codifique NN
+          </div>
+
+          <div class="questao">
+            D12 - Nos últimos 6 meses, durante o mês em que você estava bebendo mais, com que freqüência você bebia?
+            <br>
+            <i>
+              0 - sem uso -> D20<br>
+              1 – 1-3 vezes por mês<br>
+              2 – 1-2 vezes por semana<br>
+              3 – 3-6 vezes por semana <br>
+              4 – Diariamente
+            </i>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="number" value="<%= ASI16.D12 %>" name="D12">
+            </label>
+          </div>
+
+          <div class="questao">
+            D13 - Nos últimos 30 dias, quantos dias você bebeu qualquer tipo de bebida alcoólica?
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="number" value="<%= ASI16.D13 %>" name="D13">
+            </label><br>
+            00 -> D20
+          </div>
+
+
+          <div class="questao">
+            D14 - Quando você bebeu pela última vez?<br>
+            <i>[00 se hoje, 01 se ontem, 02 se 2 dias antes, etc.]</i>
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="number" value="<%= ASI16.D14 %>" name="D14">
+            </label>
+          </div>
+
+
+          <div class="questao">
+            D15 - Nos últimos 30 dias, quantos dias você bebeu pelo menos (5 p/homens, 4 p/mulheres) drinques em um dia?
+          </div>
+
+          <div class="resposta">
+            <label>
+              <input type="number" value="<%= ASI16.D15 %>" name="D15">
+            </label>
+          </div>
+
+
+          <div class="questao">
+            D16 - Nos últimos 30 dias, quanto dinheiro você gastou em R$ álcool para você?
+          </div>
+
+          <div class="resposta">
+            <label>R$ 
+              <input type="number" value="<%= ASI16.D16 %>" name="D16">
+            </label>
+          </div>
+
+        </div><br>
+          
+        <i>
+          [1] Um drinque: considere aproximadamente 1 dose de destilado, 1 cálice de vinho ou uma lata de cerveja.
+        </i>
+        <br><br>
+
+        <div>
+          <hr>
+        </div><br>
+
+        <div class="sectiontitle">
+          Sintomas do Álcool
+        </div><br>
+
+        Nos últimos 30 dias:
+
+      <div class="avgrid1">
+
+        <div class="questao">
+          D17 - Você teve qualquer sintoma de abstinência logo após ter diminuido ou parado de beber?
+        </div>
+
+        
+        <div class="resposta">
+          <label>
+            <input type="number" value="<%= ASI16.D17 %>" name="D17">
+          </label><br>
+          1 – Sim, 0 – Não
+        </div>
+
+        <div class="questao">
+          D18 - Você teve alguma dificuldade em controlar, diminuir ou parar de beber ou passou grande parte do dia bebendo?
+        </div>
+
+        <div class="resposta">
+          <label>
+            <input type="number" value="<%= ASI16.D18 %>" name="D18">
+          </label><br>
+          1 – Sim, 0 – Não
+        </div>
+
+        <div class="questao">
+          D19 - Por causa do seu beber, você teve algum problema médico ou psicológico; ou teve problemas no emprego (escola) ou em casa, teve discussões; ou teve problema com a lei?
+        </div>
+
+        <div class="resposta">
+          <label>
+            <input type="number" value="<%= ASI16.D19 %>" name="D19">
+          </label><br>
+          1 - Sim, 0 - Não
+        </div>
+
+        <div class="questao">
+          D20 - Você foi incomodado por fissuras ou desejos intensos de beber?
+        </div>
+
+        <div class="resposta">
+          <label>
+            <input type="number" value="<%= ASI16.D20 %>" name="D20">
+          </label><br>
+          1 – Sim, 0 – Não
+        </div>
+
+        <div class="questao">
+          D21 - Quantos dias você teve essas ou qualquer outra dificuldade devido ao uso de álcool?
+        </div>
+
+        <div class="resposta">
+          <label>
+            <input type="number" value="<%= ASI16.D21 %>" name="D21">
+          </label><br>
+          00 -> D23
+        </div>
+
+        <div class="questao">
+          D22 - Nos últimos 30 dias, quão preocupado ou incomodado você tem estado com esses problemas com álcool?
+          <i>
+            <br>
+            0 – Nada<br>
+            1 – Levemente<br>
+            2 – Moderadamente<br>
+            3 – Consideravelmente<br>
+            4 – Extremamente
+          </i>
+        </div>
+
+        <div class="resposta">
+          <label>
+            <input type="number" value="<%= ASI16.D22 %>" name="D22">
+          </label><br>
+          00 -> D20
+        </div>
+
+
+        <div class="questao">
+          D23 - Neste momento, quão importante é para você o tratamento (atual ou adicional) para o seu uso de álcool?
+          <br>
+          <i>
+            0 – Nada<br>
+            1 – Levemente<br>
+            2 – Moderadamente<br>
+            3 – Consideravelmente<br>
+            4 – Extremamente
+          </i>
+        </div>
+
+        <div class="resposta">
+          <label>
+            <input type="number" value="<%= ASI16.D23 %>" name="D23">
+          </label>
+        </div>
+
+
+        <div class="questao">
+          D24 - Quão importante é para você alcançar/manter abstinência total do álcool (i.e., não beber nada)?
+          <br>
+          <i>
+            0 – Nada<br>
+            1 – Levemente<br>
+            2 – Moderadamente<br>
+            3 – Consideravelmente<br>
+            4 – Extremamente
+          </i>
+        </div>
+
+        <div class="resposta">
+          <label>
+            <input type="number" value="<%= ASI16.D24 %>" name="D24">
+          </label>
+        </div>
+
+      </div><br>
+
+      <div>Comentários:
+        <textarea type="textarea" rows="5" cols="100" name="comentarios1"><%= ASI16.comentarios1 %></textarea>
+      </div><br>
+    
+      <div>
+        <hr>
+      </div><br>
+
+
+      <div class="sectiontitle">
+        Tabela de Uso de Drogas – Substâncias Individuais
+      </div><br>
+
+      NOTA: Entregue ao entrevistado a Lista de Drogas e diga: Eu vou perguntar sobre cada grupo de drogas listado. Nós já falamos sobre o álcool. Vamos começar com a maconha:<br><br>
+
+      <i>Pré-A. Você já experimentou ou usou ____________(mesmo se foi somente uma vez ou prescrita)?<br>
+          A. Que idade você tinha quando experimentou pela primeira vez ____________?<br>
+          B. Por quantos anos de sua vida você usou ____________ 3 ou mais dias por semana? – Exclua períodos sem a droga<br>
+          C. Você já usou ____________ em 50 ou mais dias na sua vida?<br>
+          D. Nos últimos 30 dias, quantos dias você usou ____________?<br>
+          E. Nos últimos 30 dias, você usou ____________ ([0] – somente como prescrito, ou [1] – ilegalmente ou mais do que foi prescrito)?<br><br>
+          NOTA: Se o entrevistado relata:<br>
+          1. Nunca ter experimentado uma droga específica (ex. D25-A), codifique “N” e passe para a próxima substância (D26-A).<br>
+          2. Ter usado 3 ou mais dias por semana por um ano ou mais (ex. D25-B), pule o item seguinte (D25-C), e continue.<br>
+          3. Nenhum uso nos últimos 30 dias (ex. D25-D = 00), passe para a próxima substância (D26-A).<br><br>
+        </i>
+    <div class="avgrid3">
+
+      <div class="questao">
+      </div>
+
+      <div class="questao">
+        A. Idade de 1o uso?<br>
+        [N → próxima A]
+      </div>
+
+      <div class="questao">
+        B. Anos de uso regular (Na vida)?<br>
+        [>00 → D]
+      </div>
+
+      <div class="questao">
+        C. Usou 50 ou + dias (Na vida)?<br>
+        [1 – Sim, 0 – Não]
+      </div>
+
+      <div class="questao">
+        D. Uso nos Últimos 30 dias?<br>
+        [00 → próxima A]
+      </div>
+
+      <div class="questao">
+        E. Usou como Tto<br>
+        (últimos 30 dias)?<br>
+        [0 – como Tto, 1 – Não Tto]
+      </div>
+
+      <div class="questao">
+        D25. Maconha
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="text" value="<%= ASI16.D25a %>" name="D25a">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D25b %>" name="D25b">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D25c %>" name="D25c">
+        </label>
+      </div>
+        
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D25d %>" name="D25d">
+        </label>
+      </div>
+
+      <div class="resposta">
+      </div>
+
+      <div class="questao">
+        D26. Sedativos
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="text" value="<%= ASI16.D26a %>" name="D26a">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D26b %>" name="D26b">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D26c %>" name="D26c">
+        </label>
+      </div>
+        
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D26d %>" name="D26d">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D26e %>" name="D26e">
+        </label>
+      </div>
+
+      <div class="questao">
+        D27. Cocaína / Crack
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="text" value="<%= ASI16.D27a %>" name="D27a">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D27b %>" name="D27b">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D27c %>" name="D27c">
+        </label>
+      </div>
+        
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D27d %>" name="D27d">
+        </label>
+      </div>
+
+      <div class="resposta">
+      </div>
+
+      <div class="questao">
+        D28. Estimulantes
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="text" value="<%= ASI16.D28a %>" name="D28a">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D28b %>" name="D28b">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D28c %>" name="D28c">
+        </label>
+      </div>
+        
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D28d %>" name="D28d">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D28e %>" name="D28e">
+        </label>
+      </div>      
+
+      <div class="questao">
+        D29. Alucinógenos
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="text" value="<%= ASI16.D29a %>" name="D29a">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D29b %>" name="D29b">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D29c %>" name="D29c">
+        </label>
+      </div>
+        
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D29d %>" name="D29d">
+        </label>
+      </div>
+
+      <div class="resposta">
+      </div>
+
+      <div class="questao">
+        D30. Heroína
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="text" value="<%= ASI16.D30a %>" name="D30a">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D30b %>" name="D30b">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D30c %>"" name="D30c">
+        </label>
+      </div>
+        
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D30d %>" name="D30d">
+        </label>
+      </div>
+
+      <div class="resposta">
+      </div>
+
+      <div class="questao">
+        D31. Metadona
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="text" value="<%= ASI16.D31a %>" name="D31a">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D31b %>" name="D31b">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D31c %>" name="D31c">
+        </label>
+      </div>
+        
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D31d %>" name="D31d">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D31e %>"" name="D31e">
+        </label>
+      </div>
+
+      <div class="questao">
+        D32. Outros Opióides
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="text" value="<%= ASI16.D32a %>" name="D32a">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D32b %>" name="D32b">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D32c %>" name="D32c">
+        </label>
+      </div>
+        
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D32d %>" name="D32d">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D32e %>" name="D32e">
+        </label>
+      </div>
+
+      <div class="questao">
+        D33. Inalantes
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="text" value="<%= ASI16.D33a %>"" name="D33a">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D33b %>" name="D33b">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D33c %>" name="D33c">
+        </label>
+      </div>
+        
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D33d %>" name="D33d">
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>
+          <input type="number" value="<%= ASI16.D33e %>" name="D33e">
+        </label>
+      </div>
+
+    </div><br>
+
+    <div>Comentários adicionais:
+      <textarea type="textarea" rows="5" cols="100" name="comentarios2"><%= ASI16.comentarios2 %></textarea>
+    </div><br>
+  
+    <div>
+      <hr>
+    </div><br>
+
+    <div class="sectiontitle">
+      Uso de Substâncias – Categorias Problema
+    </div><br>
+
+    <i>
+      01– Álcool<br>
+      02– Maconha<br>
+      03– Sedativos<br>
+      04– Cocaína / Crack<br>
+      05– Estimulantes<br>
+      06– Alucinógenos<br>
+      07 – Heroína<br>
+      08 – Metadona<br>
+      09 – Outros Opióides<br>
+      10 – Inalantes<br>
+      11 – Outras Substâncias (inclui nicotina)<br>
+      12 – Nenhuma<br><br>
+
+      Rota(s) de Administração<br>
+      De que forma você já usou ___________?
+    </i><br><br>
+
+    <div class="avgrid4">
+
+      <div class="questao">
+        Problema Primário<br>
+        D34. <i>Qual das substâncias listadas (01-12) está causando a você mais dificuldade e pode tê-lo levado a buscar tratamento?<br><br>
+        Indique a substância específica<br>
+        dentro das categorias codificadas:<input type="text" value="<%= ASI16.D34 %>" name="D34"></i>
+      </div>
+
+      <div class="resposta">
+        <label>A. Categoria<br>
+          <input type="text" value="<%= ASI16.D34a %>" name="D34a">
+        </label><br>
+        12 → D37
+      </div>
+
+      <div class="resposta">
+        <label>B. Na vida [marque todas que se aplicam]<br>
+          <i>
+            <label><input type="checkbox" value="S" name="D34b1" <% if (ASI16.D34b1 == 'S') {%> checked <%} %> >1. Ingerida<br></label>
+            <label><input type="checkbox" value="S" name="D34b2" <% if (ASI16.D34b2 == 'S') {%> checked <%} %> >2. Inalada<br></label>
+            <label><input type="checkbox" value="S" name="D34b3" <% if (ASI16.D34b3 == 'S') {%> checked <%} %> >3. Fumada<br></label>
+            <label><input type="checkbox" value="S" name="D34b4" <% if (ASI16.D34b4 == 'S') {%> checked <%} %> >4. Injetada<br></label>
+            <label><input type="checkbox" value="S" name="D34b5" <% if (ASI16.D34b5 == 'S') {%> checked <%} %> >5. Outra<br></label>
+        </i>          
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>C. Últimos 30 Dias [marque todas que se aplicam]<br>
+          <i>
+            <label><input type="checkbox" value="S" name="D34c1" <% if (ASI16.D34c1 == 'S') {%> checked <%} %> >1. Ingerida<br></label>
+            <label><input type="checkbox" value="S" name="D34c2" <% if (ASI16.D34c2 == 'S') {%> checked <%} %> >2. Inalada<br></label>
+            <label><input type="checkbox" value="S" name="D34c3" <% if (ASI16.D34c3 == 'S') {%> checked <%} %> >3. Fumada<br></label>
+            <label><input type="checkbox" value="S" name="D34c4" <% if (ASI16.D34c4 == 'S') {%> checked <%} %> >4. Injetada<br></label>
+            <label><input type="checkbox" value="S" name="D34c5" <% if (ASI16.D34c5 == 'S') {%> checked <%} %> >5. Outra<br></label>
+            <label><input type="checkbox" value="S" name="D34c6" <% if (ASI16.D34c6 == 'S') {%> checked <%} %> >6. Sem Uso<br></label>
+        </i>          
+        </label>
+      </div>
+
+      <div class="questao">
+        Problema Secundário<br>
+        D35. <i>Qual das substâncias listadas (01-12) está causando a 2ª maior dificuldade e pode tê-lo levado a buscar tratamento?<br><br>
+        Indique a substância específica<br>
+        dentro das categorias codificadas:<input type="text" value="<%= ASI16.D35 %>" name="D35"></i>
+      </div>
+
+      <div class="resposta">
+        <label>A. Categoria<br>
+          <input type="text" value="<%= ASI16.D35a %>" name="D35a">
+        </label><br>
+        12 → D37
+      </div>
+
+      <div class="resposta">
+        <label>B. Na vida [marque todas que se aplicam]<br>
+          <i>
+            <label><input type="checkbox" value="S" name="D35b1" <% if (ASI16.D35b1 == 'S') {%> checked <%} %> >1. Ingerida<br></label>
+            <label><input type="checkbox" value="S" name="D35b2" <% if (ASI16.D35b2 == 'S') {%> checked <%} %> >2. Inalada<br></label>
+            <label><input type="checkbox" value="S" name="D35b3" <% if (ASI16.D35b3 == 'S') {%> checked <%} %> >3. Fumada<br></label>
+            <label><input type="checkbox" value="S" name="D35b4" <% if (ASI16.D35b4 == 'S') {%> checked <%} %> >4. Injetada<br></label>
+            <label><input type="checkbox" value="S" name="D35b5" <% if (ASI16.D35b5 == 'S') {%> checked <%} %> >5. Outra<br></label>
+        </i>          
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>C. Últimos 30 Dias [marque todas que se aplicam]<br>
+          <i>
+            <label><input type="checkbox" value="S" name="D35c1" <% if (ASI16.D35c1 == 'S') {%> checked <%} %> >1. Ingerida<br></label>
+            <label><input type="checkbox" value="S" name="D35c2" <% if (ASI16.D35c2 == 'S') {%> checked <%} %> >2. Inalada<br></label>
+            <label><input type="checkbox" value="S" name="D35c3" <% if (ASI16.D35c3 == 'S') {%> checked <%} %> >3. Fumada<br></label>
+            <label><input type="checkbox" value="S" name="D35c4" <% if (ASI16.D35c4 == 'S') {%> checked <%} %> >4. Injetada<br></label>
+            <label><input type="checkbox" value="S" name="D35c5" <% if (ASI16.D35c5 == 'S') {%> checked <%} %> >5. Outra<br></label>
+            <label><input type="checkbox" value="S" name="D35c6" <% if (ASI16.D35c6 == 'S') {%> checked <%} %> >6. Sem Uso<br></label>
+        </i>          
+        </label>
+      </div>
+
+      <div class="questao">
+        Problema Terciário<br>
+        D36. <i>Qual das substâncias listadas (01-12) está causando a 3ª maior dificuldade e pode tê-lo levado a buscar tratamento?<br><br>
+        Indique a substância específica<br>
+        dentro das categorias codificadas:<input type="text" value="<%= ASI16.D36 %>" name="D36"></i>
+      </div>
+
+      <div class="resposta">
+        <label>A. Categoria<br>
+          <input type="text" value="<%= ASI16.D36a %>" name="D36a">
+        </label><br>
+        12 → D37
+      </div>
+
+      <div class="resposta">
+        <label>B. Na vida [marque todas que se aplicam]<br>
+          <i>
+            <label><input type="checkbox" value="S" name="D36b1" <% if (ASI16.D36b1 == 'S') {%> checked <%} %> >1. Ingerida<br></label>
+            <label><input type="checkbox" value="S" name="D36b2" <% if (ASI16.D36b2 == 'S') {%> checked <%} %> >2. Inalada<br></label>
+            <label><input type="checkbox" value="S" name="D36b3" <% if (ASI16.D36b3 == 'S') {%> checked <%} %> >3. Fumada<br></label>
+            <label><input type="checkbox" value="S" name="D36b4" <% if (ASI16.D36b4 == 'S') {%> checked <%} %> >4. Injetada<br></label>
+            <label><input type="checkbox" value="S" name="D36b5" <% if (ASI16.D36b5 == 'S') {%> checked <%} %> >5. Outra<br></label>
+        </i>          
+        </label>
+      </div>
+
+      <div class="resposta">
+        <label>C. Últimos 30 Dias [marque todas que se aplicam]<br>
+          <i>
+            <label><input type="checkbox" value="S" name="D36c1" <% if (ASI16.D36c1 == 'S') {%> checked <%} %> >1. Ingerida<br></label>
+            <label><input type="checkbox" value="S" name="D36c2" <% if (ASI16.D36c2 == 'S') {%> checked <%} %> >2. Inalada<br></label>
+            <label><input type="checkbox" value="S" name="D36c3" <% if (ASI16.D36c3 == 'S') {%> checked <%} %> >3. Fumada<br></label>
+            <label><input type="checkbox" value="S" name="D36c4" <% if (ASI16.D36c4 == 'S') {%> checked <%} %> >4. Injetada<br></label>
+            <label><input type="checkbox" value="S" name="D36c5" <% if (ASI16.D36c5 == 'S') {%> checked <%} %> >5. Outra<br></label>
+            <label><input type="checkbox" value="S" name="D36c6" <% if (ASI16.D36c6 == 'S') {%> checked <%} %> >6. Sem Uso<br></label>
+        </i>          
+        </label>
+      </div>
+
+    </div><br>
+
+    <i>[NOTA: 4. Injeção = EV (endovenosa) ou IV (intravenosa) e não-EV/IV: ex. intramuscular, intradérmica, etc.]</i><br><br>
+
+    <div>Comentários adicionais:
+      <textarea type="textarea" rows="5" cols="100" name="comentarios3"><%= ASI16.comentarios3 %></textarea>
+    </div><br>
+
+    <div>
+      <hr>
+    </div><br>
+
+    <div class="sectiontitle">
+      Uso de Drogas – Geral (exceto álcool e tabaco)
+    </div><br>
+
+  <div class="avgrid1">
+
+    <div class="questao">
+      D37 - Quantos anos na sua vida você usou qualquer tipo de droga ilegal ou de rua, ou abusou de qualquer medicação prescrita por pelo menos 3 ou mais dias por semana?
+    </div>
+
+    <div class="resposta">
+      <label>
+        <input type="number" value="<%= ASI16.D37 %>" name="D37">
+      </label><br>
+      – se nunca usou drogas ou medicação -> D52
+    </div>
+
+    <div class="questao">
+      D38 - Nos últimos 6 meses, durante o mês em que você estava usando mais drogas ilegais ou de rua (e/ou abusando de medicação prescrita), qual a freqüência de uso de quaisquer drogas?<br>
+      <i>
+        0 – Sem uso (-> D45)<br>
+        1 – 1-3 vezes por mês<br>
+        2 – 1-2 vezes por semana<br>
+        3 – 3-6 vezes por semana 4 – Diariamente
+      </i>
+    </div>
+
+    <div class="resposta">
+      <label>
+        <input type="number" value="<%= ASI16.D38 %>" name="D38">
+      </label><br>
+      – se nunca usou drogas ou medicação -> D52
+    </div>
+
+    <div class="questao">
+      D39 - Nos últimos 30 dias, em quantos dias você usou qualquer tipo de droga ou abusou de medicações prescritas?
+    </div>
+    
+    <div class="resposta">
+      <label>
+        <input type="number" value="<%= ASI16.D39 %>" name="D39">
+      </label><br>
+      00 -> D45
+    </div>
+
+    <div class="questao">
+      D40 - Quantos dias faz que você usou pela última vez qualquer tipo de droga ou abusou de medicações prescritas?
+    </div>
+    
+    <div class="resposta">
+      <label>
+        <input type="number" value="<%= ASI16.D40 %>" name="D40">
+      </label><br>
+      00 – se hoje, 01 – se ontem, 02 – se 2 dias antes, etc.
+    </div>
+
+    <div class="questao">
+      D41 - Nos últimos 30 dias, quanto dinheiro você gastou em drogas?<br>
+      <i>
+        – exclua dinheiro para medicações que são parte do tratamento para drogas (e.x. metadona, medicações para desintoxicação, etc.)
+      </i>
+    </div>
+    
+    <div class="resposta">
+      <label>R$
+        <input type="number" value="<%= ASI16.D41 %>" name="D41">
+      </label><br>
+      
+    </div>
+
+  </div><br>
+
+  <div>
+    <hr>
+  </div><br>
+
+  <div class="sectiontitle">
+    Sintomas de Drogas (exceto álcool e tabaco)
+  </div><br>
+  Nos últimos 30 dias:<br><br>
+
+<div class="avgrid1">
+
+  <div class="questao">
+    D42 - Você teve algum sintoma de abstinência logo após diminuir ou parar qualquer droga?
+  </div>
+
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D42 %>" name="D42">
+    </label><br>
+    1 – Sim, 0 – Não
+  </div>
+
+  <div class="questao">
+    D43 - Você teve algum problema em controlar, diminuir ou parar com as drogas, ou gastou muito do seu dia usando, sob efeito, recuperando-se, ou apenas tentando obter drogas?
+  </div>
+
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D43 %>" name="D43">
+    </label><br>
+    1 – Sim, 0 – Não
+  </div>
+
+  <div class="questao">
+    D44 - Por causa do seu uso de drogas – você teve algum problema médico ou psicológico; ou teve problemas no trabalho (escola) ou em casa, entrou em discussões; ou teve problemas com a lei?
+  </div>
+
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D44 %>" name="D44">
+    </label><br>
+    1 – Sim, 0 – Não
+  </div>
+
+  <div class="questao">
+    D45 - Você tem sido incomodado por fissuras ou desejos de usar?
+  </div>
+
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D45 %>" name="D45">
+    </label><br>
+    1 – Sim, 0 – Não
+  </div>
+
+  <div class="questao">
+    D46 - Quantos dias você teve essas ou qualquer outra dificuldade devido ao uso de drogas?
+  </div>
+  
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D46 %>" name="D46">
+    </label><br>
+    00 -> D48
+  </div>
+
+  <div class="questao">
+    D47 - Nos últimos 30 dias, quão preocupado ou incomodado você tem estado com esses problemas com drogas?<br>
+    <i>
+      0 – Nada<br>
+      1 – Levemente<br>
+      2 – Moderadamente<br>
+      3 – Consideravelmente<br>
+      4 – Extremamente
+    </i>
+  </div>
+  
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D47 %>" name="D47">
+    </label>
+  </div>
+
+  <div class="questao">
+    D48 - Neste momento, quão importante é para você o tratamento (atual ou adicional) para o seu uso de drogas?<br>
+    <i>
+      0 – Nada<br>
+      1 – Levemente<br>
+      2 – Moderadamente<br>
+      3 – Consideravelmente<br>
+      4 – Extremamente
+    </i>
+  </div>
+  
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D48 %>" name="D48">
+    </label>
+  </div>
+
+  <div class="questao">
+    D49 - Quão importante é para você alcançar/manter a abstinência total das drogas (isto é, não usar nenhuma droga)?<br>
+    <i>
+      0 – Nada<br>
+      1 – Levemente<br>
+      2 – Moderadamente<br>
+      3 – Consideravelmente<br>
+      4 – Extremamente
+    </i>
+  </div>
+  
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D49 %>" name="D49">
+    </label>
+  </div>
+
+  <div class="questao">
+    D50 - Desde que você começou a usar, você já esteve completamete abstinente (limpo) das drogas e do álcool por pelo menos 1 ano?<br>
+    <i>
+      – exclua medicações prescritas e apropriadamente) tomadas (ex. metadona, medicações psiquiátricas
+    </i>
+  </div>
+  
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D50 %>" name="D50">
+    </label><br>
+    1 – Sim, 0 – Não<br>
+    0 → D52
+  </div><br>
+
+  </div>
+
+  <div class="avgrid2">
+
+  <div class="questao">
+    D51 - Há quanto tempo este período de abstinência (limpo) de pelo menos 1 ano terminou?<br>
+    <i>
+      [Se atualmente abstinente há 1 ano ou mais, codifique 00 00.]
+    </i>
+  </div>
+  
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D51a %>" name="D51a"><br>
+      Anos
+    </label>
+  </div>
+
+  <div>
+    <label>
+      <input type="number" value="<%= ASI16.D51b %>" name="D51b"><br>
+      Meses
+    </label>
+  </div>
+    
+  </div><br>
+
+<div>
+  <hr>
+</div><br>
+
+<div class="sectiontitle">
+  Riscos para a Saúde
+</div><br>
+<i>
+  [NOTA: Caso ainda não se saiba, pergunte a D52. Caso contrário, preencha de acordo com as informações prévias]<br><br>
+</i>
+
+<div class="avgrid2">
+
+  <div class="questao">
+    D52 - Alguma vez você se injetou drogas?<br>
+    <i>
+      [Injetou = IV (intravenosa) e não-IV]
+    </i>
+  </div>
+  
+  <div class="resposta">
+  </div>
+
+  <div>
+    <label>
+      <input type="number" value="<%= ASI16.D52 %>" name="D52"><br>
+      1 – Sim, 0 – Não<br>
+      00 -> D54
+    </label>
+  </div>
+
+  <div class="questao">
+    D53 - Quando foi a última vez que você compartilhou seringas ou equipamento de injeção?<br>
+    <i>
+      – se nunca, codifique N e N<br> 
+      – se no último mês, codifique 00 00
+    </i>
+  </div>
+  
+  <div class="resposta">
+    <label>
+      <input type="text" value="<%= ASI16.D53a %>" name="D53a"><br>
+      Anos
+    </label>
+  </div>
+
+  <div>
+    <label>
+      <input type="text" value="<%= ASI16.D53b %>" name="D53b"><br>
+      Meses
+    </label>
+  </div>
+    
+  <div class="questao">
+    D54 - Nos últimos 6 meses, com quantas pessoas diferentes você fez sexo oral, anal ou vaginal?<br>
+  </div>
+  
+  <div class="resposta">
+  </div>
+
+  <div>
+    <label>
+      <input type="number" value="<%= ASI16.D54 %>" name="D54">
+    </label>
+  </div>
+
+  <div class="questao">
+    D55 - Quando foi a última vez que você fez teste para HIV/AIDS?<br>
+    <i>
+      – se nunca, codifique N e N <br>
+      – se no último mês, codifique 00 00
+    </i>
+  </div>
+  
+  <div class="resposta">
+    <label>
+      <input type="text" value="<%= ASI16.D55a %>" name="D55a"><br>
+      Anos
+    </label>
+  </div>
+
+  <div>
+    <label>
+      <input type="text" value="<%= ASI16.D55b %>" name="D55b"><br>
+      Meses atrás
+    </label>
+  </div>
+
+  </div><br>
+
+  <div>
+    <hr>
+  </div><br>
+
+  <div class="sectiontitle">
+    Tabaco – Cigarros, etc.
+  </div><br>
+
+<div class="avgrid1">
+
+  <div class="questao">
+    D56 - Que idade você tinha quando fumou o primeiro cigarro ou usou tabaco de outra forma?<br>
+    <i>
+      ex. mascou tabaco, charutos, cachimbo – se nunca experimentou, codifique N
+    </i>
+  </div>
+
+  <div class="resposta">
+    <label>
+      <input type="text" value="<%= ASI16.D56 %>" name="D56">
+    </label><br>
+    N -> D59
+  </div>
+
+  <div class="questao">
+    D57 - Quantos anos na sua vida você fumou cigarros (ou usou tabaco de outra forma) diariamente?
+  </div>
+
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D57 %>" name="D57">
+    </label>
+  </div>
+
+  <div class="questao">
+    D58 - Nos últimos 30 dias, quantos dias você fumou cigarros (ou usou tabaco de outra forma)?
+  </div>
+
+  <div class="resposta">
+    <label>
+      <input type="number" value="<%= ASI16.D58 %>" name="D58">
+    </label>
+  </div>
+
+</div><br>
+
+<div>
+  <hr>
+</div><br>
+
+<div class="sectiontitle">
+  Jogo
+</div><br>
+
+<div class="avgrid1">
+
+<div class="questao">
+  D59 - Na sua vida, você alguma vez teve dificuldade financeira por causa de jogo?<br>
+</div>
+
+<div class="resposta">
+  <label>
+    <input type="text" value="<%= ASI16.D59 %>" name="D59">
+  </label><br>
+  1 – Sim, 0 – Não
+</div>
+
+<div class="questao">
+  D60 - Nos últimos 30 dias, quantos dias você participou de qualquer forma de jogo, como bingo, loteria, corrida de cavalo, jogo do bicho, rinha de galo, cassinos, ou jogo ilegal de qualquer natureza?
+</div>
+
+<div class="resposta">
+  <label>
+    <input type="number" value="<%= ASI16.D60 %>" name="D60">
+  </label>
+</div>
+
+</div><br>
+
+<div>Comentários adicionais:
+  <textarea type="textarea" rows="5" cols="100" name="comentarios4"><%= ASI16.comentarios4 %></textarea>
+</div><br>
+
+<div>
+<hr>
+</div><br>
+
+<div class="caixa">Última alteração: <%= ASI16.updatedAt.toLocaleString('pt-BR') %> - por: <%= ASI16.NomeProfissionalAvaliacao %></div><br>  
+        
+        <button class="btn">SALVAR ALTERAÇÕES</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>
+
+</html>
